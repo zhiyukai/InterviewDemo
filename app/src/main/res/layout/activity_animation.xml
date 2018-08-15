@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/bt_animation_single"
+            style="@style/ButtonStyle"
+            android:text="播放单个动画" />
+
+        <Button
+            android:id="@+id/bt_animation_group"
+            style="@style/ButtonStyle"
+            android:text="播放多个动画" />
+
+        <Button
+            android:id="@+id/bt_property_animation_alpha"
+            style="@style/ButtonStyle"
+            android:text="播放属性动画alpha" />
+
+        <Button
+            android:id="@+id/bt_property_animation_rotation"
+            style="@style/ButtonStyle"
+            android:text="播放属性动画rotation" />
+
+        <Button
+            android:id="@+id/bt_property_animation_scale"
+            style="@style/ButtonStyle"
+            android:text="播放属性动画scale" />
+
+        <Button
+            android:id="@+id/bt_property_animation_translationX"
+            style="@style/ButtonStyle"
+            android:text="播放属性动画translationX" />
+
+        <Button
+            android:id="@+id/bt_property_animation_group"
+            style="@style/ButtonStyle"
+            android:text="播放属性动画translationX" />
+
+        <Button
+            android:id="@+id/bt_property_animation_xml_group"
+            style="@style/ButtonStyle"
+            android:text="播放Xml属性动画" />
+
+        <TextView
+            android:id="@+id/tv_animation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我是动画啊" />
+
+        <TextView
+            android:id="@+id/tv_property_animation_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="属性动画消失" />
+
+        <TextView
+            android:id="@+id/tv_property_animation_rotation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="属性动画旋转" />
+
+        <TextView
+            android:id="@+id/tv_property_animation_scale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="属性动画缩放" />
+
+        <TextView
+            android:id="@+id/tv_property_animation_translationX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="属性动画水平移动" />
+    </LinearLayout>
+</ScrollView>

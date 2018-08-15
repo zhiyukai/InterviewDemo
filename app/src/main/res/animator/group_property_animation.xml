@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 采用<translate /> 标签表示平移动画 -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:ordering="sequentially">
+
+    <set android:ordering="sequentially">
+        <objectAnimator
+            android:duration="2000"
+            android:propertyName="translationX"
+            android:valueFrom="0f"
+            android:valueTo="-500f"
+            android:valueType="floatType" />
+        <objectAnimator
+            android:duration="2000"
+            android:propertyName="translationX"
+            android:valueFrom="-500f"
+            android:valueTo="0f"
+            android:valueType="floatType" />
+    </set>
+
+    <set android:ordering="together">
+        <set android:ordering="sequentially">
+            <objectAnimator
+                android:duration="8000"
+                android:propertyName="rotation"
+                android:valueFrom="0f"
+                android:valueTo="180f"
+                android:valueType="floatType" />
+            <objectAnimator
+                android:duration="8000"
+                android:propertyName="rotation"
+                android:valueFrom="300f"
+                android:valueTo="270f"
+                android:valueType="floatType" />
+            <objectAnimator
+                android:duration="8000"
+                android:propertyName="rotation"
+                android:valueFrom="270f"
+                android:valueTo="360"
+                android:valueType="floatType" />
+        </set>
+
+        <set android:ordering="sequentially">
+            <objectAnimator
+                android:duration="8000"
+                android:propertyName="scaleX"
+                android:valueFrom="1f"
+                android:valueTo="0f"
+                android:valueType="floatType" />
+            <objectAnimator
+                android:duration="8000"
+                android:propertyName="scaleX"
+                android:valueFrom="0f"
+                android:valueTo="1f"
+                android:valueType="floatType" />
+        </set>
+    </set>
+</set>

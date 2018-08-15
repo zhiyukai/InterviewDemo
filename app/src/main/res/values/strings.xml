@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">面试</string>
+    <string name="launch_picture_memory">启动测试图片占用内存</string>
+    <string name="launch_picture_compress">启动图片压缩</string>
+    <string name="launch_standard">启动标准</string>
+    <string name="string_standard">我是标准</string>
+    <string name="launch_singletop">启动singleTop</string>
+    <string name="string_singletop">我是singleTop</string>
+    <string name="launch_singleTask">启动singleTask</string>
+    <string name="launch_singleTask2">启动singleTask2</string>
+    <string name="string_singleTask">我是singleTask</string>
+    <string name="launch_singleInstance">启动singleInstance</string>
+    <string name="cus_layout">自定义layout</string>
+    <string name="string_singleInstance">我是singleInstance</string>
+    <string name="string_sampling_rate">采样率压缩</string>
+    <string name="string_quality">质量压缩</string>
+    <string name="string_origin">原图</string>
+</resources>

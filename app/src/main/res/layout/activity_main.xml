@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <Button
+            android:id="@+id/bt_lanch_picture_memory"
+            style="@style/ButtonStyle"
+            android:text="@string/launch_picture_memory" />
+
+        <Button
+            android:id="@+id/bt_lanch_picture_compress"
+            style="@style/ButtonStyle"
+            android:text="@string/launch_picture_compress" />
+
+        <Button
+            android:id="@+id/bt_lanch_standard"
+            style="@style/ButtonStyle"
+            android:text="@string/launch_standard" />
+
+        <Button
+            android:id="@+id/bt_lanch_singleTop"
+            style="@style/ButtonStyle"
+            android:text="@string/launch_singletop" />
+
+        <Button
+            android:id="@+id/bt_lanch_singleTask"
+            style="@style/ButtonStyle"
+            android:text="@string/launch_singleTask" />
+
+        <Button
+            android:id="@+id/bt_lanch_singleInstance"
+            style="@style/ButtonStyle"
+            android:text="@string/launch_singleInstance" />
+
+        <Button
+            android:id="@+id/bt_cus_layout"
+            style="@style/ButtonStyle"
+            android:text="@string/cus_layout" />
+
+        <Button
+            android:id="@+id/bt_on_activity_result"
+            style="@style/ButtonStyle"
+            android:text="启动 onActivityResult Activity" />
+
+        <Button
+            android:id="@+id/bt_task_affinity"
+            style="@style/ButtonStyle"
+            android:text="启动 taskAffinity" />
+
+        <Button
+            android:id="@+id/bt_cus_view"
+            style="@style/ButtonStyle"
+            android:text="启动 自定义view的Activity" />
+
+        <Button
+            android:id="@+id/bt_ripple"
+            style="@style/ButtonStyle"
+            android:text="启动 水波纹效果" />
+
+        <Button
+            android:id="@+id/bt_lanch_dialog"
+            style="@style/ButtonStyle"
+            android:text="启动DialogActivity" />
+
+        <Button
+            android:id="@+id/bt_lanch_circle_image"
+            style="@style/ButtonStyle"
+            android:text="启动圆形Image" />
+
+        <Button
+            android:id="@+id/bt_lanch_event_dispatch"
+            style="@style/ButtonStyle"
+            android:text="启动事件分发" />
+
+        <Button
+            android:id="@+id/bt_lanch_animation"
+            style="@style/ButtonStyle"
+            android:text="启动动画Activity" />
+
+        <Button
+            android:id="@+id/bt_lanch_property_animation"
+            style="@style/ButtonStyle"
+            android:text="启动属性动画Activity" />
+
+        <Button
+            android:id="@+id/bt_lanch_notify"
+            style="@style/ButtonStyle"
+            android:text="启动通知Activity" />
+
+        <Button
+            android:id="@+id/bt_lanch_gridview"
+            style="@style/ButtonStyle"
+            android:text="启动gridview测试" />
+
+        <Button
+            android:id="@+id/bt_lanch_face_detect"
+            style="@style/ButtonStyle"
+            android:text="启动人脸检测" />
+    </LinearLayout>
+</ScrollView>

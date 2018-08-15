@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="prictise.com.application1">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.permission.camera"/>
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/interview"
+        android:label="Test"
+        android:roundIcon="@mipmap/interview"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".lifecycle.StandardActivity" />
+        <activity android:name=".lifecycle.StandardActivity2" />
+        <activity
+            android:name=".lifecycle.SingleTopActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".lifecycle.SingleTaskActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".lifecycle.SingleTask2Activity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".lifecycle.SingleInstanceActivity"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".pictureMemory.PictureMemoryActivity"
+            android:launchMode="standard" />
+        <activity
+            android:name=".pictureMemory.PictureCompressActivity"
+            android:launchMode="standard" />
+        <activity android:name=".cus.CusActivity" />
+
+        <activity android:name=".onActivityResult.StandardActivity" />
+
+        <activity android:name=".onActivityResult.StandardActivity2" />
+
+        <activity
+            android:name=".onActivityResult.SingleTaskActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".testTaskAffinity.TaskAffinityActivity"
+            android:allowTaskReparenting="true"
+            android:taskAffinity="com.winuxxan" />
+
+        <activity android:name=".cusview.CusViewActivity" />
+        <activity android:name=".rippeview.RippleActivity" />
+        <activity android:name=".dialog.DialogActivity" />
+        <activity android:name=".circleImageView.CircleActivity" />
+        <activity android:name=".eventDispatch.EventDispatchActivity" />
+        <activity android:name=".animation.AnimationActivity" />
+        <activity android:name=".animation.PropertyAnimationActivity" />
+        <activity android:name=".notify.NotifyActivity" />
+        <activity android:name=".gridview.GridViewActivity" />
+        <activity
+            android:name=".FaceDetect.FaceDetectorActivity"
+            android:exported="true" />
+
+        <service android:name=".dialog.DialogService" />
+    </application>
+
+</manifest>
