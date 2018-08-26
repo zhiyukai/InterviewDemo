@@ -18,6 +18,7 @@ import prictise.com.application1.animation.AnimationActivity;
 import prictise.com.application1.animation.PropertyAnimationActivity;
 import prictise.com.application1.circleImageView.CircleActivity;
 import prictise.com.application1.cus.CusActivity;
+import prictise.com.application1.cusview.ClockActivity;
 import prictise.com.application1.cusview.CusViewActivity;
 import prictise.com.application1.dialog.DialogActivity;
 import prictise.com.application1.eventDispatch.EventDispatchActivity;
@@ -226,6 +227,11 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.bt_lanch_face_detect)
     public void lanchFaceDetect() {
         startActivity(new Intent(this, FaceDetectorActivity.class));
+    }
+
+    @OnClick(R.id.bt_lanch_clock)
+    public void lanchClock() {
+        startActivity(new Intent(this, ClockActivity.class));
     }
 
 }

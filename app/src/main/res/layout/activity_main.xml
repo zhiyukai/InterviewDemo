@@ -105,5 +105,10 @@
             android:id="@+id/bt_lanch_face_detect"
             style="@style/ButtonStyle"
             android:text="启动人脸检测" />
+
+        <Button
+            android:id="@+id/bt_lanch_clock"
+            style="@style/ButtonStyle"
+            android:text="启动时钟界面" />
     </LinearLayout>
 </ScrollView>

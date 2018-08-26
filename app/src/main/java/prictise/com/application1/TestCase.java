@@ -247,4 +247,29 @@ public class TestCase {
             System.out.println(files[i].getPath());
         }
     }
+
+    @Test
+    public void analyzeString() {
+        String s = "从推动“绿色浙江”建设到担任总书记期间@startEye(love)，\" " +
+                "        \"习近平一直将绿色发展理念贯穿于治国理政思想之中@startEye(angry)。\" " +
+                "        \"党的十八大以来，以习近平同志@startEye(shy)为核心的党中央把生态文\" " +
+                "        \"明建设摆在改革发展和@startEye(look)现代化建设全局位置，坚定贯彻新发\" " +
+                "        \"展理念@startEye(see)，不断深化生态文明体制改革@startEye(default)，" +
+                "        \"开创了生态文明建设和环境保护新局面。";
+
+
+        System.out.println(s.indexOf("@"));
+        System.out.println(s.substring(0,s.indexOf("@")));
+        System.out.println(s.indexOf("("));
+        System.out.println(s.substring(s.indexOf("@"), s.indexOf(")")+1));
+
+        s = s.substring(s.indexOf(")")+1);
+        System.out.println(s);
+    }
+
+    @Test
+    public void testNum() {
+        int a = 10_000;
+        System.out.println("a = " + a);
+    }
 }

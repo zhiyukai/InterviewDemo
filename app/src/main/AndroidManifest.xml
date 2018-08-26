@@ -83,6 +83,7 @@
         <activity android:name=".animation.PropertyAnimationActivity" />
         <activity android:name=".notify.NotifyActivity" />
         <activity android:name=".gridview.GridViewActivity" />
+        <activity android:name=".cusview.ClockActivity" />
         <activity
             android:name=".FaceDetect.FaceDetectorActivity"
             android:exported="true" />
