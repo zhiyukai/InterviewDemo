@@ -32,6 +32,9 @@ public class ClockView extends View {
     float x = 0;
     float y = 0;
     float hudu = 0;
+    float minuteX = 0;
+    float minuteY = 0;
+    float minuteHudu = 0;
     float x1 = 0;
     float y1 = 0;
     float hudu1 = 0;
@@ -46,17 +49,20 @@ public class ClockView extends View {
 //        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.)
         WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) getLayoutParams();
         mRadius = Help.dp2dip(context, 100);
-        mRadius1 = Help.dp2dip(context, 90);
+//        mRadius1 = Help.dp2dip(context, 90);
         clockSize = Help.sp2px(context, 11);
         Log.e(TAG, "mRadius = " + mRadius);
         mPaint = new Paint();
         hudu = (float) (2 * Math.PI / 360) * 6 * i;
         x = (float) (mRadius - Math.sin(hudu) * mRadius);
         y = (float) (mRadius + Math.cos(hudu) * mRadius);
+        minuteHudu = 0.1f * ((float) (2 * Math.PI / 360) * 6 * i);
+        minuteX = (float) (mRadius - Math.sin(minuteHudu) * mRadius);
+        minuteY = (float) (mRadius + Math.cos(minuteHudu) * mRadius);
 
-        hudu1 = (float) (2 * Math.PI / 360) * 6 * i;
-        x1 = (float) (mRadius1 - Math.sin(hudu1) * mRadius1);
-        y1 = (float) (mRadius1 + Math.cos(hudu1) * mRadius1);
+//        hudu1 = (float) (2 * Math.PI / 360) * 6 * i;
+//        x1 = (float) (mRadius1 - Math.sin(hudu1) * mRadius1);
+//        y1 = (float) (mRadius1 + Math.cos(hudu1) * mRadius1);
 
 
         Runnable runnable = new Runnable() {
@@ -115,7 +121,8 @@ public class ClockView extends View {
         mPaint.setAntiAlias(true);
 
         canvas.drawLine(mRadius, mRadius, x, y, mPaint);
+        canvas.drawLine(mRadius, mRadius, minuteX, minuteY, mPaint);
 
-        canvas.drawLine(x1, y1, x, y, mPaint);
+//        canvas.drawLine(x1, y1, x, y, mPaint);
     }
 }

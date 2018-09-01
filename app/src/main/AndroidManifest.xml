@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="prictise.com.application1">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -84,6 +85,8 @@
         <activity android:name=".notify.NotifyActivity" />
         <activity android:name=".gridview.GridViewActivity" />
         <activity android:name=".cusview.ClockActivity" />
+        <activity android:name=".networkTest.NetWorkActivity" />
+        <activity android:name=".countDown.CountDownActivity" />
         <activity
             android:name=".FaceDetect.FaceDetectorActivity"
             android:exported="true" />

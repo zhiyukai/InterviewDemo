@@ -9,7 +9,7 @@ import prictise.com.application1.R;
 /**
  * @author zhisiyi
  * @date 18.8.26 21:49
- * @comment
+ * @comment 时钟的界面
  */
 public class ClockActivity extends Activity {
     @Override

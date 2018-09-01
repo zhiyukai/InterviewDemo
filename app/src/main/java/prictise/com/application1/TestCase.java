@@ -7,6 +7,7 @@ import android.util.Log;
 import org.junit.Test;
 
 import java.io.File;
+import java.net.URLEncoder;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
@@ -271,5 +272,44 @@ public class TestCase {
     public void testNum() {
         int a = 10_000;
         System.out.println("a = " + a);
+    }
+
+    @Test
+    public void testMapRemoveKey() {
+        Map<String, String> params = new TreeMap<>();
+        params.put("ts", "" + System.currentTimeMillis());
+        params.put("key", "higgs_robot_03214");
+
+        params.put("quest_id", "qstUpdateTable.getQuest_id()");
+        params.put("name", "qstUpdateTable.getName()");
+        params.put("pos_start", "qstUpdateTable.getPos_start()");
+        params.put("pos_end", "qstUpdateTable.getPos_end()");
+        params.put("mileage", "qstUpdateTable.getMileage()");//里程
+        params.put("ts_start", "qstUpdateTable.getTs_start()");
+        params.put("ts_arrv", "getTs_arrv");
+        params.put("ts_end", "qstUpdateTable.getTs_end()");
+
+//        System.out.print("字符串：" + getJsonDataToMD5(params, "utf-8").toString());
+        System.out.print("字符串：" + params.toString());
+
+    }
+
+    public static StringBuffer getJsonDataToMD5(Map<String, String> params, String encode) {
+        StringBuffer stringBuffer = new StringBuffer();        //存储封装好的请求体信息
+        try {
+            stringBuffer.append("{\"");
+            for (Map.Entry<String, String> entry : params.entrySet()) {
+                stringBuffer.append(entry.getKey())
+                        .append("\":\"")
+                        .append(URLEncoder.encode(entry.getValue(), encode))
+                        .append("\",\"");
+            }
+            stringBuffer.deleteCharAt(stringBuffer.length() - 1);    //删除最后的一个","
+            stringBuffer.deleteCharAt(stringBuffer.length() - 1);
+            stringBuffer.append("}");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return stringBuffer;
     }
 }

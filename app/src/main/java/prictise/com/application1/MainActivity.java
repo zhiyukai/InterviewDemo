@@ -17,6 +17,7 @@ import prictise.com.application1.FaceDetect.FaceDetectorActivity;
 import prictise.com.application1.animation.AnimationActivity;
 import prictise.com.application1.animation.PropertyAnimationActivity;
 import prictise.com.application1.circleImageView.CircleActivity;
+import prictise.com.application1.countDown.CountDownActivity;
 import prictise.com.application1.cus.CusActivity;
 import prictise.com.application1.cusview.ClockActivity;
 import prictise.com.application1.cusview.CusViewActivity;
@@ -30,6 +31,7 @@ import prictise.com.application1.lifecycle.StandardActivity;
 import prictise.com.application1.multithreading.Consumer;
 import prictise.com.application1.multithreading.Producter;
 import prictise.com.application1.multithreading.SyncStack;
+import prictise.com.application1.networkTest.NetWorkActivity;
 import prictise.com.application1.notify.NotifyActivity;
 import prictise.com.application1.pictureMemory.PictureCompressActivity;
 import prictise.com.application1.pictureMemory.PictureMemoryActivity;
@@ -232,6 +234,16 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.bt_lanch_clock)
     public void lanchClock() {
         startActivity(new Intent(this, ClockActivity.class));
+    }
+
+    @OnClick(R.id.bt_lanch_net_test)
+    public void lanchNetWorkTest() {
+        startActivity(new Intent(this, NetWorkActivity.class));
+    }
+
+    @OnClick(R.id.bt_lanch_count_time)
+    public void lanchCountTime() {
+        startActivity(new Intent(this, CountDownActivity.class));
     }
 
 }

@@ -110,5 +110,14 @@
             android:id="@+id/bt_lanch_clock"
             style="@style/ButtonStyle"
             android:text="启动时钟界面" />
+
+        <Button
+            android:id="@+id/bt_lanch_net_test"
+            style="@style/ButtonStyle"
+            android:text="启动网络测试" />
+        <Button
+            android:id="@+id/bt_lanch_count_time"
+            style="@style/ButtonStyle"
+            android:text="启动CountTime" />
     </LinearLayout>
 </ScrollView>
