@@ -89,6 +89,7 @@
         <activity android:name=".networkTest.NetWorkActivity" />
         <activity android:name=".countDown.CountDownActivity" />
         <activity android:name=".log.LogActivity" />
+        <activity android:name=".wheel.WheelActivity" />
         <activity
             android:name=".FaceDetect.FaceDetectorActivity"
             android:exported="true" />

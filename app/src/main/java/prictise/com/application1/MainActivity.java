@@ -2,7 +2,6 @@ package prictise.com.application1;
 
 import android.content.ComponentName;
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.StatFs;
@@ -37,7 +36,7 @@ import prictise.com.application1.notify.NotifyActivity;
 import prictise.com.application1.pictureMemory.PictureCompressActivity;
 import prictise.com.application1.pictureMemory.PictureMemoryActivity;
 import prictise.com.application1.rippeview.RippleActivity;
-import prictise.com.application1.testTaskAffinity.TaskAffinityActivity;
+import prictise.com.application1.wheel.WheelActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -252,4 +251,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, LogActivity.class));
     }
 
+    @OnClick(R.id.bt_wheel)
+    public void lanchWheel() {
+        startActivity(new Intent(this, WheelActivity.class));
+    }
 }

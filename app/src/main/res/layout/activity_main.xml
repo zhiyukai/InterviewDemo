@@ -126,5 +126,10 @@
             style="@style/ButtonStyle"
             android:text="启动收集日志" />
 
+        <Button
+            android:id="@+id/bt_wheel"
+            style="@style/ButtonStyle"
+            android:text="启动滚轮" />
+
     </LinearLayout>
 </ScrollView>

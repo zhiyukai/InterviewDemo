@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "prictise.com.demo"
-        minSdkVersion 19
+        minSdkVersion 20
         targetSdkVersion 28
         javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
         versionCode 1
