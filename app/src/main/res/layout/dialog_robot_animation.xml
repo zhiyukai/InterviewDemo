@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fl_outside"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/dialog_bg">
+
+    <ImageView
+        android:id="@+id/iv_award_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@mipmap/pop_up_bg_1" />
+
+    <ImageView
+        android:id="@+id/iv_award"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@mipmap/pop_up_1" />
+
+    <prictise.com.application1.cusview.GradientTextView
+        android:id="@+id/tv_gradient_task_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="64dp"
+        android:text="50"
+        android:textSize="78sp"
+        app:centerColor="#fb757b"
+        app:endColor="#fb7765"
+        app:startColor="#fa728e" />
+
+    <TextView
+        android:id="@+id/tv_show_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:text="恭喜今日送餐达到50次"
+        android:textColor="#6b1c34"
+        android:textSize="@dimen/font_25sp" />
+
+</FrameLayout>

@@ -5,6 +5,7 @@ import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.animation.Animation;
@@ -18,6 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import prictise.com.application1.R;
+import prictise.com.application1.cus.RobotAnimationDialog;
 
 /**
  * @author zhisiyi
@@ -135,6 +137,24 @@ public class AnimationActivity extends Activity {
                 R.animator.group_property_animation);
         animator.setTarget(mPropertyXmlGroupAnimationBT);
         animator.start();
+    }
+
+    @OnClick(R.id.bt_dialog_animation)
+    public void dialogAnimation() {
+        int[] color = new int[3];
+        RobotAnimationDialog robotAnimationDialog = new RobotAnimationDialog(this);
+        robotAnimationDialog.setTaskTextViewColor(getResources().getColor(R.color.text_button_1));
+        robotAnimationDialog.init();
+        robotAnimationDialog.setTaskCount(23);
+//        robotAnimationDialog.setAwardPictureBg(R.mipmap.pop_up_bg_2);
+        robotAnimationDialog.setAwardPictureBg(R.mipmap.pop_up_bg_1);
+        robotAnimationDialog.setAwardPicture(R.mipmap.pop_up_1);
+        color[0] = getResources().getColor(R.color.center_1);
+        color[1] = getResources().getColor(R.color.center_2);
+        color[2] = getResources().getColor(R.color.center_3);
+        robotAnimationDialog.setGradient(color);
+        robotAnimationDialog.setGradientTaskCount(23);
+        robotAnimationDialog.show();
     }
 
 

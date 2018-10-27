@@ -5,11 +5,12 @@
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="C:/self_progress/gradle-4.8" />
+        <option name="gradleHome" value="C:/self_progress/gradle-4.6-rc-1" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/librarydemo" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

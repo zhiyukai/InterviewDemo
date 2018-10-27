@@ -28,6 +28,7 @@ import prictise.com.application1.lifecycle.SingleInstanceActivity;
 import prictise.com.application1.lifecycle.SingleTaskActivity;
 import prictise.com.application1.lifecycle.SingleTopActivity;
 import prictise.com.application1.lifecycle.StandardActivity;
+import prictise.com.application1.log.LogActivity;
 import prictise.com.application1.multithreading.Consumer;
 import prictise.com.application1.multithreading.Producter;
 import prictise.com.application1.multithreading.SyncStack;
@@ -244,6 +245,11 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.bt_lanch_count_time)
     public void lanchCountTime() {
         startActivity(new Intent(this, CountDownActivity.class));
+    }
+
+    @OnClick(R.id.bt_log)
+    public void lanchCollectLog() {
+        startActivity(new Intent(this, LogActivity.class));
     }
 
 }

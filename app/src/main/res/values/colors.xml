@@ -271,4 +271,8 @@
     <color name="color_efecec">#efecec</color>
     <color name="color_535372">#535372</color>
 
+    <color name="text_button_1">#6b1c34</color>
+    <color name="center_1">#fb757b</color>
+    <color name="center_2">#fb7765</color>
+    <color name="center_3">#fa728e</color>
 </resources>

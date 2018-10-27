@@ -2,14 +2,19 @@ package prictise.com.application1;
 
 import android.os.Environment;
 import android.os.StatFs;
+import android.os.SystemClock;
 import android.util.Log;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.Test;
 
 import java.io.File;
 import java.net.URLEncoder;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.HashMap;
@@ -260,11 +265,11 @@ public class TestCase {
 
 
         System.out.println(s.indexOf("@"));
-        System.out.println(s.substring(0,s.indexOf("@")));
+        System.out.println(s.substring(0, s.indexOf("@")));
         System.out.println(s.indexOf("("));
-        System.out.println(s.substring(s.indexOf("@"), s.indexOf(")")+1));
+        System.out.println(s.substring(s.indexOf("@"), s.indexOf(")") + 1));
 
-        s = s.substring(s.indexOf(")")+1);
+        s = s.substring(s.indexOf(")") + 1);
         System.out.println(s);
     }
 
@@ -311,5 +316,46 @@ public class TestCase {
             e.printStackTrace();
         }
         return stringBuffer;
+    }
+
+    @Test
+    public void json() throws JSONException {
+        String data = "{\"code\":\"10001\","
+                + "\"message\":\"token_required\",\"data\":\"[]\"}";
+        JSONObject jsonObject = new JSONObject(data);
+        jsonObject.getString("data");
+    }
+
+    @Test
+    public void time() {
+        long time = System.currentTimeMillis();
+        System.out.println(encryption(time + ""));
+    }
+
+    public String encryption(String plainText) {
+        String re_md5 = new String();
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(plainText.getBytes());
+            byte b[] = md.digest();
+
+            int i;
+
+            StringBuffer buf = new StringBuffer("");
+            for (int offset = 0; offset < b.length; offset++) {
+                i = b[offset];
+                if (i < 0)
+                    i += 256;
+                if (i < 16)
+                    buf.append("0");
+                buf.append(Integer.toHexString(i));
+            }
+
+            re_md5 = buf.toString();
+
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return re_md5;
     }
 }
