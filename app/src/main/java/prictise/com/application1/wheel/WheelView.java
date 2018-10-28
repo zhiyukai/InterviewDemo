@@ -20,6 +20,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import prictise.com.application1.R;
+import prictise.com.application1.utils.LogcatUtils;
+
 /**
  * @Author zsj
  * @Date 2018-10-27 22:08
@@ -27,6 +30,7 @@ import java.util.List;
  */
 public class WheelView extends ScrollView {
 
+    public final String TAG = WheelView.class.getSimpleName();
     /**
      * 绘制分割线的画笔
      */
@@ -103,6 +107,7 @@ public class WheelView extends ScrollView {
 
         this.setVerticalScrollBarEnabled(false);
         this.setOverScrollMode(OVER_SCROLL_NEVER);
+
         mLinearContainer = new LinearLayout(getContext());
         mLinearContainer.setOrientation(LinearLayout.VERTICAL);
         addView(mLinearContainer);
@@ -111,6 +116,7 @@ public class WheelView extends ScrollView {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
+        LogcatUtils.showELog(TAG, "onSizeChanged");
         mItemWidth = w;
         setBackgroundDrawable(null);
     }

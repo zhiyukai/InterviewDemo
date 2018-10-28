@@ -275,4 +275,7 @@
     <color name="center_1">#fb757b</color>
     <color name="center_2">#fb7765</color>
     <color name="center_3">#fa728e</color>
+
+    <color name="test">#FFADADAD</color>
+    <color name="test2">#FF929AFF</color>
 </resources>

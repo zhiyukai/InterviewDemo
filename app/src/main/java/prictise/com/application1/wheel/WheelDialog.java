@@ -42,6 +42,7 @@ public class WheelDialog extends Dialog {
             @Override
             public void wheelSelect(int position, String content) {
                 Log.e("TAG", position + "+" + content);
+                dismiss();
             }
         });
     }
