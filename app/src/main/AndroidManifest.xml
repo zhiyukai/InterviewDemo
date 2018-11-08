@@ -95,6 +95,9 @@
             android:exported="true" />
 
         <service android:name=".dialog.DialogService" />
+        <activity android:name=".alarm.AlarmManagerActivity" />
+        <receiver android:name=".alarm.AlarmReceiver" />
+        <service android:name=".alarm.AlarmService" />
     </application>
 
 </manifest>

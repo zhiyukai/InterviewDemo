@@ -13,6 +13,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import prictise.com.application1.FaceDetect.FaceDetectorActivity;
+import prictise.com.application1.alarm.AlarmManagerActivity;
 import prictise.com.application1.animation.AnimationActivity;
 import prictise.com.application1.animation.PropertyAnimationActivity;
 import prictise.com.application1.circleImageView.CircleActivity;
@@ -254,5 +255,10 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.bt_wheel)
     public void lanchWheel() {
         startActivity(new Intent(this, WheelActivity.class));
+    }
+
+    @OnClick(R.id.bt_time_setting)
+    public void lanchTimeSetting() {
+        startActivity(new Intent(this, AlarmManagerActivity.class));
     }
 }

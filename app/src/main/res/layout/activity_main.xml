@@ -131,5 +131,10 @@
             style="@style/ButtonStyle"
             android:text="启动滚轮" />
 
+        <Button
+            android:id="@+id/bt_time_setting"
+            style="@style/ButtonStyle"
+            android:text="启动定时任务" />
+
     </LinearLayout>
 </ScrollView>
