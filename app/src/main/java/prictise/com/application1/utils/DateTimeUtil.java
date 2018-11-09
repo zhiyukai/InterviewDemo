@@ -10,9 +10,14 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
+ * <<<<<<< HEAD
+ *
+ * @author zhisiyi
  * @Author zsj
  * @Date 2018-11-08 23:20
- * @Commit
+ * @Commit =======
+ * @date 18.11.8 20:06
+ * @comment >>>>>>> 定时任务管理
  */
 public class DateTimeUtil {
     // 获取当前时间n[]之后的时间的日期时间字符串（N的单位为Calendar的那些表示时间的常量）

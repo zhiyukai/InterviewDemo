@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,5 +15,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="取消定时服务" />
+
+    <Button
+        android:id="@+id/bt_start_alarm"
+        style="@style/ButtonStyle"
+        android:text="开始Alarm" />
+
+    <Button
+        android:id="@+id/bt_stop_alarm"
+        style="@style/ButtonStyle"
+        android:text="停止Alarm" />
 
 </LinearLayout>

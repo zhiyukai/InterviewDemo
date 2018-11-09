@@ -127,14 +127,24 @@
             android:text="启动收集日志" />
 
         <Button
+<<<<<<< HEAD
             android:id="@+id/bt_wheel"
             style="@style/ButtonStyle"
             android:text="启动滚轮" />
+=======
+            android:id="@+id/bt_recyle"
+            style="@style/ButtonStyle"
+            android:text="启动recyleview实现的Gridview" />
+>>>>>>> 定时任务管理
 
         <Button
             android:id="@+id/bt_time_setting"
             style="@style/ButtonStyle"
+<<<<<<< HEAD
             android:text="启动定时任务" />
+=======
+            android:text="启动定时器" />
+>>>>>>> 定时任务管理
 
         <Button
             android:id="@+id/bt_lanch_listview"

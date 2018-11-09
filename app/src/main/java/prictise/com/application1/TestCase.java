@@ -15,7 +15,10 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -357,5 +360,26 @@ public class TestCase {
             e.printStackTrace();
         }
         return re_md5;
+    }
+
+    @Test
+    public void splitString2() {
+        String s = "/sdcard/crash/crash-2018-11-08+12-30-23.log";
+        String  s2 = s.split("/")[3];
+        int startIndex = s2.indexOf("-");
+        int endIndex = s2.indexOf(".");
+        System.out.println(s2.substring(startIndex + 1, endIndex));
+    }
+
+    @Test
+    public void dateStringToMillis() {
+        String dateTime = "2018-11-08+12-30-23";
+        Calendar calendar = Calendar.getInstance();
+        try {
+            calendar.setTime(new SimpleDateFormat("yyyy-MM-dd+HH-mm-ss").parse(dateTime));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println("日期[2018-11-08]对应毫秒：" + calendar.getTimeInMillis());
     }
 }

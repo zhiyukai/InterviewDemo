@@ -94,6 +94,8 @@
             android:name=".FaceDetect.FaceDetectorActivity"
             android:exported="true" />
 
+        <activity android:name=".gridview.RecycleGridViewActivity" />
+
         <service android:name=".dialog.DialogService" />
 
         <activity android:name=".alarm.AlarmManagerActivity" />
@@ -102,6 +104,12 @@
 
         <receiver android:name=".alarm.AlarmReceiver" />
         <service android:name=".alarm.AlarmService" />
+        <receiver android:name=".alarmManager.DeleteLogAlarmReceiver">
+            <intent-filter>
+                <action android:name="android.com.delete.log.file"></action>
+            </intent-filter>
+        </receiver>
+        <activity android:name=".alarmManager.AlarmManagerActivity" />
     </application>
 
 </manifest>
