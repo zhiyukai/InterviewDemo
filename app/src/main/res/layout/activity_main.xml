@@ -136,5 +136,15 @@
             style="@style/ButtonStyle"
             android:text="启动定时任务" />
 
+        <Button
+            android:id="@+id/bt_lanch_listview"
+            style="@style/ButtonStyle"
+            android:text="启动ListView" />
+
+        <Button
+            android:id="@+id/bt_lanch_loadmore_listview"
+            style="@style/ButtonStyle"
+            android:text="启动下拉上滑的ListView" />
+
     </LinearLayout>
 </ScrollView>

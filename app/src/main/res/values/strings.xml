@@ -15,4 +15,15 @@
     <string name="string_sampling_rate">采样率压缩</string>
     <string name="string_quality">质量压缩</string>
     <string name="string_origin">原图</string>
+
+    <string name="refreshlistview_arrow">Content Description Arrow</string>
+    <string name="refreshlistview_updating">Updating…</string>
+    <string name="refreshlistview_release">Release to refresh…</string>
+    <string name="refreshlistview_pulldown">Pull down to refresh…</string>
+    <string name="refreshlistview_no_update">"No past update"</string>
+
+    <string name="pull_down_has_data">刷新有数据</string>
+    <string name="pull_down_has_no_data">刷新无数据</string>
+    <string name="pull_up_has_data">上拉加载有更多数据</string>
+    <string name="pull_up_has_no_data">上拉加载无更多数据</string>
 </resources>

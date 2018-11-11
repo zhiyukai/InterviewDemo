@@ -4,4 +4,9 @@
     <dimen name="font_20sp">20sp</dimen>
     <dimen name="font_25sp">25sp</dimen>
 
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="refresh_header_height">60dp</dimen>
+    <dimen name="refresh_footer_height">60dp</dimen>
+
 </resources>

@@ -95,7 +95,11 @@
             android:exported="true" />
 
         <service android:name=".dialog.DialogService" />
+
         <activity android:name=".alarm.AlarmManagerActivity" />
+        <activity android:name=".cusListview.RefreshListViewActivity" />
+        <activity android:name=".cusListview.weightPullLoadmore.RefreshListView2Activity" />
+
         <receiver android:name=".alarm.AlarmReceiver" />
         <service android:name=".alarm.AlarmService" />
     </application>

@@ -19,6 +19,8 @@ import prictise.com.application1.animation.PropertyAnimationActivity;
 import prictise.com.application1.circleImageView.CircleActivity;
 import prictise.com.application1.countDown.CountDownActivity;
 import prictise.com.application1.cus.CusActivity;
+import prictise.com.application1.cusListview.RefreshListViewActivity;
+import prictise.com.application1.cusListview.weightPullLoadmore.RefreshListView2Activity;
 import prictise.com.application1.cusview.ClockActivity;
 import prictise.com.application1.cusview.CusViewActivity;
 import prictise.com.application1.dialog.DialogActivity;
@@ -260,5 +262,15 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.bt_time_setting)
     public void lanchTimeSetting() {
         startActivity(new Intent(this, AlarmManagerActivity.class));
+    }
+
+    @OnClick(R.id.bt_lanch_listview)
+    public void lanchListView() {
+        startActivity(new Intent(this, RefreshListViewActivity.class));
+    }
+
+    @OnClick(R.id.bt_lanch_loadmore_listview)
+    public void lanch2ListView() {
+        startActivity(new Intent(this, RefreshListView2Activity.class));
     }
 }
