@@ -29,6 +29,7 @@
         tools:ignore="ProtectedPermissions" />
 
     <application
+        android:name=".MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/interview"
         android:label="Test"

@@ -14,10 +14,12 @@ import prictise.com.application1.utils.ToastUtil;
  * @Commit
  */
 public class AlarmReceiver extends BroadcastReceiver {
+    private final String TAG = AlarmReceiver.class.getSimpleName();
+
     @Override
     public void onReceive(Context context, Intent intent) {
         ToastUtil.showShort(context,
                 "从服务启动广播：at " + DateTimeUtil.getCurrentDateTimeString());
-        Log.d("Alarm", "从服务启动广播：at " + DateTimeUtil.getCurrentDateTimeString());
+        Log.d(TAG, "从服务启动广播：at " + DateTimeUtil.getCurrentDateTimeString());
     }
 }

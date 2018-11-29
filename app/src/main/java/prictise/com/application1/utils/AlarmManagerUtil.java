@@ -4,7 +4,10 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.util.Log;
+
+import prictise.com.application1.MainApplication;
 
 /**
  * @Author zsj
@@ -14,7 +17,7 @@ import android.util.Log;
 public class AlarmManagerUtil {
     // 获取AlarmManager实例
     public static AlarmManager getAlarmManager(Context context) {
-        return (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        return (AlarmManager) context.getSystemService(MainApplication.getApplicationInstance().ALARM_SERVICE);
     }
 
     // 发送定时广播（执行广播中的定时任务）
@@ -70,7 +73,16 @@ public class AlarmManagerUtil {
         PendingIntent pi = PendingIntent.getBroadcast(context, requestCode,
                 intent, 0);
 
-        mgr.setRepeating(type, startTime, cycleTime, pi);
+        // pendingIntent 为发送广播
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            mgr.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, startTime, pi);
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            mgr.setExact(AlarmManager.RTC_WAKEUP, startTime, pi);
+        } else {
+            mgr.setRepeating(AlarmManager.RTC_WAKEUP, startTime, cycleTime, pi);
+        }
+
+//        mgr.setRepeating(type, startTime, cycleTime, pi);
     }
 
 }

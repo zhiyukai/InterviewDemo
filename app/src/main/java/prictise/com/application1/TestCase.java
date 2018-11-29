@@ -365,7 +365,7 @@ public class TestCase {
     @Test
     public void splitString2() {
         String s = "/sdcard/crash/crash-2018-11-08+12-30-23.log";
-        String  s2 = s.split("/")[3];
+        String s2 = s.split("/")[3];
         int startIndex = s2.indexOf("-");
         int endIndex = s2.indexOf(".");
         System.out.println(s2.substring(startIndex + 1, endIndex));
@@ -382,4 +382,42 @@ public class TestCase {
         }
         System.out.println("日期[2018-11-08]对应毫秒：" + calendar.getTimeInMillis());
     }
+
+    @Test
+    public void testReturn() {
+        testReturn3();
+        int a = 3;
+        if (a == 3) {
+            System.out.println("a == 3");
+            while (true) {
+                if (a < 20) {
+                    System.out.println("reconnectSocket 次数 " + a);
+                } else {
+                    System.out.println("return");
+                    a = 0;
+                    return;
+                }
+                if (a == 10) {
+                    return;
+                }
+                a++;
+            }
+        }
+    }
+
+    @Test
+    public void testReturn3() {
+        String s2 = "1|2";
+        String[] cruise = s2.split("\\|");
+        StringBuilder cruisePoints = new StringBuilder();
+        int size = cruise.length;
+        for (int i = 0; i < size; i++) {
+            System.out.println("cruise[" + i + "]" + cruise[i]);
+            cruisePoints.append(cruise[i]);
+            cruisePoints.append(",");
+        }
+        cruisePoints.deleteCharAt(cruisePoints.length() - 1);
+        System.out.println("cruisePoints = " + cruisePoints.toString());
+    }
+
 }

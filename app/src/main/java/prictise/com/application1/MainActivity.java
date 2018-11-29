@@ -13,11 +13,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import prictise.com.application1.FaceDetect.FaceDetectorActivity;
-<<<<<<< HEAD
-import prictise.com.application1.alarm.AlarmManagerActivity;
-=======
-import prictise.com.application1.alarmManager.AlarmManagerActivity;
->>>>>>> 定时任务管理
 import prictise.com.application1.animation.AnimationActivity;
 import prictise.com.application1.animation.PropertyAnimationActivity;
 import prictise.com.application1.circleImageView.CircleActivity;
@@ -262,6 +257,8 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.bt_wheel)
     public void lanchWheel() {
         startActivity(new Intent(this, WheelActivity.class));
+    }
+
     @OnClick(R.id.bt_recyle)
     public void lanchRecyle() {
         startActivity(new Intent(this, RecycleGridViewActivity.class));
@@ -269,7 +266,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.bt_time_setting)
     public void lanchTimeSetting() {
-        startActivity(new Intent(this, AlarmManagerActivity.class));
+        startActivity(new Intent(this, prictise.com.application1.alarm.AlarmManagerActivity.class));
     }
 
     @OnClick(R.id.bt_lanch_listview)
