@@ -156,5 +156,11 @@
             style="@style/ButtonStyle"
             android:text="启动下拉上滑的GridView" />
 
+        <Button
+            android:id="@+id/bt_lanch_qiniu"
+            style="@style/ButtonStyle"
+            android:text="启动七牛" />
+
+
     </LinearLayout>
 </ScrollView>

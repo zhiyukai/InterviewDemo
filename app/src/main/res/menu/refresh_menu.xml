@@ -5,13 +5,13 @@
     <item
         android:id="@+id/refresh_has_data"
         android:orderInCategory="100"
-        app:showAsAction="never"
+        android:showAsAction="never"
         android:title="@string/pull_down_has_data" />
 
     <item
         android:id="@+id/refresh_has_no_data"
         android:orderInCategory="100"
-        app:showAsAction="never"
+        android:showAsAction="never"
         android:title="@string/pull_down_has_no_data" />
 
 

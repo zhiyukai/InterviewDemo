@@ -6,11 +6,11 @@
         android:id="@+id/load_more"
         android:orderInCategory="100"
         android:title="@string/pull_up_has_data"
-        app:showAsAction="never" />
+        android:showAsAction="never" />
 
     <item
         android:id="@+id/has_no_more"
         android:orderInCategory="100"
         android:title="@string/pull_up_has_no_data"
-        app:showAsAction="never" />
+        android:showAsAction="never" />
 </menu>

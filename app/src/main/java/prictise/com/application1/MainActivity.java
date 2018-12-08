@@ -1,11 +1,11 @@
 package prictise.com.application1;
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.StatFs;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
 
@@ -39,10 +39,11 @@ import prictise.com.application1.networkTest.NetWorkActivity;
 import prictise.com.application1.notify.NotifyActivity;
 import prictise.com.application1.pictureMemory.PictureCompressActivity;
 import prictise.com.application1.pictureMemory.PictureMemoryActivity;
+import prictise.com.application1.qiniu.activity.QiniuActivity;
 import prictise.com.application1.rippeview.RippleActivity;
 import prictise.com.application1.wheel.WheelActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     private final String TAG = MainActivity.class.getSimpleName();
 
@@ -283,5 +284,10 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.bt_lanch_gridview_frash)
     public void lanchGridFrash() {
         startActivity(new Intent(this, PullRefreshActivity.class));
+    }
+
+    @OnClick(R.id.bt_lanch_qiniu)
+    public void lanchQiniu() {
+        startActivity(new Intent(this, QiniuActivity.class));
     }
 }
