@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 27
     defaultConfig {
         applicationId "prictise.com.demo"
-        minSdkVersion 20
-        targetSdkVersion 28
+        minSdkVersion 19
+        targetSdkVersion 27
         javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
         versionCode 1
         versionName "1.0"

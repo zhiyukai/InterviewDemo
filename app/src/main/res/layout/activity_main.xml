@@ -151,5 +151,10 @@
             style="@style/ButtonStyle"
             android:text="启动下拉上滑的ListView" />
 
+        <Button
+            android:id="@+id/bt_lanch_gridview_frash"
+            style="@style/ButtonStyle"
+            android:text="启动下拉上滑的GridView" />
+
     </LinearLayout>
 </ScrollView>

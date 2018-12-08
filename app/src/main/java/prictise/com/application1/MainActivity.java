@@ -26,6 +26,7 @@ import prictise.com.application1.dialog.DialogActivity;
 import prictise.com.application1.eventDispatch.EventDispatchActivity;
 import prictise.com.application1.gridview.GridViewActivity;
 import prictise.com.application1.gridview.RecycleGridViewActivity;
+import prictise.com.application1.gridview.pulltorefresh.PullRefreshActivity;
 import prictise.com.application1.lifecycle.SingleInstanceActivity;
 import prictise.com.application1.lifecycle.SingleTaskActivity;
 import prictise.com.application1.lifecycle.SingleTopActivity;
@@ -277,5 +278,10 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.bt_lanch_loadmore_listview)
     public void lanch2ListView() {
         startActivity(new Intent(this, RefreshListView2Activity.class));
+    }
+
+    @OnClick(R.id.bt_lanch_gridview_frash)
+    public void lanchGridFrash() {
+        startActivity(new Intent(this, PullRefreshActivity.class));
     }
 }

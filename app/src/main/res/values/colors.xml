@@ -278,4 +278,6 @@
 
     <color name="test">#FFADADAD</color>
     <color name="test2">#FF929AFF</color>
+
+    <color name="light_blue">#6593cb</color>
 </resources>

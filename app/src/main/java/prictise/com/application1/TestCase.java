@@ -1,9 +1,6 @@
 package prictise.com.application1;
 
 import android.os.Environment;
-import android.os.StatFs;
-import android.os.SystemClock;
-import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,6 +23,7 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import prictise.com.application1.multithreading.Consumer;
 import prictise.com.application1.multithreading.Producter;
@@ -418,6 +416,28 @@ public class TestCase {
         }
         cruisePoints.deleteCharAt(cruisePoints.length() - 1);
         System.out.println("cruisePoints = " + cruisePoints.toString());
+    }
+
+    @Test
+    public void testTreeSet() {
+        TreeSet<Person> ts = new TreeSet<>();
+        ts.add(new Person("张三", 23));
+        ts.add(new Person("李四", 13));
+        ts.add(new Person("周七", 13));
+        ts.add(new Person("王五", 43));
+        ts.add(new Person("赵六", 33));
+
+        System.out.println(ts);
+    }
+
+    class Person {
+        String name;
+        int age;
+
+        public Person(String n, int a) {
+            name = n;
+            age = a;
+        }
     }
 
 }

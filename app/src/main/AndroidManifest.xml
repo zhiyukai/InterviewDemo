@@ -110,7 +110,10 @@
                 <action android:name="android.com.delete.log.file"></action>
             </intent-filter>
         </receiver>
+
         <activity android:name=".alarmManager.AlarmManagerActivity" />
+        <activity android:name=".gridview.pulltorefresh.PullRefreshActivity" />
+        <activity android:name=".gridview.pulltorefresh.activity.PullableGridViewActivity" />
     </application>
 
 </manifest>
