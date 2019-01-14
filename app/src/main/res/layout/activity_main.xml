@@ -161,6 +161,10 @@
             style="@style/ButtonStyle"
             android:text="启动七牛" />
 
+        <Button
+            android:id="@+id/bt_lanch_test_map"
+            style="@style/ButtonStyle"
+            android:text="测试Map" />
 
     </LinearLayout>
 </ScrollView>

@@ -34,7 +34,8 @@
         android:icon="@mipmap/interview"
         android:label="Test"
         android:roundIcon="@mipmap/interview"
-        android:supportsRtl="true">
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -114,6 +115,7 @@
         <activity android:name=".gridview.pulltorefresh.PullRefreshActivity" />
         <activity android:name=".gridview.pulltorefresh.activity.PullableGridViewActivity" />
         <activity android:name=".qiniu.activity.QiniuActivity" />
+        <activity android:name=".map.MapActivity" />
     </application>
 
 </manifest>

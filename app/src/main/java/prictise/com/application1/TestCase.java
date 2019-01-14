@@ -19,9 +19,9 @@ import java.util.Calendar;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -439,5 +439,53 @@ public class TestCase {
             age = a;
         }
     }
+
+    @Test
+    public void testHashMap() {
+        HashMap<String, String> hm = new HashMap<>(30);
+        for (int i = 0; i < 30; i++) {
+            hm.put("key" + i, "value" + i);
+        }
+
+        Iterator<Map.Entry<String, String>> iterator = hm.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, String> entry = iterator.next();
+            System.out.println("key = " + entry.getKey() + "; value = " + entry.getValue());
+        }
+    }
+
+    @Test
+    public void testLinkedAccessFalseHashMap() { //
+        // false 是访问排序 true 是插入排序
+        LinkedHashMap<String, String> hm = new LinkedHashMap<>(30, 0.75f, false);
+        for (int i = 0; i < 30; i++) {
+            hm.put("key" + i, "value" + i);
+        }
+
+        Iterator<Map.Entry<String, String>> iterator = hm.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, String> entry = iterator.next();
+            System.out.println("key = " + entry.getKey() + "; value = " + entry.getValue());
+        }
+    }
+
+    @Test
+    public void testLinkedAccessTrueHashMap() { //
+        // false 是访问排序 true 是插入排序
+        LinkedHashMap<String, String> hm = new LinkedHashMap<>(30, 0.75f, true);
+        for (int i = 0; i < 30; i++) {
+            hm.put("key" + i, "value" + i);
+        }
+
+        String value2 = hm.get("key2");
+
+        Iterator<Map.Entry<String, String>> iterator = hm.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, String> entry = iterator.next();
+            System.out.println("key = " + entry.getKey() + "; value = " + entry.getValue());
+        }
+    }
+
+
 
 }

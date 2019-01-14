@@ -32,6 +32,7 @@ import prictise.com.application1.lifecycle.SingleTaskActivity;
 import prictise.com.application1.lifecycle.SingleTopActivity;
 import prictise.com.application1.lifecycle.StandardActivity;
 import prictise.com.application1.log.LogActivity;
+import prictise.com.application1.map.MapActivity;
 import prictise.com.application1.multithreading.Consumer;
 import prictise.com.application1.multithreading.Producter;
 import prictise.com.application1.multithreading.SyncStack;
@@ -289,5 +290,10 @@ public class MainActivity extends Activity {
     @OnClick(R.id.bt_lanch_qiniu)
     public void lanchQiniu() {
         startActivity(new Intent(this, QiniuActivity.class));
+    }
+
+    @OnClick(R.id.bt_lanch_test_map)
+    public void lanchTestMap() {
+        startActivity(new Intent(this, MapActivity.class));
     }
 }
