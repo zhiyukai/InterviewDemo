@@ -29,7 +29,7 @@ public class AlarmManagerActivity extends Activity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_alarm_manager);
+        setContentView(R.layout.activity_alarm_manager1);
 
         startServiceBtn = (Button) findViewById(R.id.start_service_btn);
         cancelServiceBtn = (Button) findViewById(R.id.cancel_service_btn);

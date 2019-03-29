@@ -116,6 +116,12 @@
         <activity android:name=".gridview.pulltorefresh.activity.PullableGridViewActivity" />
         <activity android:name=".qiniu.activity.QiniuActivity" />
         <activity android:name=".map.MapActivity" />
+        <activity android:name=".gridview.pulltorefresh.activity.PullableExpandableListViewActivity" />
+        <activity android:name=".gridview.pulltorefresh.activity.PullableImageViewActivity" />
+        <activity android:name=".gridview.pulltorefresh.activity.PullableListViewActivity" />
+        <activity android:name=".gridview.pulltorefresh.activity.PullableScrollViewActivity" />
+        <activity android:name=".gridview.pulltorefresh.activity.PullableTextViewActivity" />
+        <activity android:name=".gridview.pulltorefresh.activity.PullableWebViewActivity" />
     </application>
 
 </manifest>
