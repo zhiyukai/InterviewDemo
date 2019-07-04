@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
+
+  <TextView
+    style="@style/TestStackTextViewStyle"
+    android:text="SingleTopStackActivity"/>
+
+  <Button
+    android:id="@+id/bt_lanch_singleInstacne"
+    style="@style/ButtonStyle"
+    android:text="启动singleInstacne"/>
+
+  <Button
+    android:id="@+id/bt_lanch_single_top"
+    style="@style/ButtonStyle"
+    android:text="启动single_top"/>
+
+  <Button
+    android:id="@+id/bt_lanch_single_task"
+    style="@style/ButtonStyle"
+    android:text="启动single_task"/>
+</LinearLayout>

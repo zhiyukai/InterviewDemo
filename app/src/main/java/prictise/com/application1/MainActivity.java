@@ -45,6 +45,7 @@ import prictise.com.application1.pictureMemory.PictureCompressActivity;
 import prictise.com.application1.pictureMemory.PictureMemoryActivity;
 import prictise.com.application1.qiniu.activity.QiniuActivity;
 import prictise.com.application1.rippeview.RippleActivity;
+import prictise.com.application1.testStackActivity.MainStackActivity;
 import prictise.com.application1.wheel.WheelActivity;
 
 public class MainActivity extends Activity {
@@ -318,5 +319,10 @@ public class MainActivity extends Activity {
   @OnClick(R.id.bt_lanch_event_bus)
   public void lanchEventBus() {
     startActivity(new Intent(this, EventBusActivity.class));
+  }
+
+  @OnClick(R.id.bt_lanch_test_stack)
+  public void lanchTestStackActivity() {
+    startActivity(new Intent(this, MainStackActivity.class));
   }
 }

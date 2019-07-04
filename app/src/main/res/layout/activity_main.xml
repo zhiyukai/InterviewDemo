@@ -185,5 +185,9 @@
       style="@style/ButtonStyle"
       android:text="测试EventBus"/>
 
+    <Button
+      android:id="@+id/bt_lanch_test_stack"
+      style="@style/ButtonStyle"
+      android:text="测试Activity堆栈的情况"/>
   </LinearLayout>
 </ScrollView>

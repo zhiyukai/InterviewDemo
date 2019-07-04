@@ -526,5 +526,14 @@ public class TestCase {
 
   }
 
+  /**
+   * 整型转化成字符串
+   */
+  private String intToString(int num) {
+    String result = "";
+    while (num > 0) {
 
+    }
+    return result;
+  }
 }

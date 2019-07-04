@@ -108,7 +108,7 @@
     <service android:name=".alarm.AlarmService"/>
     <receiver android:name=".alarmManager.DeleteLogAlarmReceiver">
       <intent-filter>
-        <action android:name="android.com.delete.log.file"></action>
+        <action android:name="android.com.delete.log.file"/>
       </intent-filter>
     </receiver>
 
@@ -127,6 +127,20 @@
     <activity android:name=".eventBus.EventBusActivity"/>
 
     <service android:name=".cusService.TestIntentService"/>
+
+    <activity android:name=".testStackActivity.MainStackActivity"/>
+    <activity
+      android:launchMode="singleInstance"
+      android:name=".testStackActivity.SingleInstanceStackActivity"/>
+    <activity
+      android:launchMode="singleInstance"
+      android:name=".testStackActivity.SingleInstanceStackActivity2"/>
+    <activity
+      android:launchMode="singleTask"
+      android:name=".testStackActivity.SingleTaskStackActivity"/>
+    <activity
+      android:launchMode="singleTop"
+      android:name=".testStackActivity.SingleTopStackActivity"/>
   </application>
 
 </manifest>

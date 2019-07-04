@@ -38,4 +38,5 @@
     <string name="loading">正在加载...</string>
     <string name="load_succeed">加载成功</string>
     <string name="load_fail">加载失败</string>
+  <string name="banner">Banner</string>
 </resources>
