@@ -36,6 +36,7 @@ import prictise.com.application1.map.MapActivity;
 import prictise.com.application1.multithreading.Consumer;
 import prictise.com.application1.multithreading.Producter;
 import prictise.com.application1.multithreading.SyncStack;
+import prictise.com.application1.multithreading.ThreadActivity;
 import prictise.com.application1.networkTest.NetWorkActivity;
 import prictise.com.application1.notify.NotifyActivity;
 import prictise.com.application1.pictureMemory.PictureCompressActivity;
@@ -300,5 +301,10 @@ public class MainActivity extends Activity {
   @OnClick(R.id.bt_lanch_alarm)
   public void lanchAlarm() {
     startActivity(new Intent(this, AlarmManagerActivity.class));
+  }
+
+  @OnClick(R.id.bt_lanch_thread)
+  public void lanchThread() {
+    startActivity(new Intent(this, ThreadActivity.class));
   }
 }

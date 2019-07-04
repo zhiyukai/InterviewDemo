@@ -1,5 +1,7 @@
 package prictise.com.application1;
 
+import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
 import android.os.Environment;
 import java.io.File;
 import java.net.URLEncoder;
@@ -17,8 +19,10 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.Random;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ThreadLocalRandom;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
@@ -445,52 +449,82 @@ public class TestCase {
     System.out.println("b = " + b);
   }
 
-    @Test
-    public void testHashMap() {
-        HashMap<String, String> hm = new HashMap<>(30);
-        for (int i = 0; i < 30; i++) {
-            hm.put("key" + i, "value" + i);
-        }
-
-        Iterator<Map.Entry<String, String>> iterator = hm.entrySet().iterator();
-        while (iterator.hasNext()) {
-            Map.Entry<String, String> entry = iterator.next();
-            System.out.println("key = " + entry.getKey() + "; value = " + entry.getValue());
-        }
+  @Test
+  public void testHashMap() {
+    HashMap<String, String> hm = new HashMap<>(30);
+    for (int i = 0; i < 30; i++) {
+      hm.put("key" + i, "value" + i);
     }
 
-    @Test
-    public void testLinkedAccessFalseHashMap() { //
-        // false 是访问排序 true 是插入排序
-        LinkedHashMap<String, String> hm = new LinkedHashMap<>(30, 0.75f, false);
-        for (int i = 0; i < 30; i++) {
-            hm.put("key" + i, "value" + i);
-        }
+    Iterator<Map.Entry<String, String>> iterator = hm.entrySet().iterator();
+    while (iterator.hasNext()) {
+      Map.Entry<String, String> entry = iterator.next();
+      System.out.println("key = " + entry.getKey() + "; value = " + entry.getValue());
+    }
+  }
 
-        Iterator<Map.Entry<String, String>> iterator = hm.entrySet().iterator();
-        while (iterator.hasNext()) {
-            Map.Entry<String, String> entry = iterator.next();
-            System.out.println("key = " + entry.getKey() + "; value = " + entry.getValue());
-        }
+  @Test
+  public void testLinkedAccessFalseHashMap() { //
+    // false 是访问排序 true 是插入排序
+    LinkedHashMap<String, String> hm = new LinkedHashMap<>(30, 0.75f, false);
+    for (int i = 0; i < 30; i++) {
+      hm.put("key" + i, "value" + i);
     }
 
-    @Test
-    public void testLinkedAccessTrueHashMap() { //
-        // false 是访问排序 true 是插入排序
-        LinkedHashMap<String, String> hm = new LinkedHashMap<>(30, 0.75f, true);
-        for (int i = 0; i < 30; i++) {
-            hm.put("key" + i, "value" + i);
-        }
+    Iterator<Map.Entry<String, String>> iterator = hm.entrySet().iterator();
+    while (iterator.hasNext()) {
+      Map.Entry<String, String> entry = iterator.next();
+      System.out.println("key = " + entry.getKey() + "; value = " + entry.getValue());
+    }
+  }
 
-        String value2 = hm.get("key2");
-
-        Iterator<Map.Entry<String, String>> iterator = hm.entrySet().iterator();
-        while (iterator.hasNext()) {
-            Map.Entry<String, String> entry = iterator.next();
-            System.out.println("key = " + entry.getKey() + "; value = " + entry.getValue());
-        }
+  @Test
+  public void testLinkedAccessTrueHashMap() { //
+    // false 是访问排序 true 是插入排序
+    LinkedHashMap<String, String> hm = new LinkedHashMap<>(30, 0.75f, true);
+    for (int i = 0; i < 30; i++) {
+      hm.put("key" + i, "value" + i);
     }
 
+    String value2 = hm.get("key2");
+
+    Iterator<Map.Entry<String, String>> iterator = hm.entrySet().iterator();
+    while (iterator.hasNext()) {
+      Map.Entry<String, String> entry = iterator.next();
+      System.out.println("key = " + entry.getKey() + "; value = " + entry.getValue());
+    }
+  }
+
+
+  @Test
+  public void randomDigit() {
+    Random random = new Random();
+    int ran = random.nextInt(10);
+
+    System.out.println("randomDigit = " + ran);
+    if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP) {
+      System.out.println("randomDigit1 = " + ThreadLocalRandom.current().nextInt());
+    }
+  }
+
+  @Test
+  public void testSplit() {
+    String[] s = {"a", "b", "c", "d"};
+    String result = "";
+    for (int i = 0; i < 4; i++) {
+      result = result + s[i] + ";";
+    }
+
+    result = result.substring(0, result.length() - 1);
+    String[] r = result.split(";");
+
+    System.out.println("testSplit() result = " + result);
+    for (int i = 0; i < r.length; i++) {
+      System.out.println("testSplit() r [ " + i + " ] = " + r[i]);
+    }
+
+
+  }
 
 
 }

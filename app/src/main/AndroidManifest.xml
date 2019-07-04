@@ -1,127 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="prictise.com.application1">
+  xmlns:tools="http://schemas.android.com/tools"
+  package="prictise.com.application1">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.CAMERA"/>
 
-    <uses-feature android:name="android.permission.camera" />
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
+  <uses-feature android:name="android.permission.camera"/>
+  <uses-feature android:name="android.hardware.camera"/>
+  <uses-feature android:name="android.hardware.camera.autofocus"/>
+  <uses-feature android:name="android.hardware.camera"/>
+  <uses-feature android:name="android.hardware.camera.autofocus"/>
 
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+  <uses-permission android:name="android.permission.CAMERA"/>
+  <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+  <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.WAKE_LOCK"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
-    <uses-permission
-        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
-        tools:ignore="ProtectedPermissions" />
+  <uses-permission
+    android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+    tools:ignore="ProtectedPermissions"/>
 
-    <application
-        android:name=".MainApplication"
-        android:allowBackup="true"
-        android:icon="@mipmap/interview"
-        android:label="Test"
-        android:roundIcon="@mipmap/interview"
-        android:supportsRtl="true"
-        android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+  <application
+    android:allowBackup="true"
+    android:icon="@mipmap/interview"
+    android:label="Test"
+    android:name=".MainApplication"
+    android:roundIcon="@mipmap/interview"
+    android:supportsRtl="true"
+    android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar">
+    <activity android:name=".MainActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".lifecycle.StandardActivity" />
-        <activity android:name=".lifecycle.StandardActivity2" />
-        <activity
-            android:name=".lifecycle.SingleTopActivity"
-            android:launchMode="singleTop" />
-        <activity
-            android:name=".lifecycle.SingleTaskActivity"
-            android:launchMode="singleTask" />
-        <activity
-            android:name=".lifecycle.SingleTask2Activity"
-            android:launchMode="singleTask" />
-        <activity
-            android:name=".lifecycle.SingleInstanceActivity"
-            android:launchMode="singleInstance" />
-        <activity
-            android:name=".pictureMemory.PictureMemoryActivity"
-            android:launchMode="standard" />
-        <activity
-            android:name=".pictureMemory.PictureCompressActivity"
-            android:launchMode="standard" />
-        <activity android:name=".cus.CusActivity" />
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+    <activity android:name=".lifecycle.StandardActivity"/>
+    <activity android:name=".lifecycle.StandardActivity2"/>
+    <activity
+      android:launchMode="singleTop"
+      android:name=".lifecycle.SingleTopActivity"/>
+    <activity
+      android:launchMode="singleTask"
+      android:name=".lifecycle.SingleTaskActivity"/>
+    <activity
+      android:launchMode="singleTask"
+      android:name=".lifecycle.SingleTask2Activity"/>
+    <activity
+      android:launchMode="singleInstance"
+      android:name=".lifecycle.SingleInstanceActivity"/>
+    <activity
+      android:launchMode="standard"
+      android:name=".pictureMemory.PictureMemoryActivity"/>
+    <activity
+      android:launchMode="standard"
+      android:name=".pictureMemory.PictureCompressActivity"/>
+    <activity android:name=".cus.CusActivity"/>
 
-        <activity android:name=".onActivityResult.StandardActivity" />
+    <activity android:name=".onActivityResult.StandardActivity"/>
 
-        <activity android:name=".onActivityResult.StandardActivity2" />
+    <activity android:name=".onActivityResult.StandardActivity2"/>
 
-        <activity
-            android:name=".onActivityResult.SingleTaskActivity"
-            android:launchMode="singleTask" />
-        <activity
-            android:name=".testTaskAffinity.TaskAffinityActivity"
-            android:allowTaskReparenting="true"
-            android:taskAffinity="com.winuxxan" />
+    <activity
+      android:launchMode="singleTask"
+      android:name=".onActivityResult.SingleTaskActivity"/>
+    <activity
+      android:allowTaskReparenting="true"
+      android:name=".testTaskAffinity.TaskAffinityActivity"
+      android:taskAffinity="com.winuxxan"/>
 
-        <activity android:name=".cusview.CusViewActivity" />
-        <activity android:name=".rippeview.RippleActivity" />
-        <activity android:name=".dialog.DialogActivity" />
-        <activity android:name=".circleImageView.CircleActivity" />
-        <activity android:name=".eventDispatch.EventDispatchActivity" />
-        <activity android:name=".animation.AnimationActivity" />
-        <activity android:name=".animation.PropertyAnimationActivity" />
-        <activity android:name=".notify.NotifyActivity" />
-        <activity android:name=".gridview.GridViewActivity" />
-        <activity android:name=".cusview.ClockActivity" />
-        <activity android:name=".networkTest.NetWorkActivity" />
-        <activity android:name=".countDown.CountDownActivity" />
-        <activity android:name=".log.LogActivity" />
-        <activity android:name=".wheel.WheelActivity" />
-        <activity
-            android:name=".FaceDetect.FaceDetectorActivity"
-            android:exported="true" />
+    <activity android:name=".cusview.CusViewActivity"/>
+    <activity android:name=".rippeview.RippleActivity"/>
+    <activity android:name=".dialog.DialogActivity"/>
+    <activity android:name=".circleImageView.CircleActivity"/>
+    <activity android:name=".eventDispatch.EventDispatchActivity"/>
+    <activity android:name=".animation.AnimationActivity"/>
+    <activity android:name=".animation.PropertyAnimationActivity"/>
+    <activity android:name=".notify.NotifyActivity"/>
+    <activity android:name=".gridview.GridViewActivity"/>
+    <activity android:name=".cusview.ClockActivity"/>
+    <activity android:name=".networkTest.NetWorkActivity"/>
+    <activity android:name=".countDown.CountDownActivity"/>
+    <activity android:name=".log.LogActivity"/>
+    <activity android:name=".wheel.WheelActivity"/>
+    <activity
+      android:exported="true"
+      android:name=".FaceDetect.FaceDetectorActivity"/>
 
-        <activity android:name=".gridview.RecycleGridViewActivity" />
+    <activity android:name=".gridview.RecycleGridViewActivity"/>
 
-        <service android:name=".dialog.DialogService" />
+    <service android:name=".dialog.DialogService"/>
 
-        <activity android:name=".alarm.AlarmManagerActivity" />
-        <activity android:name=".cusListview.RefreshListViewActivity" />
-        <activity android:name=".cusListview.weightPullLoadmore.RefreshListView2Activity" />
+    <activity android:name=".alarm.AlarmManagerActivity"/>
+    <activity android:name=".cusListview.RefreshListViewActivity"/>
+    <activity android:name=".cusListview.weightPullLoadmore.RefreshListView2Activity"/>
 
-        <receiver android:name=".alarm.AlarmReceiver" />
-        <service android:name=".alarm.AlarmService" />
-        <receiver android:name=".alarmManager.DeleteLogAlarmReceiver">
-            <intent-filter>
-                <action android:name="android.com.delete.log.file"></action>
-            </intent-filter>
-        </receiver>
+    <receiver android:name=".alarm.AlarmReceiver"/>
+    <service android:name=".alarm.AlarmService"/>
+    <receiver android:name=".alarmManager.DeleteLogAlarmReceiver">
+      <intent-filter>
+        <action android:name="android.com.delete.log.file"></action>
+      </intent-filter>
+    </receiver>
 
-        <activity android:name=".alarmManager.AlarmManagerActivity" />
-        <activity android:name=".gridview.pulltorefresh.PullRefreshActivity" />
-        <activity android:name=".gridview.pulltorefresh.activity.PullableGridViewActivity" />
-        <activity android:name=".qiniu.activity.QiniuActivity" />
-        <activity android:name=".map.MapActivity" />
-        <activity android:name=".gridview.pulltorefresh.activity.PullableExpandableListViewActivity" />
-        <activity android:name=".gridview.pulltorefresh.activity.PullableImageViewActivity" />
-        <activity android:name=".gridview.pulltorefresh.activity.PullableListViewActivity" />
-        <activity android:name=".gridview.pulltorefresh.activity.PullableScrollViewActivity" />
-        <activity android:name=".gridview.pulltorefresh.activity.PullableTextViewActivity" />
-        <activity android:name=".gridview.pulltorefresh.activity.PullableWebViewActivity" />
-    </application>
+    <activity android:name=".alarmManager.AlarmManagerActivity"/>
+    <activity android:name=".gridview.pulltorefresh.PullRefreshActivity"/>
+    <activity android:name=".gridview.pulltorefresh.activity.PullableGridViewActivity"/>
+    <activity android:name=".qiniu.activity.QiniuActivity"/>
+    <activity android:name=".map.MapActivity"/>
+    <activity android:name=".gridview.pulltorefresh.activity.PullableExpandableListViewActivity"/>
+    <activity android:name=".gridview.pulltorefresh.activity.PullableImageViewActivity"/>
+    <activity android:name=".gridview.pulltorefresh.activity.PullableListViewActivity"/>
+    <activity android:name=".gridview.pulltorefresh.activity.PullableScrollViewActivity"/>
+    <activity android:name=".gridview.pulltorefresh.activity.PullableTextViewActivity"/>
+    <activity android:name=".gridview.pulltorefresh.activity.PullableWebViewActivity"/>
+    <activity android:name=".multithreading.ThreadActivity"/>
+  </application>
 
 </manifest>
