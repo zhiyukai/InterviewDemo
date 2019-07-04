@@ -20,6 +20,7 @@ import prictise.com.application1.countDown.CountDownActivity;
 import prictise.com.application1.cus.CusActivity;
 import prictise.com.application1.cusListview.RefreshListViewActivity;
 import prictise.com.application1.cusListview.weightPullLoadmore.RefreshListView2Activity;
+import prictise.com.application1.cusService.TestIntentService;
 import prictise.com.application1.cusview.ClockActivity;
 import prictise.com.application1.cusview.CusViewActivity;
 import prictise.com.application1.dialog.DialogActivity;
@@ -306,5 +307,10 @@ public class MainActivity extends Activity {
   @OnClick(R.id.bt_lanch_thread)
   public void lanchThread() {
     startActivity(new Intent(this, ThreadActivity.class));
+  }
+
+  @OnClick(R.id.bt_lanch_intent_service)
+  public void lanchIntentService() {
+    startActivity(new Intent(this, TestIntentService.class));
   }
 }

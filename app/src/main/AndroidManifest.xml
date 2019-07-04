@@ -123,6 +123,8 @@
     <activity android:name=".gridview.pulltorefresh.activity.PullableTextViewActivity"/>
     <activity android:name=".gridview.pulltorefresh.activity.PullableWebViewActivity"/>
     <activity android:name=".multithreading.ThreadActivity"/>
+
+    <service android:name=".cusService.TestIntentService"/>
   </application>
 
 </manifest>

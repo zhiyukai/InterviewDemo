@@ -175,5 +175,10 @@
       style="@style/ButtonStyle"
       android:text="测试线程"/>
 
+    <Button
+      android:id="@+id/bt_lanch_intent_service"
+      style="@style/ButtonStyle"
+      android:text="测试IntentService"/>
+
   </LinearLayout>
 </ScrollView>
