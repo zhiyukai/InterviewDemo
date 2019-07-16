@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+      android:id="@+id/bt_event_posting"
+      style="@style/ButtonStyle"
+      android:text="Event_Posting"/>
+
+    <Button
+      android:id="@+id/bt_event_async"
+      style="@style/ButtonStyle"
+      android:text="Event_ASYNC"/>
+
+    <Button
+      android:id="@+id/bt_event_background"
+      style="@style/ButtonStyle"
+      android:text="Event_Background"/>
+
+    <Button
+      android:id="@+id/bt_event_main"
+      style="@style/ButtonStyle"
+      android:text="Event_Main"/>
+
+    <Button
+      android:id="@+id/bt_thread_event_posting"
+      style="@style/ButtonStyle"
+      android:text="Event_Thread_Posting"/>
+
+    <Button
+      android:id="@+id/bt_thread_event_async"
+      style="@style/ButtonStyle"
+      android:text="Event_Thread_ASYNC"/>
+
+    <Button
+      android:id="@+id/bt_thread_event_background"
+      style="@style/ButtonStyle"
+      android:text="Event_Thread_Background"/>
+
+    <Button
+      android:id="@+id/bt_thread_event_main"
+      style="@style/ButtonStyle"
+      android:text="Event_Thread_Main"/>
+
+  </LinearLayout>
+</ScrollView>

@@ -39,6 +39,7 @@
     <activity android:name=".MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
+        <action android:name="android.intent.action.VIEW"/>
 
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
@@ -123,6 +124,7 @@
     <activity android:name=".gridview.pulltorefresh.activity.PullableTextViewActivity"/>
     <activity android:name=".gridview.pulltorefresh.activity.PullableWebViewActivity"/>
     <activity android:name=".multithreading.ThreadActivity"/>
+    <activity android:name=".eventBus.EventBusActivity"/>
 
     <service android:name=".cusService.TestIntentService"/>
   </application>

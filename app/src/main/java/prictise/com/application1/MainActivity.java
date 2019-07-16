@@ -24,6 +24,7 @@ import prictise.com.application1.cusService.TestIntentService;
 import prictise.com.application1.cusview.ClockActivity;
 import prictise.com.application1.cusview.CusViewActivity;
 import prictise.com.application1.dialog.DialogActivity;
+import prictise.com.application1.eventBus.EventBusActivity;
 import prictise.com.application1.eventDispatch.EventDispatchActivity;
 import prictise.com.application1.gridview.GridViewActivity;
 import prictise.com.application1.gridview.RecycleGridViewActivity;
@@ -312,5 +313,10 @@ public class MainActivity extends Activity {
   @OnClick(R.id.bt_lanch_intent_service)
   public void lanchIntentService() {
     startActivity(new Intent(this, TestIntentService.class));
+  }
+
+  @OnClick(R.id.bt_lanch_event_bus)
+  public void lanchEventBus() {
+    startActivity(new Intent(this, EventBusActivity.class));
   }
 }

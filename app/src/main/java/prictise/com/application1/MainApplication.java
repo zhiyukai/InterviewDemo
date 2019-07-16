@@ -1,6 +1,7 @@
 package prictise.com.application1;
 
 import android.app.Application;
+import org.greenrobot.eventbus.EventBus;
 
 /**
  * @author zhisiyi
@@ -18,5 +19,8 @@ public class MainApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mainApplication = this;
+
+        // EventBus
+        EventBus.builder().addIndex(new EventBusIndex()).installDefaultEventBus();
     }
 }

@@ -169,7 +169,7 @@
       android:id="@+id/bt_lanch_alarm"
       style="@style/ButtonStyle"
       android:text="测试定时"/>
-    
+
     <Button
       android:id="@+id/bt_lanch_thread"
       style="@style/ButtonStyle"
@@ -179,6 +179,11 @@
       android:id="@+id/bt_lanch_intent_service"
       style="@style/ButtonStyle"
       android:text="测试IntentService"/>
+
+    <Button
+      android:id="@+id/bt_lanch_event_bus"
+      style="@style/ButtonStyle"
+      android:text="测试EventBus"/>
 
   </LinearLayout>
 </ScrollView>

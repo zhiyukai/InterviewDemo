@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -10,6 +9,13 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [eventBusIndex: "prictise.com.application1.EventBusIndex"]
+            }
+        }
+
     }
     buildTypes {
         release {
@@ -39,4 +45,10 @@ dependencies {
     implementation 'com.loopj.android:android-async-http:1.4.9'
     implementation 'com.google.code.gson:gson:2.8.1'
     implementation 'pub.devrel:easypermissions:0.4.3'
+
+    // EventBus
+    def eventbus_version = '3.1.1'
+    implementation "org.greenrobot:eventbus:$eventbus_version"
+    annotationProcessor "org.greenrobot:eventbus-annotation-processor:$eventbus_version"
+
 }
