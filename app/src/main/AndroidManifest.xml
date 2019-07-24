@@ -141,6 +141,9 @@
     <activity
       android:launchMode="singleTop"
       android:name=".testStackActivity.SingleTopStackActivity"/>
+
+    <activity android:name=".testConstraintLayout.ConstraintLayoutActivity"/>
+
   </application>
 
 </manifest>
