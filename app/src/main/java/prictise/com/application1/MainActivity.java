@@ -11,6 +11,7 @@ import android.widget.Button;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import java.lang.reflect.Proxy;
 import prictise.com.application1.FaceDetect.FaceDetectorActivity;
 import prictise.com.application1.alarmManager.AlarmManagerActivity;
 import prictise.com.application1.animation.AnimationActivity;
@@ -24,11 +25,15 @@ import prictise.com.application1.cusService.TestIntentService;
 import prictise.com.application1.cusview.ClockActivity;
 import prictise.com.application1.cusview.CusViewActivity;
 import prictise.com.application1.dialog.DialogActivity;
+import prictise.com.application1.dynamicProxy.Car;
+import prictise.com.application1.dynamicProxy.IVehical;
+import prictise.com.application1.dynamicProxy.VehicalInvacationHandler;
 import prictise.com.application1.eventBus.EventBusActivity;
 import prictise.com.application1.eventDispatch.EventDispatchActivity;
 import prictise.com.application1.gridview.GridViewActivity;
 import prictise.com.application1.gridview.RecycleGridViewActivity;
 import prictise.com.application1.gridview.pulltorefresh.PullRefreshActivity;
+import prictise.com.application1.hook.HookUtil;
 import prictise.com.application1.lifecycle.SingleInstanceActivity;
 import prictise.com.application1.lifecycle.SingleTaskActivity;
 import prictise.com.application1.lifecycle.SingleTopActivity;
@@ -45,6 +50,7 @@ import prictise.com.application1.pictureMemory.PictureCompressActivity;
 import prictise.com.application1.pictureMemory.PictureMemoryActivity;
 import prictise.com.application1.qiniu.activity.QiniuActivity;
 import prictise.com.application1.rippeview.RippleActivity;
+import prictise.com.application1.testConstraintLayout.ConstraintLayoutActivity;
 import prictise.com.application1.testStackActivity.MainStackActivity;
 import prictise.com.application1.wheel.WheelActivity;
 
@@ -72,6 +78,15 @@ public class MainActivity extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     ButterKnife.bind(this);
+    HookUtil hookUtil = new HookUtil();
+    hookUtil.hookStartActivity(this);
+
+    IVehical car = new Car();
+
+    IVehical vehical = (IVehical) Proxy
+        .newProxyInstance(car.getClass().getClassLoader(), Car.class.getInterfaces(),
+            new VehicalInvacationHandler(car));
+    vehical.run();
 
     SyncStack stack = new SyncStack();
     Consumer c = new Consumer(stack);
@@ -324,5 +339,10 @@ public class MainActivity extends Activity {
   @OnClick(R.id.bt_lanch_test_stack)
   public void lanchTestStackActivity() {
     startActivity(new Intent(this, MainStackActivity.class));
+  }
+
+  @OnClick(R.id.bt_lanch_test_constraintlayout)
+  public void lanchTestconstraintlayoutActivity() {
+    startActivity(new Intent(this, ConstraintLayoutActivity.class));
   }
 }

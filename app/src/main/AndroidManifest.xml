@@ -144,6 +144,8 @@
 
     <activity android:name=".testConstraintLayout.ConstraintLayoutActivity"/>
 
+    <activity android:name=".hook.ProxyActivity"/>
+
   </application>
 
 </manifest>

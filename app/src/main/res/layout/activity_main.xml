@@ -189,5 +189,10 @@
       android:id="@+id/bt_lanch_test_stack"
       style="@style/ButtonStyle"
       android:text="测试Activity堆栈的情况"/>
+
+    <Button
+      android:id="@+id/bt_lanch_test_constraintlayout"
+      style="@style/ButtonStyle"
+      android:text="测试constraintlayout"/>
   </LinearLayout>
 </ScrollView>
