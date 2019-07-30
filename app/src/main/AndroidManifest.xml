@@ -87,7 +87,7 @@
     <activity android:name=".animation.PropertyAnimationActivity"/>
     <activity android:name=".notify.NotifyActivity"/>
     <activity android:name=".gridview.GridViewActivity"/>
-    <activity android:name=".cusview.ClockActivity"/>
+    <!--<activity android:name=".cusview.ClockActivity"/>-->
     <activity android:name=".networkTest.NetWorkActivity"/>
     <activity android:name=".countDown.CountDownActivity"/>
     <activity android:name=".log.LogActivity"/>

@@ -22,7 +22,6 @@ import prictise.com.application1.cus.CusActivity;
 import prictise.com.application1.cusListview.RefreshListViewActivity;
 import prictise.com.application1.cusListview.weightPullLoadmore.RefreshListView2Activity;
 import prictise.com.application1.cusService.TestIntentService;
-import prictise.com.application1.cusview.ClockActivity;
 import prictise.com.application1.cusview.CusViewActivity;
 import prictise.com.application1.dialog.DialogActivity;
 import prictise.com.application1.dynamicProxy.Car;
@@ -33,7 +32,6 @@ import prictise.com.application1.eventDispatch.EventDispatchActivity;
 import prictise.com.application1.gridview.GridViewActivity;
 import prictise.com.application1.gridview.RecycleGridViewActivity;
 import prictise.com.application1.gridview.pulltorefresh.PullRefreshActivity;
-import prictise.com.application1.hook.HookUtil;
 import prictise.com.application1.lifecycle.SingleInstanceActivity;
 import prictise.com.application1.lifecycle.SingleTaskActivity;
 import prictise.com.application1.lifecycle.SingleTopActivity;
@@ -78,15 +76,15 @@ public class MainActivity extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     ButterKnife.bind(this);
-    HookUtil hookUtil = new HookUtil();
-    hookUtil.hookStartActivity(this);
+//    HookUtil hookUtil = new HookUtil();
+//    hookUtil.hookStartActivity(this);
 
     IVehical car = new Car();
 
     IVehical vehical = (IVehical) Proxy
         .newProxyInstance(car.getClass().getClassLoader(), Car.class.getInterfaces(),
             new VehicalInvacationHandler(car));
-    vehical.run();
+    vehical.run("s");
 
     SyncStack stack = new SyncStack();
     Consumer c = new Consumer(stack);
@@ -258,7 +256,7 @@ public class MainActivity extends Activity {
 
   @OnClick(R.id.bt_lanch_clock)
   public void lanchClock() {
-    startActivity(new Intent(this, ClockActivity.class));
+//    startActivity(new Intent(this, ClockActivity.class));
   }
 
   @OnClick(R.id.bt_lanch_net_test)

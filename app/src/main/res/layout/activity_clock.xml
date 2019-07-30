@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
 
-    <prictise.com.application1.cusview.ClockView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/height_48dp"
-        android:layout_marginTop="@dimen/height_48dp" />
+  <prictise.com.application1.cusview.ClockView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/height_48dp"
+    android:layout_marginLeft="@dimen/height_48dp"
+    android:visibility="gone"/>
 
+
+  <prictise.com.application1.cusview.CircleView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    />
 </LinearLayout>

@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import prictise.com.application1.BaseActivity;
 import prictise.com.application1.R;
+import prictise.com.application1.multithreading.practice.other.TestOther;
 import prictise.com.application1.utils.LogcatUtils;
 
 /**
@@ -18,25 +19,21 @@ public class ThreadActivity extends BaseActivity {
 
   private static final String TAG = ThreadActivity.class.getSimpleName();
 
-  Handler handler = new Handler();
-
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_thread);
 
-    try {
-      int a = 1 / 0;
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
+    TestOther testOther = new TestOther();
 
-    handler.post(new Runnable() {
-      @Override
-      public void run() {
-        LogcatUtils.showELog(TAG, "thread name = " + Thread.currentThread());
-      }
-    });
+//    Test test = new Test();
+
+//    handler.post(new Runnable() {
+//      @Override
+//      public void run() {
+//        LogcatUtils.showELog(TAG, "thread name = " + Thread.currentThread());
+//      }
+//    });
 
 //    new CameraHandlerThread("camera");
 //    MyThread myThread = new MyThread();
