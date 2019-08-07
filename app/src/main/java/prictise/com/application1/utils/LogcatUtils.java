@@ -22,7 +22,7 @@ public class LogcatUtils {
 
   public static void showDLog(String tag, String message) {
     if (Constants.Debug) {
-      Log.e(tag, message);
+      Log.d(tag, message);
     }
   }
 

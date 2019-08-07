@@ -146,6 +146,8 @@
 
     <activity android:name=".hook.ProxyActivity"/>
 
+    <activity android:name=".fragment.FragmentMainActivity"/>
+
   </application>
 
 </manifest>

@@ -26,9 +26,6 @@ import java.util.concurrent.ThreadLocalRandom;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
-import prictise.com.application1.multithreading.Consumer;
-import prictise.com.application1.multithreading.Producter;
-import prictise.com.application1.multithreading.SyncStack;
 
 /**
  * @author zhisiyi
@@ -130,11 +127,11 @@ public class TestCase {
 
   @Test
   public void producterCusumer() {
-    SyncStack stack = new SyncStack();
-    Consumer c = new Consumer(stack);
-    Producter p = new Producter(stack);
+//    SyncStack stack = new SyncStack();
+//    Consumer c = new Consumer(stack);
+//    Producter p = new Producter(stack);
 
-    new Thread(p).start();
+//    new Thread(p).start();
 //        new Thread(c).start();
   }
 

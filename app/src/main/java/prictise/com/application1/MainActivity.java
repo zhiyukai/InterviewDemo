@@ -29,6 +29,7 @@ import prictise.com.application1.dynamicProxy.IVehical;
 import prictise.com.application1.dynamicProxy.VehicalInvacationHandler;
 import prictise.com.application1.eventBus.EventBusActivity;
 import prictise.com.application1.eventDispatch.EventDispatchActivity;
+import prictise.com.application1.fragment.FragmentMainActivity;
 import prictise.com.application1.gridview.GridViewActivity;
 import prictise.com.application1.gridview.RecycleGridViewActivity;
 import prictise.com.application1.gridview.pulltorefresh.PullRefreshActivity;
@@ -38,8 +39,6 @@ import prictise.com.application1.lifecycle.SingleTopActivity;
 import prictise.com.application1.lifecycle.StandardActivity;
 import prictise.com.application1.log.LogActivity;
 import prictise.com.application1.map.MapActivity;
-import prictise.com.application1.multithreading.Consumer;
-import prictise.com.application1.multithreading.Producter;
 import prictise.com.application1.multithreading.SyncStack;
 import prictise.com.application1.multithreading.ThreadActivity;
 import prictise.com.application1.networkTest.NetWorkActivity;
@@ -87,11 +86,11 @@ public class MainActivity extends Activity {
     vehical.run("s");
 
     SyncStack stack = new SyncStack();
-    Consumer c = new Consumer(stack);
-    Producter p = new Producter(stack);
-
-    new Thread(p).start();
-    new Thread(c).start();
+//    Consumer c = new Consumer(stack);
+//    Producter p = new Producter(stack);
+//
+//    new Thread(p).start();
+//    new Thread(c).start();
 
     int a = 1 << 20;
     Log.e("zhishaoju", "SHUTDOWN = " + SHUTDOWN);
@@ -343,4 +342,11 @@ public class MainActivity extends Activity {
   public void lanchTestconstraintlayoutActivity() {
     startActivity(new Intent(this, ConstraintLayoutActivity.class));
   }
+
+  @OnClick(R.id.bt_lanch_fragment)
+  public void launchFragment() {
+    startActivity(new Intent(this, FragmentMainActivity.class));
+  }
+
+
 }

@@ -2,6 +2,7 @@ package prictise.com.application1.lifecycle;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -88,5 +89,19 @@ public class SingleTopActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         Log.e(TAG, "onDestroy");
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Log.e(TAG, "onConfigurationChanged");
+    }
+
+    // onWindowFocusChanged
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        Log.e(TAG, "onWindowFocusChanged");
     }
 }

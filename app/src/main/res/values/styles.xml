@@ -13,6 +13,7 @@
     <item name="android:layout_height">@dimen/height_48dp</item>
     <item name="android:textColor">#0000ff</item>
     <item name="android:textSize">@dimen/font_20sp</item>
+    <item name="android:textAllCaps">false</item>
   </style>
 
   <!-- Base application theme. -->

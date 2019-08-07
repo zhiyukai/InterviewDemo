@@ -1,11 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+  <FrameLayout
+    android:id="@+id/fl_main"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+
+  <Button
+    android:id="@+id/bt_add"
+    style="@style/ButtonStyle"
+    android:text="添加Fragment"/>
+
+  <Button
+    android:id="@+id/bt_remove"
+    style="@style/ButtonStyle"
+    android:text="移除Fragment"/>
+
+  <Button
+    android:id="@+id/bt_replace"
+    style="@style/ButtonStyle"
+    android:text="替换Fragment"/>
+
+  <Button
+    android:id="@+id/bt_hide"
+    style="@style/ButtonStyle"
+    android:text="隐藏Fragment"/>
+
+  <Button
+    android:id="@+id/bt_show"
+    style="@style/ButtonStyle"
+    android:text="显示Fragment"/>
 
 </LinearLayout>

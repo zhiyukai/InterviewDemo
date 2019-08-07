@@ -23,8 +23,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
   @Override
   public void onReceive(Context context, Intent intent) {
-    ToastUtil.showShort(context,
-        "从服务启动广播：at " + DateTimeUtil.getCurrentDateTimeString());
+    ToastUtil.showShort("从服务启动广播：at " + DateTimeUtil.getCurrentDateTimeString());
     Log.d(TAG, "从服务启动广播：at " + DateTimeUtil.getCurrentDateTimeString());
 //    AlarmManager alarmManager = (AlarmManager) MainApplication.getApplicationInstance()
 //        .getSystemService(ALARM_SERVICE);
