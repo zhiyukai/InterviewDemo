@@ -10,6 +10,8 @@ import java.util.concurrent.locks.Lock;
  */
 public class CThread implements Runnable {
 
+  private final String TAG = CThread.class.getSimpleName();
+  private int mCount;
   private Lock mLock;
   private Condition cCondition;
   private Condition aCondition;
@@ -23,19 +25,24 @@ public class CThread implements Runnable {
   @Override
   public void run() {
     mLock.lock();
-    while (true) {
-      System.out.println("C");
-      aCondition.signal();
-      try {
+    try {
+//      while (mCount < ThreadConstants.COUNT) {
+      while (true) {
+        try {
+          Thread.sleep(250);
+        } catch (InterruptedException e) {
+          e.printStackTrace();
+        }
+        System.out.println("C");
+        mCount++;
+        aCondition.signal();
         cCondition.await();
-      } catch (InterruptedException e) {
-        e.printStackTrace();
+//        System.out.println("C 执行");
       }
-      try {
-        Thread.sleep(500);
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      }
+//      aCondition.signal();
+    } catch (Exception e) {
+      e.printStackTrace();
+    } finally {
       mLock.unlock();
     }
   }

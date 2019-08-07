@@ -2,6 +2,7 @@ package prictise.com.application1.multithreading.practice.other;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
+import prictise.com.application1.utils.LogcatUtils;
 
 /**
  * @Author zhi
@@ -10,6 +11,8 @@ import java.util.concurrent.locks.Lock;
  */
 public class BThread implements Runnable {
 
+  private final String TAG = BThread.class.getSimpleName();
+  private int mCount;
   private Lock mLock;
   private Condition bCondition;
   private Condition cCondition;
@@ -23,14 +26,23 @@ public class BThread implements Runnable {
   @Override
   public void run() {
     mLock.lock();
-    while (true) {
-      System.out.print("B");
-      cCondition.signal();
-      try {
+    try {
+//      while (mCount < ThreadConstants.COUNT) {
+      while (true) {
+        try {
+          Thread.sleep(250);
+        } catch (InterruptedException e) {
+          e.printStackTrace();
+        }
+        System.out.print("B");
+        mCount++;
+        cCondition.signal();
         bCondition.await();
-      } catch (InterruptedException e) {
-        e.printStackTrace();
       }
+//      cCondition.signal();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    } finally {
       mLock.unlock();
     }
   }
