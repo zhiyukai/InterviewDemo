@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
 
-    <Button
-        android:id="@+id/bt_lanch_dialog"
-        style="@style/ButtonStyle"
-        android:text="启动一个Dialog" />
+  <Button
+    android:id="@+id/bt_lanch_dialog"
+    style="@style/ButtonStyle"
+    android:text="启动一个Dialog"/>
 
-    <Button
-        android:id="@+id/bt_lanch_service_dialog"
-        style="@style/ButtonStyle"
-        android:text="启动一个服务Dialog" />
+  <Button
+    android:id="@+id/bt_lanch_service_dialog"
+    style="@style/ButtonStyle"
+    android:text="启动一个服务Dialog"/>
+
+  <Button
+    android:id="@+id/bt_lanch_dialog_style_activity"
+    style="@style/ButtonStyle"
+    android:text="启动一个Dialog类型的Activity"/>
+  <Button
+    android:id="@+id/bt_lanch_window_dialog"
+    style="@style/ButtonStyle"
+    android:text="启动一个window类型的dialog"/>
 </LinearLayout>
