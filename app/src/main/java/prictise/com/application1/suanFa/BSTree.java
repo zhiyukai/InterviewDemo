@@ -6,6 +6,11 @@ package prictise.com.application1.suanFa;
  * @Comment https://blog.csdn.net/isea533/article/details/80345507
  */
 
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Stack;
+
 /**
  * Java 语言: 二叉查找树
  *
@@ -15,34 +20,97 @@ package prictise.com.application1.suanFa;
 
 public class BSTree<T extends Comparable<T>> {
 
+  public static final String PREFIX_BRANCH = "├";//树枝
+  public static final String PREFIX_TRUNK = "│ ";//树干
+  public static final String PREFIX_LEAF = "└";//叶子
+  public static final String PREFIX_EMP = "  ";//空
+  public static final String PREFIX_LEFT = "─L─";//左
+  public static final String PREFIX_RIGTH = "─R─";//右
   BSTNode<T> mRoot;    // 根结点
-
-  public class BSTNode<T extends Comparable<T>> {
-
-    T key;                // 关键字(键值)
-    BSTNode<T> left;    // 左孩子
-    BSTNode<T> right;    // 右孩子
-    BSTNode<T> parent;    // 父结点
-
-    public BSTNode(T key, BSTNode<T> parent, BSTNode<T> left, BSTNode<T> right) {
-      this.key = key;
-      this.parent = parent;
-      this.left = left;
-      this.right = right;
-    }
-
-    public T getKey() {
-      return key;
-    }
-
-    @Override
-    public String toString() {
-      return "key:" + key;
-    }
-  }
 
   public BSTree() {
     mRoot = null;
+  }
+
+  public static BSTree<Integer> newTree() {
+    int[] array = new int[]{50, 30, 80, 20, 35, 34, 32, 40, 70, 75, 100};
+    BSTree<Integer> tree = new BSTree<>();
+    for (int i = 0; i < array.length; i++) {
+      tree.insert(array[i]);
+    }
+    return tree;
+  }
+
+  public static void main(String[] args) {
+    BSTree<Integer> tree = newTree();
+    System.out.println("----------初始--------");
+//    print(tree);
+//    tree.delete(20);
+//    System.out.println("----------删除 20--------");
+//    print(tree);
+//    tree = newTree();
+//    tree.delete(70);
+//    System.out.println("----------删除 70--------");
+    print(tree);
+//    tree = newTree();
+//    tree.delete(50);
+//    System.out.println("----------插入 85--------");
+//    tree.insert(85);
+//    System.out.println("----------删除 30--------");
+//    System.out.println("----------按照层级访问--------");
+//    tree.layerTraversal();
+
+//    System.out.println("----------按照堆栈的方式，先序遍历--------");
+//    tree.preOrderByStack();
+//    System.out.println("----------按照堆栈的方式，中序遍历--------");
+//    tree.inOrderByStack();
+//    System.out.println("----------按照堆栈的方式，后序遍历--------");
+//    tree.inOrderByStack();
+//    System.out.println("----------深度优先遍历--------");
+//    tree.depthTraversal();
+    System.out.println("----------查看是否是完全二叉树--------");
+    System.out.println("is " + tree.isCompleteTreeNode());
+
+    print(tree);
+  }
+
+  private static boolean hasChild(BSTree.BSTNode node) {
+    return node.left != null || node.right != null;
+  }
+
+  public static void print(BSTree tree) {
+    if (tree != null && tree.mRoot != null) {
+      System.out.println(tree.mRoot.key);
+      print(tree.mRoot, "");
+    }
+  }
+
+  public static void print(BSTree.BSTNode node, String prefix) {
+    if (prefix == null) {
+      prefix = "";
+    } else {
+      prefix = prefix.replace(PREFIX_BRANCH, PREFIX_TRUNK);
+      prefix = prefix.replace(PREFIX_LEAF, PREFIX_EMP);
+    }
+    if (hasChild(node)) {
+      if (node.right != null) {
+        System.out.println(prefix + PREFIX_BRANCH + PREFIX_RIGTH + node.right.key);
+        if (hasChild(node.right)) {
+          print(node.right, prefix + PREFIX_BRANCH);
+        }
+      } else {
+        System.out.println(prefix + PREFIX_BRANCH + PREFIX_RIGTH);
+      }
+
+      if (node.left != null) {
+        System.out.println(prefix + PREFIX_LEAF + PREFIX_LEFT + node.left.key);
+        if (hasChild(node.left)) {
+          print(node.left, prefix + PREFIX_LEAF);
+        }
+      } else {
+        System.out.println(prefix + PREFIX_LEAF + PREFIX_LEFT);
+      }
+    }
   }
 
   /*
@@ -60,6 +128,31 @@ public class BSTree<T extends Comparable<T>> {
     preOrder(mRoot);
   }
 
+  /**
+   * 通过栈的方式实现先序遍历
+   */
+
+  public void preOrderByStack() {
+    if (mRoot == null) {
+      return;
+    }
+    LinkedList<BSTNode<T>> stack = new LinkedList<>();
+    stack.push(mRoot);
+    while (stack.size() > 0) {
+      BSTNode<T> node = stack.pop();
+      if (node != null) {
+        System.out.print(node.key + " ");
+        if (node.right != null) {
+          stack.push(node.right);
+        }
+        if (node.left != null) {
+          stack.push(node.left);
+        }
+      }
+    }
+    System.out.println();
+  }
+
   /*
    * 中序遍历"二叉树"
    */
@@ -75,6 +168,27 @@ public class BSTree<T extends Comparable<T>> {
     inOrder(mRoot);
   }
 
+  public void inOrderByStack() {
+    if (mRoot == null) {
+      return;
+    }
+    LinkedList<BSTNode<T>> stack = new LinkedList<>();
+    BSTNode<T> node = mRoot;
+    while (node != null || stack.size() > 0) {
+      while (node != null) {
+        stack.push(node);
+        node = node.left;
+      }
+      BSTNode<T> tempNode = stack.pop();
+      if (tempNode != null) {
+        System.out.print(tempNode.key + " ");
+        if (tempNode.right != null) {
+          node = tempNode.right;
+        }
+      }
+    }
+    System.out.println();
+  }
 
   /*
    * 后序遍历"二叉树"
@@ -91,6 +205,46 @@ public class BSTree<T extends Comparable<T>> {
     postOrder(mRoot);
   }
 
+  public void postOrderByStack() {
+    if (mRoot == null) {
+      return;
+    }
+    //新建栈，先进后出,将根结点入栈,双端队列
+    Deque<BSTNode<T>> stack = new LinkedList<>();
+    //新建一个list，记录结点的状态是否已经被访问过
+    ArrayList<BSTNode<T>> list = new ArrayList<>();
+    BSTNode<T> proot;
+    BSTNode<T> node = mRoot;
+    int flag;
+    //首先检查完树的左子树，再右子树，最后将根节点输出
+    while (node != null || stack.size() > 0) {
+      //将最左子树添加完毕
+      while (node != null) {
+        stack.push(node);
+        node = node.left;
+      }
+      //和中序遍历相似，为先输出左结点，但是做结点输出完毕之后，不能直接将根结点弹出，而是必须先将右结点弹出，
+      //最后再将根结点弹出来，就会牵扯到一个根结点的访问状态的问题，是否已经被遍历过了
+      //利用一个list集合记录已将被遍历过的根结点，防止产生死循环
+      if (stack.size() > 0) {
+        BSTNode<T> peek = stack.peek();
+        if (peek.right != null) {
+          boolean con = list.contains(peek);
+          if (con == true) {
+            BSTNode<T> pop = stack.pop();
+            System.out.print(pop.key + "  ");
+          } else {
+            list.add(peek);
+            node = peek.right;
+          }
+        } else {
+          BSTNode<T> pop = stack.pop();
+          System.out.print(pop.key + "  ");
+        }
+      }
+    }
+    System.out.println();
+  }
 
   /*
    * (递归实现)查找"二叉树x"中键值为key的节点
@@ -191,6 +345,8 @@ public class BSTree<T extends Comparable<T>> {
     if (x.right != null) {
       return minimum(x.right);
     }
+
+    // 下面可以去掉
 
     // 如果x没有右孩子。则x有以下两种可能：
     // (01) x是"一个左孩子"，则"x的后继结点"为 "它的父结点"。
@@ -331,6 +487,8 @@ public class BSTree<T extends Comparable<T>> {
     }
   }
 
+  //------------下面代码是用于输出树的工具代码------------------------
+
   /*
    * 删除结点(z)，并返回被删除的结点
    *
@@ -455,79 +613,111 @@ public class BSTree<T extends Comparable<T>> {
     }
   }
 
-  public static BSTree<Integer> newTree() {
-    int[] array = new int[]{50, 30, 80, 20, 35, 34, 32, 40, 70, 75, 100};
-    BSTree<Integer> tree = new BSTree<>();
-    for (int i = 0; i < array.length; i++) {
-      tree.insert(array[i]);
+  public void layerTraversal() {
+    if (mRoot == null) {
+      return;
     }
-    return tree;
-  }
-
-  public static void main(String[] args) {
-    BSTree<Integer> tree = newTree();
-    System.out.println("----------初始--------");
-//    print(tree);
-//    tree.delete(20);
-//    System.out.println("----------删除 20--------");
-//    print(tree);
-//    tree = newTree();
-//    tree.delete(70);
-//    System.out.println("----------删除 70--------");
-    print(tree);
-//    tree = newTree();
-//    tree.delete(50);
-    System.out.println("----------插入 85--------");
-    tree.insert(85);
-//    System.out.println("----------删除 30--------");
-    print(tree);
-  }
-
-  //------------下面代码是用于输出树的工具代码------------------------
-
-  public static final String PREFIX_BRANCH = "├";//树枝
-  public static final String PREFIX_TRUNK = "│ ";//树干
-  public static final String PREFIX_LEAF = "└";//叶子
-  public static final String PREFIX_EMP = "  ";//空
-  public static final String PREFIX_LEFT = "─L─";//左
-  public static final String PREFIX_RIGTH = "─R─";//右
-
-  private static boolean hasChild(BSTree.BSTNode node) {
-    return node.left != null || node.right != null;
-  }
-
-  public static void print(BSTree tree) {
-    if (tree != null && tree.mRoot != null) {
-      System.out.println(tree.mRoot.key);
-      print(tree.mRoot, "");
+    LinkedList<BSTNode<T>> list = new LinkedList<>();
+    list.add(mRoot);
+    BSTNode<T> currentNode;
+    while (!list.isEmpty()) {
+      currentNode = list.poll();
+      System.out.println(currentNode.key);
+      if (currentNode.left != null) {
+        list.add(currentNode.left);
+      }
+      if (currentNode.right != null) {
+        list.add(currentNode.right);
+      }
     }
   }
 
-  public static void print(BSTree.BSTNode node, String prefix) {
-    if (prefix == null) {
-      prefix = "";
-    } else {
-      prefix = prefix.replace(PREFIX_BRANCH, PREFIX_TRUNK);
-      prefix = prefix.replace(PREFIX_LEAF, PREFIX_EMP);
+  public void depthTraversal() {
+//    ArrayList<Integer> lists=new ArrayList<Integer>();
+    if (mRoot == null) {
+      return;
     }
-    if (hasChild(node)) {
-      if (node.right != null) {
-        System.out.println(prefix + PREFIX_BRANCH + PREFIX_RIGTH + node.right.key);
-        if (hasChild(node.right)) {
-          print(node.right, prefix + PREFIX_BRANCH);
-        }
-      } else {
-        System.out.println(prefix + PREFIX_BRANCH + PREFIX_RIGTH);
+    Stack<BSTNode<T>> stack = new Stack<>();
+    stack.push(mRoot);
+    while (!stack.isEmpty()) {
+      BSTNode<T> tree = stack.pop();
+      //先往栈中压入右节点，再压左节点，这样出栈就是先左节点后右节点了。
+      if (tree.right != null) {
+        stack.push(tree.right);
+      }
+      if (tree.left != null) {
+        stack.push(tree.left);
       }
 
-      if (node.left != null) {
-        System.out.println(prefix + PREFIX_LEAF + PREFIX_LEFT + node.left.key);
-        if (hasChild(node.left)) {
-          print(node.left, prefix + PREFIX_LEAF);
-        }
-      } else {
-        System.out.println(prefix + PREFIX_LEAF + PREFIX_LEFT);
+      System.out.print(tree.key + " ");
+//      lists.add(tree.val);
+    }
+    System.out.println();
+  }
+
+  /**
+   * https://baike.baidu.com/item/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91/7773232?fr=aladdin
+   */
+  public boolean isCompleteTreeNode() {
+    //1.树为空，返回错误
+    if (mRoot == null) {
+      return false;
+    }
+
+    LinkedList<BSTNode<T>> list = new LinkedList<>();
+    list.add(mRoot);
+    while (list.size() > 0) {
+      BSTNode<T> node = list.pop();
+      //2.1如果该节点两个孩子都有，则直接pop
+      if (node.left != null && node.right != null) {
+        list.push(node.left);
+        list.push(node.right);
       }
+      //2.2如果该节点左孩子为空，右孩子不为空，则一定不是完全二叉树
+      if (node.left == null && node.right != null) {
+        return false;
+      }
+
+      //2.3如果该节点左孩子不为空，右孩子为空或者该节点为叶子节点，则该节点之后的所有结点都是叶子节点
+      if ((node.left != null && node.right == null) || (node.left == null && node.right == null)) {
+        if (node.left != null && node.right == null) {
+          list.push(node.left);
+        }
+        // 弹出当前的这个节点和以后所有的节点要都是叶子节点
+        node = list.pop();
+        while (list.size() > 0) {
+          if (node.left == null && node.right == null) {
+            node = list.pop();
+          } else {
+            return false;
+          }
+        }
+      }
+    }
+    return true;
+  }
+
+  public class BSTNode<T extends Comparable<T>> {
+
+    T key;                // 关键字(键值)
+    BSTNode<T> left;    // 左孩子
+    BSTNode<T> right;    // 右孩子
+    BSTNode<T> parent;    // 父结点
+
+    public BSTNode(T key, BSTNode<T> parent, BSTNode<T> left, BSTNode<T> right) {
+      this.key = key;
+      this.parent = parent;
+      this.left = left;
+      this.right = right;
+    }
+
+    public T getKey() {
+      return key;
+    }
+
+    @Override
+    public String toString() {
+      return "key:" + key;
     }
   }
 }

@@ -1,5 +1,9 @@
 package prictise.com.application1.suanFa;
 
+import java.util.LinkedList;
+import java.util.Queue;
+import prictise.com.application1.suanFa.BSTree.BSTNode;
+
 /**
  * @Author zhisiyi
  * @Date 2019.08.14 09:33
@@ -199,6 +203,8 @@ public class BinaryTree implements AbsBinaryTree {
 
 
   public static void main(String[] args) {
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.remove();
     // TODO Auto-generated method stub
     BinaryTree tree = new BinaryTree();
     tree.insert(6, 6);// 插入操作,构造图一所示的二叉树
