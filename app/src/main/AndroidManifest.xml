@@ -38,7 +38,10 @@
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-    <activity android:name=".lifecycle.StandardActivity"/>
+    <activity
+      android:configChanges="screenSize|keyboardHidden|orientation"
+      android:name=".lifecycle.StandardActivity"
+      />
     <activity android:name=".lifecycle.StandardActivity2"/>
     <activity
       android:launchMode="singleTop"
@@ -145,6 +148,8 @@
     <activity
       android:name=".dialog.DialogStyleActivity"
       android:theme="@style/Android124"/>
+    <activity android:name=".animation.TestPropertyAniActivity"/>
+    <activity android:name=".canvas.TestCanvasActivity"/>
   </application>
 
 </manifest>

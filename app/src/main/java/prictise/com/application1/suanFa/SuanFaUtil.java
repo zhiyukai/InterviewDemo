@@ -1,5 +1,7 @@
 package prictise.com.application1.suanFa;
 
+import android.os.Handler;
+import android.os.Message;
 import java.util.Arrays;
 
 /**
@@ -152,10 +154,57 @@ public class SuanFaUtil {
 
   }
 
+  /*
+   * 字符串去重
+   * @ acvbabcd
+   * @param dest
+   * @return
+   */
+
+  public static String removeRepeatChar(String dest) {
+    StringBuffer sb = new StringBuffer();
+
+    for (int i = 0; i < dest.length(); i++) {
+
+      char charWord = dest.charAt(i);
+
+      int firstPosition = dest.indexOf(charWord);
+
+      int lastPosition = dest.lastIndexOf(charWord);
+
+      if (firstPosition == lastPosition || firstPosition == i) {
+
+        sb.append(charWord);
+
+      }
+    }
+    return sb.toString();
+  }
+
+  /*
+   * 2n+1个数，其中有n个数出现了两次，找出只出现了一次的那个数
+   * 任何数异或0值不变，任何数与自己异或值为0。
+   * @param arr
+   * @return
+   */
+  public static int findOneValue(int[] arr) {
+    int t = arr[0];
+    for (int i = 1; i < arr.length; i++) {
+      t ^= arr[i];
+    }
+    return t;
+  }
+
   public static void main(String[] args) {
+    int[] arr = {1, 2, 3, 4, 5, 4, 3, 2, 1};
+    int t = findOneValue(arr);
+    System.out.println("single  = " + t);
 //    String r = "122";
 //    getStringPermutations4(r.toCharArray(), 0, 2);
-    int a[] = {1, 2, 3};
-    Perm(a, 0, 2);
+//    int a[] = {1, 2, 3};
+//    Perm(a, 0, 2);
+
+//    String dest = "acvbabcd";
+//    System.out.println(removeRepeatChar(dest));
   }
 }

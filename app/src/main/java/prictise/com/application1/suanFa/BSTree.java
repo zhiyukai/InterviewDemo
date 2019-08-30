@@ -70,6 +70,8 @@ public class BSTree<T extends Comparable<T>> {
 //    tree.depthTraversal();
     System.out.println("----------查看是否是完全二叉树--------");
     System.out.println("is " + tree.isCompleteTreeNode());
+    System.out.println("----------查看是否平衡二叉树--------");
+    System.out.println("is " + tree.isBalanceTree());
 
     print(tree);
   }
@@ -695,6 +697,22 @@ public class BSTree<T extends Comparable<T>> {
       }
     }
     return true;
+  }
+
+  public boolean isBalanceTree() {
+    return maxDeath2(mRoot) != -1;
+  }
+
+  private int maxDeath2(BSTNode<T> node) {
+    if (node == null) {
+      return 0;
+    }
+    int left = maxDeath2(node.left);
+    int right = maxDeath2(node.right);
+    if (left == -1 || right == -1 || Math.abs(left - right) > 1) {
+      return -1;
+    }
+    return Math.max(left, right) + 1;
   }
 
   public class BSTNode<T extends Comparable<T>> {

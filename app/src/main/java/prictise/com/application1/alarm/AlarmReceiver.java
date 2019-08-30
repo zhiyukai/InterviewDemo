@@ -1,14 +1,9 @@
 package prictise.com.application1.alarm;
 
-import static android.content.Context.ALARM_SERVICE;
-
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import prictise.com.application1.MainApplication;
 import prictise.com.application1.utils.DateTimeUtil;
 import prictise.com.application1.utils.ToastUtil;
 

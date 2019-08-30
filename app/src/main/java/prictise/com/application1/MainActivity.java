@@ -16,6 +16,8 @@ import prictise.com.application1.FaceDetect.FaceDetectorActivity;
 import prictise.com.application1.alarmManager.AlarmManagerActivity;
 import prictise.com.application1.animation.AnimationActivity;
 import prictise.com.application1.animation.PropertyAnimationActivity;
+import prictise.com.application1.animation.TestPropertyAniActivity;
+import prictise.com.application1.canvas.TestCanvasActivity;
 import prictise.com.application1.circleImageView.CircleActivity;
 import prictise.com.application1.countDown.CountDownActivity;
 import prictise.com.application1.cus.CusActivity;
@@ -236,6 +238,16 @@ public class MainActivity extends Activity {
   @OnClick(R.id.bt_lanch_property_animation)
   public void lauchPropertyAnimationActivity() {
     startActivity(new Intent(this, PropertyAnimationActivity.class));
+  }
+
+  @OnClick(R.id.bt_lanch_test_property_animation)
+  public void lauchTestPropertyAnimationActivity() {
+    startActivity(new Intent(this, TestPropertyAniActivity.class));
+  }
+
+  @OnClick(R.id.bt_launch_test_canvas)
+  public void launchTestCanvasActivity() {
+    startActivity(new Intent(this, TestCanvasActivity.class));
   }
 
   @OnClick(R.id.bt_lanch_notify)

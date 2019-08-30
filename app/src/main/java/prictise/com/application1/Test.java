@@ -47,7 +47,50 @@ public class Test {
   }
 
   public static void main(String[] args) {
-    String s = "asdf";
-    getStringPermutations3(s.toCharArray(), 0, 3);
+//    String s = "asdf";
+//    getStringPermutations3(s.toCharArray(), 0, 3);
+
+//    String s = "asdfghkdsjjllii";
+//    s = s.replace('d', 'q');
+//    System.out.println(s);
+
+    Thread t1 = new Thread(new Runnable() {
+      @Override
+      public void run() {
+        System.out.println("t1");
+      }
+    }, "t1");
+    Thread t2 = new Thread(new Runnable() {
+      @Override
+      public void run() {
+        System.out.println("t2");
+      }
+    }, "t2");
+    Thread t3 = new Thread(new Runnable() {
+      @Override
+      public void run() {
+        System.out.println("t3");
+      }
+    }, "t3");
+
+    t3.start();
+    try {
+      t3.join();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    t2.start();
+    try {
+      t2.join();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+
+    t1.start();
+    try {
+      t1.join();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
   }
 }
