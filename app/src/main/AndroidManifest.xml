@@ -130,7 +130,10 @@
 
     <activity android:name=".asyncTask.AsyncTaskActivity" />
 
+    <activity android:name=".shipei.ShiPeiActivity" />
+
     <receiver android:name=".alarm.AlarmReceiver" />
+
     <receiver android:name=".alarmManager.DeleteLogAlarmReceiver">
       <intent-filter>
         <action android:name="android.com.delete.log.file" />
@@ -142,6 +145,25 @@
 
     <service android:name=".cusService.TestIntentService" />
   </application>
+  <uses-feature android:name="android.permission.camera" />
+  <uses-feature android:name="android.hardware.camera" />
+  <uses-feature android:name="android.hardware.camera.autofocus" />
+
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+  <uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+  <uses-permission android:name="android.permission.RECORD_AUDIO" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+  <uses-permission
+    android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+    tools:ignore="ProtectedPermissions" />
 
   <uses-feature android:name="android.permission.camera" />
   <uses-feature android:name="android.hardware.camera" />
