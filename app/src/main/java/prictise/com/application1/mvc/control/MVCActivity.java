@@ -23,7 +23,7 @@ public class MVCActivity extends Activity implements TrackCtrlView.TrackCtrlView
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_mvc_main);
+    setContentView(R.layout.activity_mvc_main1);
     trackCtrlView = new TrackCtrlView(this, this);
     EventBus.getDefault().register(this);
     trackRecordInfo = TrackRecordInfo.loadTrackRecordInfo();

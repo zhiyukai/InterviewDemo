@@ -53,6 +53,7 @@ import prictise.com.application1.pictureMemory.PictureCompressActivity;
 import prictise.com.application1.pictureMemory.PictureMemoryActivity;
 import prictise.com.application1.qiniu.activity.QiniuActivity;
 import prictise.com.application1.rippeview.RippleActivity;
+import prictise.com.application1.shipei.ShiPeiActivity;
 import prictise.com.application1.testConstraintLayout.ConstraintLayoutActivity;
 import prictise.com.application1.testStackActivity.MainStackActivity;
 import prictise.com.application1.wheel.WheelActivity;
@@ -387,5 +388,9 @@ public class MainActivity extends Activity {
     startActivity(new Intent(this, AsyncTaskActivity.class));
   }
 
+  @OnClick(R.id.bt_launch_shipei)
+  public void launchShiPei() {
+    startActivity(new Intent(this, ShiPeiActivity.class));
+  }
 
 }

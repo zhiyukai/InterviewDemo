@@ -208,6 +208,11 @@
       android:text="测试Fragment" />
 
     <Button
+
+      android:id="@+id/bt_launch_shipei"
+      style="@style/ButtonStyle"
+      android:text="测试适配" />
+    <Button
       android:id="@+id/bt_launch_test_intent"
       style="@style/ButtonStyle"
       android:text="测试Intent" />
