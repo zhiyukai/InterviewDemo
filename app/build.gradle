@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -17,6 +19,11 @@ android {
         }
 
     }
+
+//    compileOptions {
+//        sourceCompatibility 1.8
+//        targetCompatibility 1.8
+//    }
     buildTypes {
         release {
             minifyEnabled false
@@ -52,4 +59,8 @@ dependencies {
     annotationProcessor "org.greenrobot:eventbus-annotation-processor:$eventbus_version"
 
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

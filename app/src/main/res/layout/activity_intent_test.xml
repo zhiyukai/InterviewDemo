@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+      android:id="@+id/bt_launch_distinct"
+      style="@style/ButtonStyle"
+      android:text="显示调用" />
+
+    <Button
+      android:id="@+id/bt_launch_hide"
+      style="@style/ButtonStyle"
+      android:text="隐式调用" />
+
+
+  </LinearLayout>
+</ScrollView>

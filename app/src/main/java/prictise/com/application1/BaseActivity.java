@@ -1,8 +1,18 @@
 package prictise.com.application1;
 
+import static com.android.volley.Request.Method.GET;
+
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.HandlerThread;
 import android.support.annotation.Nullable;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response.ErrorListener;
+import com.android.volley.Response.Listener;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -22,7 +32,9 @@ public class BaseActivity extends Activity {
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     EventBus.getDefault().register(this);
+
   }
+
 
   @Subscribe(threadMode = ThreadMode.BACKGROUND)
   public void onEventTest(final EventBusTest eventBusTest) {

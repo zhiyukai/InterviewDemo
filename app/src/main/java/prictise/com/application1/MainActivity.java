@@ -8,15 +8,18 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import java.io.File;
 import java.lang.reflect.Proxy;
 import prictise.com.application1.FaceDetect.FaceDetectorActivity;
 import prictise.com.application1.alarmManager.AlarmManagerActivity;
 import prictise.com.application1.animation.AnimationActivity;
 import prictise.com.application1.animation.PropertyAnimationActivity;
 import prictise.com.application1.animation.TestPropertyAniActivity;
+import prictise.com.application1.asyncTask.AsyncTaskActivity;
 import prictise.com.application1.canvas.TestCanvasActivity;
 import prictise.com.application1.circleImageView.CircleActivity;
 import prictise.com.application1.countDown.CountDownActivity;
@@ -35,6 +38,7 @@ import prictise.com.application1.fragment.FragmentMainActivity;
 import prictise.com.application1.gridview.GridViewActivity;
 import prictise.com.application1.gridview.RecycleGridViewActivity;
 import prictise.com.application1.gridview.pulltorefresh.PullRefreshActivity;
+import prictise.com.application1.intent.IntentActivity;
 import prictise.com.application1.lifecycle.SingleInstanceActivity;
 import prictise.com.application1.lifecycle.SingleTaskActivity;
 import prictise.com.application1.lifecycle.SingleTopActivity;
@@ -77,6 +81,8 @@ public class MainActivity extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     ButterKnife.bind(this);
+
+    ImageView iv = new ImageView(this);
 //    HookUtil hookUtil = new HookUtil();
 //    hookUtil.hookStartActivity(this);
 
@@ -146,6 +152,17 @@ public class MainActivity extends Activity {
     long totalROMSize = tcounts * size; //内部存储总大小
 
     Log.e("手机内存", "内存：" + totalROMSize);
+
+//    Glide.with(this).load("").into(iv);
+    File f = new File("");
+    f.length();
+
+  }
+
+  @Override
+  protected void onDestroy() {
+    super.onDestroy();
+
   }
 
   @OnClick(R.id.bt_lanch_standard)
@@ -358,6 +375,16 @@ public class MainActivity extends Activity {
   @OnClick(R.id.bt_lanch_fragment)
   public void launchFragment() {
     startActivity(new Intent(this, FragmentMainActivity.class));
+  }
+
+  @OnClick(R.id.bt_launch_test_intent)
+  public void launchTestIntentActivity() {
+    startActivity(new Intent(this, IntentActivity.class));
+  }
+
+  @OnClick(R.id.bt_lunch_async_task)
+  public void lunchAsyncActivity() {
+    startActivity(new Intent(this, AsyncTaskActivity.class));
   }
 
 

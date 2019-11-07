@@ -36,23 +36,23 @@ public class MapActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i < 10; i++) {
-                    test(10 * 10000);
-                }
-
-                LogcatUtils.showELog(TAG, "hashMapW = " + hashMapW / 10);
-                LogcatUtils.showELog(TAG, "hashMapR = " + hashMapR / 10);
-                LogcatUtils.showELog(TAG, "linkMapW = " + linkMapW / 10);
-                LogcatUtils.showELog(TAG, "linkMapR = " + linkMapR / 10);
-                LogcatUtils.showELog(TAG, "treeMapW = " + treeMapW / 10);
-                LogcatUtils.showELog(TAG, "treeMapR = " + treeMapR / 10);
-                LogcatUtils.showELog(TAG, "hashTableW = " + hashTableW / 10);
-                LogcatUtils.showELog(TAG, "hashTableR = " + hashTableR / 10);
-            }
-        }).start();
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                for (int i = 0; i < 10; i++) {
+//                    test(10 * 10000);
+//                }
+//
+//                LogcatUtils.showELog(TAG, "hashMapW = " + hashMapW / 10);
+//                LogcatUtils.showELog(TAG, "hashMapR = " + hashMapR / 10);
+//                LogcatUtils.showELog(TAG, "linkMapW = " + linkMapW / 10);
+//                LogcatUtils.showELog(TAG, "linkMapR = " + linkMapR / 10);
+//                LogcatUtils.showELog(TAG, "treeMapW = " + treeMapW / 10);
+//                LogcatUtils.showELog(TAG, "treeMapR = " + treeMapR / 10);
+//                LogcatUtils.showELog(TAG, "hashTableW = " + hashTableW / 10);
+//                LogcatUtils.showELog(TAG, "hashTableR = " + hashTableR / 10);
+//            }
+//        }).start();
     }
 
     public void test(int size) {

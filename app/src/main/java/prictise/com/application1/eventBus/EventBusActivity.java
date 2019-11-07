@@ -53,6 +53,7 @@ public class EventBusActivity extends BaseActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_event_bus);
     ButterKnife.bind(this);
+
   }
 
   @Override
