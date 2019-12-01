@@ -166,6 +166,11 @@ public class MainActivity extends Activity {
 
   }
 
+  @OnClick(R.id.bt_lanch_pay)
+  public void lanchPay() {
+    startActivity(new Intent(this, TestPay.class));
+  }
+
   @OnClick(R.id.bt_lanch_standard)
   public void standardClick() {
     startActivity(new Intent(this, StandardActivity.class));

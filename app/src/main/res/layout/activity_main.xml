@@ -9,6 +9,11 @@
     android:orientation="vertical">
 
     <Button
+      android:id="@+id/bt_lanch_pay"
+      style="@style/ButtonStyle"
+      android:text="支付" />
+
+    <Button
       android:id="@+id/bt_lanch_picture_memory"
       style="@style/ButtonStyle"
       android:text="@string/launch_picture_memory" />

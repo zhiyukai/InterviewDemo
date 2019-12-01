@@ -2,11 +2,35 @@ package prictise.com.application1.testJava;
 
 public class Test {
 
-  public static void main(String[] args) {
-    Outter outter = new Outter();
-    outter.new Inner().print(3);
+  static void another(F f, int i) {
+    f.d = 10;
+    another1(f, 2);
+    System.out.println("f.d = " + f.d);
+
+    String s1 = new String("ddd");
+    another2(s1);
+    System.out.println("s1 = " + s1);
   }
 
+  static void another1(F f, int i) {
+//    F fa = new F();
+//    f = fa;
+    f.d = 99;
+    i = 5;
+  }
+
+  static void another2(String s) {
+    s = "as";
+  }
+
+  public static void main(String[] args) {
+    F f = new F();
+    f.d = 90;
+    int i = 9;
+    another(f, i);
+
+    System.out.println("f.d = " + f.d + "; i = " + i);
+  }
 }
 
 class Outter {
@@ -28,4 +52,5 @@ class Outter {
       Outter.this.a = 5;
     }
   }
+
 }

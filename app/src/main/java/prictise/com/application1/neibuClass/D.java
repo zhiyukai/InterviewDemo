@@ -6,7 +6,10 @@ package prictise.com.application1.neibuClass;
  * @Comment
  */
 public class D extends C {
-  protected void testC() {
 
+  final String a;
+
+  public D() {
+    a = "a";
   }
 }

@@ -2,6 +2,7 @@ package prictise.com.application1.dynamicProxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import prictise.com.application1.utils.LogcatUtils;
 
 public class VehicalInvacationHandler implements InvocationHandler {
@@ -16,7 +17,7 @@ public class VehicalInvacationHandler implements InvocationHandler {
 
   public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
     LogcatUtils.showDLog(TAG, "---------before-------");
-    LogcatUtils.showDLog(TAG, "proxy = " + proxy.getClass().getCanonicalName());
+    LogcatUtils.showDLog(TAG, "proxy = " + proxy.getClass().getSimpleName());
     LogcatUtils.showDLog(TAG, "method = " + method.getName());
     if (args != null) {
       for (int i = 0; i < args.length; i++) {
@@ -30,4 +31,12 @@ public class VehicalInvacationHandler implements InvocationHandler {
 
     return invoke;
   }
+
+  public static void main(String[] args) {
+    IVehical c = new Car();
+    IVehical iVehical = (IVehical) Proxy.newProxyInstance(IVehical.class.getClassLoader(), new Class[]{IVehical.class},
+        new VehicalInvacationHandler(c));
+    iVehical.run("s");
+  }
+
 }
