@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
+
+  <Button
+    android:id="@+id/bt_test_sample"
+    style="@style/ButtonStyle"
+    android:text="测试sample" />
+  <Button
+    android:id="@+id/bt_test_publish_sample"
+    style="@style/ButtonStyle"
+    android:text="测试publish_sample" />
+
+  <Button
+    android:id="@+id/bt_test_rxjava"
+    style="@style/ButtonStyle"
+    android:text="测试" />
+  <Button
+    android:id="@+id/bt_test_map_flatmap"
+    style="@style/ButtonStyle"
+    android:text="测试Map_FlatMap" />
+
+</LinearLayout>
