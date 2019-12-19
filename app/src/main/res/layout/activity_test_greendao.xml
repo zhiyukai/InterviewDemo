@@ -5,21 +5,44 @@
   android:orientation="vertical">
 
   <Button
-    android:id="@+id/bt_test_sample"
+    android:id="@+id/bt_add"
     style="@style/ButtonStyle"
-    android:text="测试sample" />
+    android:text="Add" />
+
+  <EditText
+    android:id="@+id/et_time_id"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
   <Button
-    android:id="@+id/bt_test_publish_sample"
+    android:id="@+id/bt_delete"
     style="@style/ButtonStyle"
-    android:text="测试publish_sample" />
+    android:text="delete" />
+  <EditText
+    android:id="@+id/et_update"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+  <Button
+    android:id="@+id/bt_update"
+    style="@style/ButtonStyle"
+    android:text="update" />
+
+  <EditText
+    android:id="@+id/et_id"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+  <Button
+    android:id="@+id/bt_find"
+    style="@style/ButtonStyle"
+    android:text="find" />
 
   <Button
-    android:id="@+id/bt_test_rxjava"
+    android:id="@+id/bt_find_other_thread"
     style="@style/ButtonStyle"
-    android:text="测试" />
+    android:text="other thread find" />
+
   <Button
-    android:id="@+id/bt_test_map_flatmap"
+    android:id="@+id/bt_delete_all"
     style="@style/ButtonStyle"
-    android:text="测试Map_FlatMap" />
+    android:text="delete all" />
 
 </LinearLayout>

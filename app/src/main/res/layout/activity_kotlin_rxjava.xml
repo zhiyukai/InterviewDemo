@@ -3,14 +3,33 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:orientation="vertical">
-  <Button
-    android:id="@+id/bt_add_data"
-    style="@style/ButtonStyle"
-    android:text="添加数据" />
 
   <Button
-    android:id="@+id/bt_find_data"
+    android:id="@+id/bt_test_file_sort"
     style="@style/ButtonStyle"
-    android:text="查询数据" />
+    android:text="测试文件排序" />
+
+  <Button
+    android:id="@+id/bt_download_pic"
+    style="@style/ButtonStyle"
+    android:text="测试下载图片" />
+
+  <Button
+    android:id="@+id/bt_test_sample"
+    style="@style/ButtonStyle"
+    android:text="测试sample" />
+  <Button
+    android:id="@+id/bt_test_publish_sample"
+    style="@style/ButtonStyle"
+    android:text="测试publish_sample" />
+
+  <Button
+    android:id="@+id/bt_test_rxjava"
+    style="@style/ButtonStyle"
+    android:text="测试" />
+  <Button
+    android:id="@+id/bt_test_map_flatmap"
+    style="@style/ButtonStyle"
+    android:text="测试Map_FlatMap" />
 
 </LinearLayout>

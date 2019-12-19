@@ -12,7 +12,7 @@ import java.util.zip.GZIPInputStream;
 
 /**
  * @Author zhisiyi
- * @Date 2019.11.07 15:45
+ * @Date 2019.11.07
  * @Comment
  */
 public class UnZipFile {

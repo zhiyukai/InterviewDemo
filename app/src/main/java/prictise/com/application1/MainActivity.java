@@ -13,7 +13,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import java.io.File;
-import java.lang.reflect.Proxy;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLSession;
+import okhttp3.OkHttpClient;
 import prictise.com.application1.FaceDetect.FaceDetectorActivity;
 import prictise.com.application1.alarmManager.AlarmManagerActivity;
 import prictise.com.application1.animation.AnimationActivity;
@@ -29,9 +31,7 @@ import prictise.com.application1.cusListview.weightPullLoadmore.RefreshListView2
 import prictise.com.application1.cusService.TestIntentService;
 import prictise.com.application1.cusview.CusViewActivity;
 import prictise.com.application1.dialog.DialogActivity;
-import prictise.com.application1.dynamicProxy.Car;
-import prictise.com.application1.dynamicProxy.IVehical;
-import prictise.com.application1.dynamicProxy.VehicalInvacationHandler;
+import prictise.com.application1.dynamicProxy.DynamicProxyActvity;
 import prictise.com.application1.eventBus.EventBusActivity;
 import prictise.com.application1.eventDispatch.EventDispatchActivity;
 import prictise.com.application1.fragment.FragmentMainActivity;
@@ -39,6 +39,9 @@ import prictise.com.application1.gridview.GridViewActivity;
 import prictise.com.application1.gridview.RecycleGridViewActivity;
 import prictise.com.application1.gridview.pulltorefresh.PullRefreshActivity;
 import prictise.com.application1.intent.IntentActivity;
+import prictise.com.application1.kotlin.database.KotlinMainActivity;
+import prictise.com.application1.kotlin.rxjava.JavaRxjavaTestActivity;
+import prictise.com.application1.kotlin.rxjava.RxJavaActivity;
 import prictise.com.application1.lifecycle.SingleInstanceActivity;
 import prictise.com.application1.lifecycle.SingleTaskActivity;
 import prictise.com.application1.lifecycle.SingleTopActivity;
@@ -54,6 +57,8 @@ import prictise.com.application1.pictureMemory.PictureMemoryActivity;
 import prictise.com.application1.qiniu.activity.QiniuActivity;
 import prictise.com.application1.rippeview.RippleActivity;
 import prictise.com.application1.testConstraintLayout.ConstraintLayoutActivity;
+import prictise.com.application1.testEdittext.TestEditTextActivity;
+import prictise.com.application1.testGreendao.TestGreenDaoActivity;
 import prictise.com.application1.testStackActivity.MainStackActivity;
 import prictise.com.application1.wheel.WheelActivity;
 
@@ -85,13 +90,6 @@ public class MainActivity extends Activity {
     ImageView iv = new ImageView(this);
 //    HookUtil hookUtil = new HookUtil();
 //    hookUtil.hookStartActivity(this);
-
-    IVehical car = new Car();
-
-    IVehical vehical = (IVehical) Proxy
-        .newProxyInstance(car.getClass().getClassLoader(), Car.class.getInterfaces(),
-            new VehicalInvacationHandler(car));
-    vehical.run("s");
 
     SyncStack stack = new SyncStack();
 //    Consumer c = new Consumer(stack);
@@ -162,7 +160,37 @@ public class MainActivity extends Activity {
   @Override
   protected void onDestroy() {
     super.onDestroy();
+  }
 
+  @OnClick(R.id.bt_lunch_test_greendao_crud)
+  public void testGreenDaoCRUD() {
+    startActivity(
+        new Intent(this, prictise.com.application1.kotlin.greendao.GreenDaoTestActivity.class));
+  }
+
+  @OnClick(R.id.bt_lunch_dynamic_proxy)
+  public void testDynamicClick() {
+    startActivity(new Intent(this, DynamicProxyActvity.class));
+  }
+
+  @OnClick(R.id.bt_lunch_test_edittext)
+  public void testEdittextClick() {
+    startActivity(new Intent(this, TestEditTextActivity.class));
+  }
+
+  @OnClick(R.id.bt_lunch_greendao)
+  public void testGreenDaoClick() {
+    startActivity(new Intent(this, TestGreenDaoActivity.class));
+  }
+
+  @OnClick(R.id.bt_lunch_javarxjava)
+  public void testJavaRxJavaClick() {
+    startActivity(new Intent(this, JavaRxjavaTestActivity.class));
+  }
+
+  @OnClick(R.id.bt_lunch_rxjava)
+  public void testRxJavaClick() {
+    startActivity(new Intent(this, RxJavaActivity.class));
   }
 
   @OnClick(R.id.bt_lanch_standard)
@@ -385,6 +413,11 @@ public class MainActivity extends Activity {
   @OnClick(R.id.bt_lunch_async_task)
   public void lunchAsyncActivity() {
     startActivity(new Intent(this, AsyncTaskActivity.class));
+  }
+
+  @OnClick(R.id.bt_lunch_kotlin)
+  public void lunchKotlinActivity() {
+    startActivity(new Intent(this, KotlinMainActivity.class));
   }
 
 

@@ -1,14 +1,24 @@
 package prictise.com.application1.kotlin
 
+import android.app.Activity
+import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
+import kotlinx.android.synthetic.main.activity_main.view.*
 
 /**
  * @Author zhisiyi
  * @Date 2019.11.06 17:47
  * @Comment
  */
-class BaseKt {
+class BaseKt :Activity(){
     var initialized = 1
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        var editText = EditText(this)
+        editText.setText("sss")
+        editText.text.append("ssss")
+    }
 
     // Private function, so the return type is the anonymous object type
     private fun foo() = object {
@@ -126,19 +136,20 @@ class BaseKt {
 //            println("s.len = ${s.length}")
 
 
-            val user = User("Kotlin", 1, "1111111")
+            /*val user = User("Kotlin", 1, "1111111")
 
             val result = user?.run {
                 println("my name is $name, I am $age years old, my phone number is $phoneNum")
                 "end"
             }
             println("result: $result")
+            */
             /**
              * 整体作用功能和run函数很像，唯一不同点就是它返回的值是对象本身，而run函数是一个闭包形式返回，返回的是最后一行的值。
              * 正是基于这一点差异它的适用场景稍微与run函数有点不一样。apply一般用于一个对象实例初始化的时候，
              * 需要对对象中的属性进行赋值。或者动态inflate出一个XML的View的时候需要给View绑定数据也会用到，
              * 这种情景非常常见。特别是在我们开发中会有一些数据model向View model转化实例化的过程中需要用到。
-             */
+             *//*
 
             val result3 = user.apply {
                 println("my name is $name, I am $age years old, my phone number is $phoneNum")
@@ -159,6 +170,75 @@ class BaseKt {
                 1000
             }
             println("result5 = " + result5)
+
+            var talker: String? = null
+            println("result6 = " + talker?.length)
+            val test2: (Int, Int) -> Int = { a, b -> a + b }
+            println("result7 = " + test2(34,86))
+
+
+            val list = listOf("Hello", "World",'!')
+            list.forEach{
+                print("$it ")  //这里的it指代被遍历的list中的值
+            }
+
+            fun test3(a: String?, b: String): String? {
+                return a + b
+            }
+
+            println("result8 = " + test3(null,"李四"))*/
+
+
+//            var type = 3
+//            when (type) {
+//                1 -> println("1")
+//                2, 3 -> println("2,3")
+//                else ->
+//                    println("else")
+//            }
+
+//            for (index in 1 until 10) {
+//                println(index)
+//            }
+
+//            Glide.with(MainApplication.getApplicationInstance()).load("")
+//                    .asBitmap().toBytes().into();
+
+//            Glide.with(MainApplication.getApplicationInstance()).load(url).asBitmap().toBytes()
+//                    .into(object : SimpleTarget<ByteArray>() {
+//                        override fun onResourceReady(bytes: ByteArray, glideAnimation: GlideAnimation<in ByteArray>) {
+//                            Observable.just(bytes).subscribeOn(Schedulers.io()).subscribe(
+//                                    object : Observer<ByteArray> {
+//                                        override fun onSubscribe(d: Disposable) {
+//
+//                                        }
+//
+//                                        override fun onNext(bytes: ByteArray) {
+//                                            try {
+//                                                saveFileToSD(fileName, bytes)
+//                                            } catch (e: Exception) {
+//                                                e.printStackTrace()
+//                                            }
+//
+//                                        }
+//
+//                                        override fun onError(e: Throwable) {
+//
+//                                        }
+//
+//                                        override fun onComplete() {
+//
+//                                        }
+//                                    })
+//                        }
+//                    })
+
+            var filesList = listOf("1574169689734.jpg", "1574169689734.jpg", "1574169689752.jpg")
+            var len = filesList.size
+            for (i in 0 until len) {
+                var file = filesList[i]
+                println(file)
+            }
         }
 
     }

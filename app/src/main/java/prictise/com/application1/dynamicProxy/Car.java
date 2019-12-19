@@ -2,7 +2,8 @@ package prictise.com.application1.dynamicProxy;
 
 public class Car implements IVehical {
 
-  public void run(String s) {
+  @Override
+  public void run(String s, int a) {
     System.out.println("Car会跑");
   }
 }

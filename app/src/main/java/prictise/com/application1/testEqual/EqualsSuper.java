@@ -6,5 +6,7 @@ package prictise.com.application1.testEqual;
  * @Comment
  */
 public class EqualsSuper {
-
+    protected void testEquals() {
+        System.out.println("super test equals");
+    }
 }

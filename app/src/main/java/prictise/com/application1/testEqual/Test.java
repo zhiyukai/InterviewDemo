@@ -7,4 +7,8 @@ package prictise.com.application1.testEqual;
  */
 public class Test {
 
+    public static void main(String[] args) {
+        EqualsSubclass equalsSubclass = new EqualsSubclass();
+        equalsSubclass.testEquals();
+    }
 }

@@ -1,4 +1,4 @@
-package com.sunlands.chatagent.utils
+package prictise.com.application1.kotlin.rxjava
 
 /**
  * Description: $Description$

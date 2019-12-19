@@ -4,10 +4,10 @@
   package="prictise.com.application1">
 
   <application
+    android:name=".MainApplication"
     android:allowBackup="true"
     android:icon="@mipmap/interview"
     android:label="Test"
-    android:name=".MainApplication"
     android:roundIcon="@mipmap/interview"
     android:supportsRtl="true"
     android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar">
@@ -19,28 +19,30 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+    <activity android:name=".testEdittext.TestEditTextActivity" />
+    <activity android:name=".dynamicProxy.DynamicProxyActvity" />
     <activity
-      android:configChanges="screenSize|keyboardHidden|orientation"
-      android:name=".lifecycle.StandardActivity" />
+      android:name=".lifecycle.StandardActivity"
+      android:configChanges="screenSize|keyboardHidden|orientation" />
     <activity android:name=".lifecycle.StandardActivity2" />
     <activity
-      android:launchMode="singleTop"
-      android:name=".lifecycle.SingleTopActivity" />
+      android:name=".lifecycle.SingleTopActivity"
+      android:launchMode="singleTop" />
     <activity
-      android:launchMode="singleTask"
-      android:name=".lifecycle.SingleTaskActivity" />
+      android:name=".lifecycle.SingleTaskActivity"
+      android:launchMode="singleTask" />
     <activity
-      android:launchMode="singleTask"
-      android:name=".lifecycle.SingleTask2Activity" />
+      android:name=".lifecycle.SingleTask2Activity"
+      android:launchMode="singleTask" />
     <activity
-      android:launchMode="singleInstance"
-      android:name=".lifecycle.SingleInstanceActivity" />
+      android:name=".lifecycle.SingleInstanceActivity"
+      android:launchMode="singleInstance" />
     <activity
-      android:launchMode="standard"
-      android:name=".pictureMemory.PictureMemoryActivity" />
+      android:name=".pictureMemory.PictureMemoryActivity"
+      android:launchMode="standard" />
     <activity
-      android:launchMode="standard"
-      android:name=".pictureMemory.PictureCompressActivity" />
+      android:name=".pictureMemory.PictureCompressActivity"
+      android:launchMode="standard" />
     <activity android:name=".cus.CusActivity" />
 
     <activity android:name=".onActivityResult.StandardActivity" />
@@ -48,11 +50,11 @@
     <activity android:name=".onActivityResult.StandardActivity2" />
 
     <activity
-      android:launchMode="singleTask"
-      android:name=".onActivityResult.SingleTaskActivity" />
+      android:name=".onActivityResult.SingleTaskActivity"
+      android:launchMode="singleTask" />
     <activity
-      android:allowTaskReparenting="true"
       android:name=".testTaskAffinity.TaskAffinityActivity"
+      android:allowTaskReparenting="true"
       android:taskAffinity="com.winuxxan" />
 
     <activity android:name=".cusview.CusViewActivity" />
@@ -70,8 +72,8 @@
     <activity android:name=".log.LogActivity" />
     <activity android:name=".wheel.WheelActivity" />
     <activity
-      android:exported="true"
-      android:name=".FaceDetect.FaceDetectorActivity" />
+      android:name=".FaceDetect.FaceDetectorActivity"
+      android:exported="true" />
 
     <activity android:name=".gridview.RecycleGridViewActivity" />
 
@@ -96,18 +98,18 @@
     <activity android:name=".eventBus.EventBusActivity" />
     <activity android:name=".testStackActivity.MainStackActivity" />
     <activity
-      android:launchMode="singleInstance"
-      android:name=".testStackActivity.SingleInstanceStackActivity" />
+      android:name=".testStackActivity.SingleInstanceStackActivity"
+      android:launchMode="singleInstance" />
     <activity
-      android:launchMode="singleInstance"
-      android:name=".testStackActivity.SingleInstanceStackActivity2" />
+      android:name=".testStackActivity.SingleInstanceStackActivity2"
+      android:launchMode="singleInstance" />
     <activity
-      android:launchMode="singleTask"
-      android:name=".testStackActivity.SingleTaskStackActivity" />
+      android:name=".testStackActivity.SingleTaskStackActivity"
+      android:launchMode="singleTask" />
 
     <activity
-      android:launchMode="singleTop"
-      android:name=".testStackActivity.SingleTopStackActivity" />
+      android:name=".testStackActivity.SingleTopStackActivity"
+      android:launchMode="singleTop" />
 
     <activity android:name=".testConstraintLayout.ConstraintLayoutActivity" />
     <activity android:name=".hook.ProxyActivity" />
@@ -130,6 +132,12 @@
 
     <activity android:name=".asyncTask.AsyncTaskActivity" />
 
+    <activity android:name=".kotlin.database.KotlinMainActivity" />
+    <activity android:name=".kotlin.rxjava.RxJavaActivity" />
+    <activity android:name=".kotlin.rxjava.JavaRxjavaTestActivity" />
+    <activity android:name=".testGreendao.TestGreenDaoActivity" />
+    <activity android:name=".kotlin.greendao.GreenDaoTestActivity" />
+
     <receiver android:name=".alarm.AlarmReceiver" />
     <receiver android:name=".alarmManager.DeleteLogAlarmReceiver">
       <intent-filter>
@@ -141,6 +149,22 @@
     <service android:name=".alarm.AlarmService" />
 
     <service android:name=".cusService.TestIntentService" />
+
+
+    <service
+      android:name=".kotlin.rxjava.AccessServer"
+      android:enabled="true"
+      android:exported="true"
+      android:label="@string/app_name"
+      android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+      <intent-filter>
+        <action android:name="android.accessibilityservice.AccessibilityService" />
+      </intent-filter>
+      <meta-data
+        android:name="android.accessibilityservice"
+        android:resource="@xml/auto_reply_service_config" />
+    </service>
+
   </application>
 
   <uses-feature android:name="android.permission.camera" />
@@ -150,7 +174,7 @@
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
   <uses-permission android:name="android.permission.CAMERA" />
   <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
   <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -158,7 +182,6 @@
   <uses-permission android:name="android.permission.WAKE_LOCK" />
 
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
   <uses-permission
     android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
     tools:ignore="ProtectedPermissions" />

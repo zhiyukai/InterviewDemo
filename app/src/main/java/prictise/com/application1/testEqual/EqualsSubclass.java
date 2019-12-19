@@ -7,4 +7,9 @@ package prictise.com.application1.testEqual;
  */
 public class EqualsSubclass extends EqualsSuper {
 
+    @Override
+    protected void testEquals() {
+//        super.testEquals();
+        System.out.println("subclass test Equals.");
+    }
 }
