@@ -11,9 +11,9 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:accessibilityEventTypes="typeAllMask"
   android:accessibilityFeedbackType="feedbackGeneric"
-  android:accessibilityFlags="flagDefault"
+  android:accessibilityFlags="flagDefault|flagRetrieveInteractiveWindows"
   android:canRequestFilterKeyEvents="true"
   android:canRetrieveWindowContent="true"
-  android:description="@string/string_origin"
+  android:description="@string/accessibility_service"
   android:notificationTimeout="1"
-  android:packageNames="com.tencent.mm"/>
+  android:packageNames="com.tencent.mm,com.android.packageinstaller,com.google.android.packageinstaller"/>

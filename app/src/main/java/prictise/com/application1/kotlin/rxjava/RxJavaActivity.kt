@@ -9,14 +9,20 @@ import android.os.Environment
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.ProgressBar
 import io.reactivex.Observable
 import io.reactivex.Observer
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
+import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
 import prictise.com.application1.R
 import prictise.com.application1.retrofit2.RetrofitManager
 import prictise.com.application1.utils.LogcatUtils
+import zlc.season.rxdownload4.download
+import zlc.season.rxdownload4.manager.file
+import zlc.season.rxdownload4.manager.manager
 import java.io.*
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -33,6 +39,7 @@ class RxJavaActivity : Activity() {
 
     var mTestRxjava: Button? = null;
     var mTestMapFlatMap: Button? = null;
+    var mAppProgress: ProgressBar? = null
     var mA = 23;
     var mB = 32;
     var cmb: ClipboardManager? = null
@@ -49,13 +56,86 @@ class RxJavaActivity : Activity() {
 
     private fun initAccessServer() {
         val open = mutableListOf(Keys.POINT_SERVICES_ORDER, Keys.ENABLE_SERVICE_PUT)
-        execCmd(open?.toTypedArray(),isRoot = true, isNeedResultMsg = true)
+        execCmd(open?.toTypedArray(), isRoot = true, isNeedResultMsg = true)
     }
 
     private fun initValue() {
     }
 
     private fun initListener() {
+
+        findViewById<Button>(R.id.bt_test_maybe).setOnClickListener() {
+
+        }
+
+        findViewById<Button>(R.id.bt_test_rxdownload).setOnClickListener() {
+//            val url = "http://dragnet-sunlands.oss-cn-beijing.aliyuncs.com/android/platform/chatagent_v3.1.15_wechat-server_d8f9c626_release.apk";
+            val url = "";
+            val taskM = url.manager()
+            url.download()
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .delaySubscription(800, TimeUnit.MILLISECONDS)
+                    .subscribeBy(
+                            onNext = { progress ->
+                                mTestRxjava?.setText(progress.percentStr() + "")
+                                LogcatUtils.showDLog(TAG, "progress.downloadSize = " + progress.downloadSize
+                                        + "progress.percentStr() = " + progress.percentStr())
+                                mAppProgress?.progress = progress.percent().toInt()
+                            },
+                            onComplete = {
+                                LogcatUtils.showDLog(TAG, "下载完成")
+                                val file = taskM.file()
+                                LogcatUtils.showDLog(TAG, "file = $file")
+                            },
+                            onError = {
+                                LogcatUtils.showDLog(TAG, "error = " + it.localizedMessage)
+                            }
+                    )
+
+            LogcatUtils.showDLog(TAG, "测试阻塞.")
+        }
+
+//        findViewById<Button>(R.id.bt_test_rxdownload).setOnClickListener() {
+////            val url = "http://dragnet-sunlands.oss-cn-beijing.aliyuncs.com/android/platform/chatagent_v3.1.19_wechat-server_a6e0d4d0_release.apk";
+//            val url = "http://dragnet-sunlands.oss-cn-beijing.aliyuncs.com/android/platform/chatagent_v3.1.15_wechat-server_d8f9c626_release.apk";
+//            RxDownload.file(url)
+//            Observable.just(1)
+//                    .toFlowable(BackpressureStrategy.BUFFER)
+//                    .flatMap {
+//                        LogcatUtils.showDLog(TAG, "RxDownload.isExists(url) = " + RxDownload.isExists(url))
+//                        RxDownload.clearAll()
+//                        RxDownload.create(url, true) }
+//                    .subscribe({
+//                        LogcatUtils.showDLog(TAG, "updateAppVersion url apk download status "
+//                                + "it.chunkFlag = "+it.chunkFlag
+//                                +"it.downloadSize = " + it.downloadSize
+//                                +"it.totalSize = " + it.totalSize
+//                                +"it.formatDownloadSize() = " + it.formatDownloadSize()
+//                                +"it.formatString() = " + it.formatString()
+//                                +"it.formatTotalSize() = "+it.formatTotalSize()
+//                                +"it.percent() = " + it.percent());
+//                        // updateAppVersion url apk download status zlc.season.rxdownload3.core.g@c05a8dd
+//                        when (it) {
+//                            is Succeed -> {
+//                                LogcatUtils.showELog(TAG, "updateAppVersion url apk download Succeed")
+//                            }
+//                            is Failed -> {
+//                                LogcatUtils.showELog(TAG, "updateAppVersion download apk Failed ${it.throwable}")
+////                                clearDownloadFile(url)
+//                                RxDownload.delete(url, true)
+//                                RxDownload.clear(url)
+//                            }
+//                            is Deleted -> {
+//                                LogcatUtils.showELog(TAG, "updateAppVersion download apk Deleted $it")
+////                                clearDownloadFile(url)
+//                                RxDownload.delete(url, true)
+//                                RxDownload.clear(url)
+//                            }
+//                        }
+//                    }, {
+//                        LogcatUtils.showELog(TAG, "updateAppVersion onError  ${it.localizedMessage}")
+//                    })
+//        }
 
         findViewById<Button>(R.id.bt_test_file_sort).setOnClickListener() {
             val path = Environment.getExternalStorageDirectory().absolutePath
@@ -218,7 +298,7 @@ class RxJavaActivity : Activity() {
     private fun initView() {
         mTestRxjava = findViewById(R.id.bt_test_rxjava)
         mTestMapFlatMap = findViewById(R.id.bt_test_map_flatmap)
-
+        mAppProgress = findViewById(R.id.app_progress)
     }
 
     /**

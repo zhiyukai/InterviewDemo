@@ -1,5 +1,6 @@
 package prictise.com.application1;
 
+import android.os.SystemClock;
 import com.bumptech.glide.Glide;
 import java.util.Arrays;
 import java.util.List;
@@ -51,6 +52,10 @@ public class Test {
   }
 
   public static void main(String[] args) {
+    long time = SystemClock.currentThreadTimeMillis();
+    long time2 = System.currentTimeMillis();
+    System.out.println("time = " + time);
+    System.out.println("time2 = " + time2);
 //    String s = "asdf";
 //    getStringPermutations3(s.toCharArray(), 0, 3);
 

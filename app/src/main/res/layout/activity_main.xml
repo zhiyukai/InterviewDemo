@@ -9,6 +9,10 @@
     android:orientation="vertical">
 
     <Button
+      android:id="@+id/bt_lunch_test_okhttp"
+      style="@style/ButtonStyle"
+      android:text="测试okhttp" />
+    <Button
       android:id="@+id/bt_lunch_test_greendao_crud"
       style="@style/ButtonStyle"
       android:text="测试GreenDaoCRUD" />

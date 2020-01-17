@@ -1,5 +1,6 @@
 package prictise.com.application1
 
+import io.reactivex.Observable
 import org.junit.Test
 import prictise.com.application1.bean.Student
 import java.util.*
@@ -73,6 +74,22 @@ class TestCaseKT {
         for (s in list) {
             println(s)
         }
+    }
+
+    @Test
+    fun testContainsDot() {
+        var s = "eewsss.sdsdds"
+        println(s.contains("."))
+    }
+
+    @Test
+    fun testFlatMapIterable() {
+        val list = Arrays.asList(1, 2, 3);
+        Observable.just(list)
+                .flatMapIterable { it }
+                .subscribe{
+                    println(it)
+                }
     }
 
 
