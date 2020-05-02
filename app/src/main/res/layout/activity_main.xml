@@ -9,9 +9,14 @@
     android:orientation="vertical">
 
     <Button
-      android:id="@+id/bt_lanch_pay"
+      android:id="@+id/bt_viewpager_infinite"
       style="@style/ButtonStyle"
-      android:text="支付" />
+      android:text="viewpager无限循环" />
+
+    <Button
+      android:id="@+id/bt_dynamic_proxy"
+      style="@style/ButtonStyle"
+      android:text="动态代理" />
 
     <Button
       android:id="@+id/bt_lanch_picture_memory"
@@ -97,6 +102,7 @@
       android:id="@+id/bt_lanch_test_property_animation"
       style="@style/ButtonStyle"
       android:text="启动测试属性动画Activity" />
+
     <Button
       android:id="@+id/bt_launch_test_canvas"
       style="@style/ButtonStyle"
@@ -217,6 +223,7 @@
       android:id="@+id/bt_launch_shipei"
       style="@style/ButtonStyle"
       android:text="测试适配" />
+
     <Button
       android:id="@+id/bt_launch_test_intent"
       style="@style/ButtonStyle"

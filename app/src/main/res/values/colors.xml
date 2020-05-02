@@ -280,4 +280,8 @@
     <color name="test2">#FF929AFF</color>
 
     <color name="light_blue">#6593cb</color>
+
+    <color name="default_circle_indicator_page_color">#ffffff</color>
+    <color name="default_circle_indecator_stroke_color">#777777</color>
+    <color name="default_circle_indicator_fill_color">#0033ff</color>
 </resources>

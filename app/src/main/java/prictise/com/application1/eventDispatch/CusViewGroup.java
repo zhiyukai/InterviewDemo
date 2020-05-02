@@ -1,5 +1,7 @@
 package prictise.com.application1.eventDispatch;
 
+import static prictise.com.application1.utils.Constants.EventDispatchActivity_TAG;
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -13,7 +15,7 @@ import prictise.com.application1.utils.LogcatUtils;
  */
 public class CusViewGroup extends ViewGroup {
 
-  private String TAG = CusViewGroup.class.getSimpleName();
+  private String TAG = EventDispatchActivity_TAG;
 
   public CusViewGroup(Context context) {
     super(context);
@@ -29,19 +31,19 @@ public class CusViewGroup extends ViewGroup {
 
   @Override
   public boolean dispatchTouchEvent(MotionEvent ev) {
-    LogcatUtils.showDLog(TAG, "dispatchTouchEvent");
+    LogcatUtils.showDLog(TAG, "CusViewGroup dispatchTouchEvent");
     switch (ev.getAction()) {
       case MotionEvent.ACTION_DOWN:
-        LogcatUtils.showDLog(TAG, "dispatchTouchEvent MotionEvent.ACTION_DOWN");
+        LogcatUtils.showDLog(TAG, "CusViewGroup dispatchTouchEvent MotionEvent.ACTION_DOWN");
         break;
       case MotionEvent.ACTION_MOVE:
-        LogcatUtils.showDLog(TAG, "dispatchTouchEvent MotionEvent.ACTION_MOVE");
+        LogcatUtils.showDLog(TAG, "CusViewGroup dispatchTouchEvent MotionEvent.ACTION_MOVE");
         break;
       case MotionEvent.ACTION_UP:
-        LogcatUtils.showDLog(TAG, "dispatchTouchEvent MotionEvent.ACTION_UP");
+        LogcatUtils.showDLog(TAG, "CusViewGroup dispatchTouchEvent MotionEvent.ACTION_UP");
         break;
       case MotionEvent.ACTION_CANCEL:
-        LogcatUtils.showDLog(TAG, "dispatchTouchEvent MotionEvent.ACTION_CANCEL");
+        LogcatUtils.showDLog(TAG, "CusViewGroup dispatchTouchEvent MotionEvent.ACTION_CANCEL");
         break;
       default:
         break;
@@ -51,19 +53,19 @@ public class CusViewGroup extends ViewGroup {
 
   @Override
   public boolean onInterceptTouchEvent(MotionEvent ev) {
-    LogcatUtils.showDLog(TAG, "onInterceptTouchEvent onInterceptTouchEvent");
+    LogcatUtils.showDLog(TAG, "CusViewGroup onInterceptTouchEvent onInterceptTouchEvent");
     switch (ev.getAction()) {
       case MotionEvent.ACTION_DOWN:
-        LogcatUtils.showDLog(TAG, "onInterceptTouchEvent MotionEvent.ACTION_DOWN");
+        LogcatUtils.showDLog(TAG, "CusViewGroup onInterceptTouchEvent MotionEvent.ACTION_DOWN");
         break;
       case MotionEvent.ACTION_MOVE:
-        LogcatUtils.showDLog(TAG, "onInterceptTouchEvent MotionEvent.ACTION_MOVE");
+        LogcatUtils.showDLog(TAG, "CusViewGroup onInterceptTouchEvent MotionEvent.ACTION_MOVE");
         break;
       case MotionEvent.ACTION_UP:
-        LogcatUtils.showDLog(TAG, "onInterceptTouchEvent MotionEvent.ACTION_UP");
+        LogcatUtils.showDLog(TAG, "CusViewGroup onInterceptTouchEvent MotionEvent.ACTION_UP");
         break;
       case MotionEvent.ACTION_CANCEL:
-        LogcatUtils.showDLog(TAG, "onInterceptTouchEvent MotionEvent.ACTION_CANCEL");
+        LogcatUtils.showDLog(TAG, "CusViewGroup onInterceptTouchEvent MotionEvent.ACTION_CANCEL");
         break;
       default:
         break;
@@ -73,19 +75,19 @@ public class CusViewGroup extends ViewGroup {
 
   @Override
   public boolean onTouchEvent(MotionEvent ev) {
-    LogcatUtils.showDLog(TAG, "onTouchEvent");
+    LogcatUtils.showDLog(TAG, "CusViewGroup onTouchEvent");
     switch (ev.getAction()) {
       case MotionEvent.ACTION_DOWN:
-        LogcatUtils.showDLog(TAG, "onTouchEvent MotionEvent.ACTION_DOWN");
+        LogcatUtils.showDLog(TAG, "CusViewGroup onTouchEvent MotionEvent.ACTION_DOWN");
         break;
       case MotionEvent.ACTION_MOVE:
-        LogcatUtils.showDLog(TAG, "onTouchEvent MotionEvent.ACTION_MOVE");
+        LogcatUtils.showDLog(TAG, "CusViewGroup onTouchEvent MotionEvent.ACTION_MOVE");
         break;
       case MotionEvent.ACTION_UP:
-        LogcatUtils.showDLog(TAG, "onTouchEvent MotionEvent.ACTION_UP");
+        LogcatUtils.showDLog(TAG, "CusViewGroup onTouchEvent MotionEvent.ACTION_UP");
         break;
       case MotionEvent.ACTION_CANCEL:
-        LogcatUtils.showDLog(TAG, "onTouchEvent MotionEvent.ACTION_CANCEL");
+        LogcatUtils.showDLog(TAG, "CusViewGroup onTouchEvent MotionEvent.ACTION_CANCEL");
         break;
       default:
         break;

@@ -16,4 +16,38 @@
         <attr name="endColor" format="color" />
     </declare-styleable>
 
+    <!-- LockPatternView class attributes -->
+    <declare-styleable name="LockPatternView">
+
+        <!--
+             Aspect to use when drawing LockPatternView. Choices are "square"(default), "lock_width"
+             or "lock_height"
+        -->
+        <attr name="aspect">
+            <enum name="square" value="0" />
+            <enum name="lockWidth" value="1" />
+            <enum name="lockHeight" value="2" />
+        </attr>
+        <attr name="lineColor" format="color" />
+        <attr name="wrongLineColor" format="color"/>
+        <attr name="circleNormal" format="reference" />
+        <attr name="circleGreen" format="reference" />
+        <attr name="circleRed" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleViewPager">
+        <attr name="radius" />
+        <attr name="pageColor" />
+        <attr name="fillColor" />
+        <attr name="strokeColor" />
+        <attr name="strokeWidth" />
+        <attr name="circlePadding" format="dimension" />
+    </declare-styleable>
+
+    <attr name="radius" format="dimension" />
+    <attr name="pageColor" format="color" />
+    <attr name="fillColor" format="color" />
+    <attr name="strokeColor" format="color" />
+    <attr name="strokeWidth" format="dimension" />
+
 </resources>

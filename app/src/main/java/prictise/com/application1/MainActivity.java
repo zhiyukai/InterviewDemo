@@ -30,6 +30,7 @@ import prictise.com.application1.cusService.TestIntentService;
 import prictise.com.application1.cusview.CusViewActivity;
 import prictise.com.application1.dialog.DialogActivity;
 import prictise.com.application1.dynamicProxy.Car;
+import prictise.com.application1.dynamicProxy.DynamicProxyActivity;
 import prictise.com.application1.dynamicProxy.IVehical;
 import prictise.com.application1.dynamicProxy.VehicalInvacationHandler;
 import prictise.com.application1.eventBus.EventBusActivity;
@@ -56,6 +57,7 @@ import prictise.com.application1.rippeview.RippleActivity;
 import prictise.com.application1.shipei.ShiPeiActivity;
 import prictise.com.application1.testConstraintLayout.ConstraintLayoutActivity;
 import prictise.com.application1.testStackActivity.MainStackActivity;
+import prictise.com.application1.viewpager.ViewPagerMainActivity;
 import prictise.com.application1.wheel.WheelActivity;
 
 public class MainActivity extends Activity {
@@ -164,11 +166,6 @@ public class MainActivity extends Activity {
   protected void onDestroy() {
     super.onDestroy();
 
-  }
-
-  @OnClick(R.id.bt_lanch_pay)
-  public void lanchPay() {
-    startActivity(new Intent(this, TestPay.class));
   }
 
   @OnClick(R.id.bt_lanch_standard)
@@ -396,6 +393,16 @@ public class MainActivity extends Activity {
   @OnClick(R.id.bt_launch_shipei)
   public void launchShiPei() {
     startActivity(new Intent(this, ShiPeiActivity.class));
+  }
+
+  @OnClick(R.id.bt_dynamic_proxy)
+  public void launchDynamicProxy() {
+    startActivity(new Intent(this, DynamicProxyActivity.class));
+  }
+
+  @OnClick(R.id.bt_viewpager_infinite)
+  public void launchViewpagerInfinite() {
+    startActivity(new Intent(this, ViewPagerMainActivity.class));
   }
 
 }

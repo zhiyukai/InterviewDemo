@@ -8,5 +8,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="refresh_header_height">60dp</dimen>
     <dimen name="refresh_footer_height">60dp</dimen>
-
+    <dimen name="default_circle_indicator_radius">4dp</dimen>
+    <dimen name="default_circle_indicator_stroke_width">1.5dp</dimen>
+    <dimen name="default_circle_indicator_circle_padding">5dp</dimen>
 </resources>

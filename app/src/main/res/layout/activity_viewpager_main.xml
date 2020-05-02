@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <prictise.com.application1.viewpager.widget.CircleViewPager
+    android:id="@+id/circle_page"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+
+  <prictise.com.application1.viewpager.widget.CircleIndicator
+    android:id="@+id/circle_indicator"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|center_horizontal"
+    android:background="#6d6d6d"
+    android:padding="10dp" />
+
+</FrameLayout>

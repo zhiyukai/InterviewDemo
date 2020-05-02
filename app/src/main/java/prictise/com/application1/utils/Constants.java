@@ -173,4 +173,6 @@ public interface Constants {
     int COUNT = 10;
   }
 
+  String EventDispatchActivity_TAG = "EventDispatchActivity";
+
 }

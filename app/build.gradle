@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-android'
+//apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -48,17 +48,15 @@ dependencies {
     implementation 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
     implementation 'com.android.support:recyclerview-v7:21.0.0'
     implementation 'com.qiniu:qiniu-android-sdk:7.3.+'
-
     implementation 'com.qiniu:happy-dns:0.2.13'
     implementation 'com.loopj.android:android-async-http:1.4.9'
     implementation 'com.google.code.gson:gson:2.8.1'
     implementation 'pub.devrel:easypermissions:0.4.3'
-
     // EventBus
     def eventbus_version = '3.1.1'
     implementation "org.greenrobot:eventbus:$eventbus_version"
     annotationProcessor "org.greenrobot:eventbus-annotation-processor:$eventbus_version"
-
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    //    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation files('libs/libammsdk.jar')
 }
