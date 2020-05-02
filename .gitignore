@@ -12,3 +12,6 @@ InterviewDemo.iml
 /build
 /captures
 .externalNativeBuild
+/app/build/
+/app/release/
+/app/libs/
