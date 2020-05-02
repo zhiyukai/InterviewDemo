@@ -43,7 +43,7 @@ public class CusView1 extends View {
   @Override
   protected void onDraw(Canvas canvas) {
     super.onDraw(canvas);
-    canvas.drawColor(Color.GRAY);
+    canvas.drawColor(Color.BLUE);
     mPaint.setColor(Color.RED);
     canvas
         .drawText(mText, getWidth() / 2 - mBound.width() / 2, getHeight() / 2 + mBound.height() / 2,
@@ -100,7 +100,8 @@ public class CusView1 extends View {
     switch (event.getAction()) {
       case MotionEvent.ACTION_DOWN:
         LogcatUtils.showDLog(TAG, "CusView1 onTouchEvent MotionEvent.ACTION_DOWN");
-        break;
+        return true;
+//        break;
       case MotionEvent.ACTION_MOVE:
         LogcatUtils.showDLog(TAG, "CusView1 onTouchEvent MotionEvent.ACTION_MOVE");
         break;
