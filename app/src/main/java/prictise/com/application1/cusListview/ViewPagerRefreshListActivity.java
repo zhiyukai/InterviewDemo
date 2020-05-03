@@ -3,6 +3,7 @@ package prictise.com.application1.cusListview;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v7.widget.LinearLayoutManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -65,6 +66,7 @@ public class ViewPagerRefreshListActivity extends BaseActivity {
     setContentView(R.layout.activity_viewpager_listview);
     ButterKnife.bind(this);
     initValue();
+    initListener();
   }
 
   private void initValue() {
@@ -106,5 +108,31 @@ public class ViewPagerRefreshListActivity extends BaseActivity {
     mActiveAdapter.setData(mActiveModelList);
 
     contentView.setAdapter(mActiveAdapter);
+  }
+
+  private void initListener() {
+    viewPager.addOnPageChangeListener(new OnPageChangeListener() {
+      @Override
+      public void onPageSelected(int arg0) {
+        //该方法是ViewPager滑动结束后，页面别选定后调用此方法
+        /*在ViewPager滑动结束后需要通知父容器（ListView）可以
+         * 对后续的事件进行适当的处理了（包括自身事件的拦截）*/
+        contentView.requestDisallowInterceptTouchEvent(false);
+      }
+
+      @Override
+      public void onPageScrolled(int arg0, float arg1, int arg2) {
+        //该方法是ViewPager滑动时调用此方法
+                /*在ViewPager滑动时需要通知父容器（ListView）不要拦截,
+                也就是说此事件交给ViewPager处理*/
+        contentView.requestDisallowInterceptTouchEvent(true);
+      }
+
+      @Override
+      public void onPageScrollStateChanged(int arg0) {
+        //该方法是ViewPager滑动状态发生变化时调用此方法
+        //这里暂时不要进行相关的操作。
+      }
+    });
   }
 }
