@@ -19,6 +19,6 @@ public class DynamicProxyActvity extends BaseActivity {
     IVehical iVehical = (IVehical) Proxy
         .newProxyInstance(IVehical.class.getClassLoader(), new Class[]{IVehical.class},
             new VehicalInvacationHandler(c));
-    iVehical.run("sss");
+    iVehical.run("sss",3);
   }
 }

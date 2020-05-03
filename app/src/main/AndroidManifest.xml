@@ -20,6 +20,8 @@
       </intent-filter>
     </activity>
     <activity android:name=".TestPay" />
+    <activity android:name=".testEdittext.TestEditTextActivity" />
+    <activity android:name=".dynamicProxy.DynamicProxyActvity" />
     <activity
       android:name=".lifecycle.StandardActivity"
       android:configChanges="screenSize|keyboardHidden|orientation" />
@@ -134,6 +136,12 @@
     <activity android:name=".shipei.ShiPeiActivity" />
     <activity android:name=".dynamicProxy.DynamicProxyActivity" />
 
+    <activity android:name=".kotlin.database.KotlinMainActivity" />
+    <activity android:name=".kotlin.rxjava.RxJavaActivity" />
+    <activity android:name=".kotlin.rxjava.JavaRxjavaTestActivity" />
+    <activity android:name=".testGreendao.TestGreenDaoActivity" />
+    <activity android:name=".kotlin.greendao.GreenDaoTestActivity" />
+
     <receiver android:name=".alarm.AlarmReceiver" />
 
     <receiver android:name=".alarmManager.DeleteLogAlarmReceiver">
@@ -146,6 +154,22 @@
     <service android:name=".alarm.AlarmService" />
 
     <service android:name=".cusService.TestIntentService" />
+
+    <service
+      android:name=".kotlin.rxjava.AccessServer"
+      android:enabled="true"
+      android:exported="true"
+      android:label="@string/app_name"
+      android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+      <intent-filter>
+        <action android:name="android.accessibilityservice.AccessibilityService"/>
+      </intent-filter>
+
+      <meta-data
+        android:name="android.accessibilityservice"
+        android:resource="@xml/auto_reply_service_config"/>
+    </service>
+
   </application>
 
   <uses-feature android:name="android.permission.camera" />
@@ -175,7 +199,6 @@
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
   <uses-permission android:name="android.permission.CAMERA" />
   <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
   <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -183,7 +206,6 @@
   <uses-permission android:name="android.permission.WAKE_LOCK" />
 
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
   <uses-permission
     android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
     tools:ignore="ProtectedPermissions" />

@@ -2,5 +2,6 @@ package prictise.com.application1.dynamicProxy;
 
 public interface IVehical {
 
-  void run(String s);
+  @POST("aa")
+  void run(@BODY String s, @GET int a);
 }
