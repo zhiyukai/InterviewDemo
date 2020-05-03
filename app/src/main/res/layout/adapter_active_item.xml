@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="120dp"
+  android:background="@color/white"
+  android:orientation="vertical">
+
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/margin_16"
+    android:layout_marginRight="@dimen/margin_16"
+    android:orientation="horizontal"
+    android:paddingTop="16dp">
+
+    <TextView
+      android:id="@+id/tv_join"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="参与："
+      android:textColor="@color/gray"
+      android:textSize="@dimen/font_20" />
+
+    <TextView
+      android:id="@+id/tv_active_name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="80dp"
+      android:layout_toRightOf="@id/tv_join"
+      android:ellipsize="end"
+      android:lines="1"
+      android:maxWidth="200dp"
+      android:maxLines="1"
+      android:text="每日打卡签到App1brfvtgbnhsdsd"
+      android:textColor="@color/gray"
+      android:textSize="@dimen/font_20" />
+
+    <TextView
+      android:id="@+id/tv_active_no_start"
+      android:layout_width="70dp"
+      android:layout_height="30dp"
+      android:layout_alignParentRight="true"
+      android:background="@drawable/corner_second_no_start_bg"
+      android:gravity="center"
+      android:text="未开始"
+      android:textColor="@color/white"
+      android:textSize="@dimen/font_16" />
+
+  </RelativeLayout>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/margin_16"
+    android:layout_marginTop="6dp"
+    android:layout_marginRight="@dimen/margin_16"
+    android:orientation="horizontal">
+
+    <ImageView
+      android:layout_width="22dp"
+      android:layout_height="22dp"
+      android:src="@mipmap/shijian" />
+
+    <TextView
+      android:id="@+id/tv_time_scope"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="6dp"
+      android:text="2020.03.29 - 2020.4.1"
+      android:textColor="@color/gray2"
+      android:textSize="@dimen/font_18" />
+  </LinearLayout>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/margin_16"
+    android:layout_marginTop="6dp"
+    android:layout_marginRight="@dimen/margin_16"
+    android:orientation="horizontal">
+
+    <ImageView
+      android:layout_width="22dp"
+      android:layout_height="22dp"
+      android:src="@mipmap/canyuren" />
+
+    <TextView
+      android:id="@+id/tv_can_yu_ren"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="6dp"
+      android:text="1234人"
+      android:textColor="@color/gray2"
+      android:textSize="@dimen/font_18" />
+  </LinearLayout>
+</LinearLayout>

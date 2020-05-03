@@ -15,8 +15,9 @@ public class DynamicProxyActivity extends BaseActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     IVehical c = new Car();
-    IVehical iVehical = (IVehical) Proxy.newProxyInstance(IVehical.class.getClassLoader(), new Class[]{IVehical.class},
-        new VehicalInvacationHandler(c));
-    iVehical.run("s");
+    IVehical iVehical = (IVehical) Proxy
+        .newProxyInstance(IVehical.class.getClassLoader(), new Class[]{IVehical.class},
+            new VehicalInvacationHandler(c));
+    iVehical.run("s", 4);
   }
 }

@@ -9,6 +9,11 @@
     android:orientation="vertical">
 
     <Button
+      android:id="@+id/bt_lunch_viewpager_listview"
+      style="@style/ButtonStyle"
+      android:text="测试listView嵌套ViewPager滑动" />
+
+    <Button
       android:id="@+id/bt_lunch_test_okhttp"
       style="@style/ButtonStyle"
       android:text="测试okhttp" />

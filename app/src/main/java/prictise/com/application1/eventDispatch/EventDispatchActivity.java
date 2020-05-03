@@ -88,7 +88,6 @@ public class EventDispatchActivity extends Activity {
     switch (event.getAction()) {
       case MotionEvent.ACTION_DOWN:
         LogcatUtils.showDLog(TAG, "EventDispatchActivity onTouchEvent MotionEvent.ACTION_DOWN");
-//        return true;
         break;
       case MotionEvent.ACTION_MOVE:
         LogcatUtils.showDLog(TAG, "EventDispatchActivity onTouchEvent MotionEvent.ACTION_MOVE");

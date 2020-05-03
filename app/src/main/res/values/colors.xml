@@ -284,4 +284,19 @@
     <color name="default_circle_indicator_page_color">#ffffff</color>
     <color name="default_circle_indecator_stroke_color">#777777</color>
     <color name="default_circle_indicator_fill_color">#0033ff</color>
+
+    <color name="main_color">#1199ef</color>
+    <color name="main_color2">#656565</color>
+    <color name="goods_compare">#FFE5E5E5</color>
+    <color name="main_color3">#f6f6f6</color>
+    <color name="color_e5e5e5">#e5e5e5</color>
+    <color name="main_line">#FFC4C0C0</color>
+    <color name="main_color_red">#e0382f</color>
+
+    <color name="be">#BEBEBE</color>
+    <color name="my_bg">#FAFAFC</color>
+    <color name="my_head">#383838</color>
+    <color name="incoming_bg">#F8C26F</color>
+    <color name="yellow2">#FCD113</color>
+    <color name="gray2">#C9C9C9</color>
 </resources>
