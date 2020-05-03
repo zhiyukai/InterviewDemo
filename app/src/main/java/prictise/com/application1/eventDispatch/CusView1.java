@@ -100,8 +100,8 @@ public class CusView1 extends View {
     switch (event.getAction()) {
       case MotionEvent.ACTION_DOWN:
         LogcatUtils.showDLog(TAG, "CusView1 onTouchEvent MotionEvent.ACTION_DOWN");
-        return true;
-//        break;
+//        return true;
+        break;
       case MotionEvent.ACTION_MOVE:
         LogcatUtils.showDLog(TAG, "CusView1 onTouchEvent MotionEvent.ACTION_MOVE");
         break;

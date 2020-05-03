@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
+
+  <Button
+    android:id="@+id/bt_test_maybe"
+    style="@style/ButtonStyle"
+    android:text="测试maybe" />
+  <Button
+    android:id="@+id/bt_test_rxdownload"
+    style="@style/ButtonStyle"
+    android:text="测试RxDownload" />
+
+  <Button
+    android:id="@+id/bt_test_file_sort"
+    style="@style/ButtonStyle"
+    android:text="测试文件排序" />
+
+  <Button
+    android:id="@+id/bt_download_pic"
+    style="@style/ButtonStyle"
+    android:text="测试下载图片" />
+
+  <Button
+    android:id="@+id/bt_test_sample"
+    style="@style/ButtonStyle"
+    android:text="测试sample" />
+  <Button
+    android:id="@+id/bt_test_publish_sample"
+    style="@style/ButtonStyle"
+    android:text="测试publish_sample" />
+
+  <Button
+    android:id="@+id/bt_test_rxjava"
+    style="@style/ButtonStyle"
+    android:text="测试" />
+  <Button
+    android:id="@+id/bt_test_map_flatmap"
+    style="@style/ButtonStyle"
+    android:text="测试Map_FlatMap" />
+
+  <ProgressBar
+    android:id="@+id/app_progress"
+    style="?android:attr/progressBarStyleHorizontal"
+    android:layout_width="match_parent"
+    android:layout_height="10dp"
+    android:layout_below="@+id/app_title"
+    android:layout_marginTop="20dp"
+    android:progressDrawable="@drawable/progressbar_bg"
+    android:layout_toStartOf="@+id/app_ratetv"
+    android:progress="2"/>
+
+</LinearLayout>
