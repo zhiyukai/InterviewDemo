@@ -68,7 +68,7 @@ public class Reverse {
         Node n2 = new Node("B", n3);
         Node n1 = new Node("A", n2);
 
-        test2(n1);
+        test3(n1);
     }
 
     public static void test1(Node root) {
@@ -100,6 +100,21 @@ public class Reverse {
         print(head.next);
     }
 
+    public static void test3(Node root) {
+        //单链表为空或只有头结点或只有一个元素，不用进行逆置操作
+        if (root == null || root.next == null || root.next.next == null) {
+            return;
+        }
+        Node p = root.next.next;//令p指向线性表中第2个元素a2
+        root.next.next = null;//令线性表中第1个元素a1的next为空
+        while (p != null) {
+            Node q = p.next;
+            //将p插入头结点之后
+            p.next = root.next;
+            root.next = p;
+            p = q;//继续访问下一个元素
+        }
+    }
 
 
     private static void print(Node root) {

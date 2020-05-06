@@ -33,6 +33,55 @@ class GreenDaoTestActivity : Activity() {
 
         var testEntityDao = DaoHelper.getDaoSession(this).testEntityDao
 
+        val date = Date()
+        findViewById<Button>(R.id.bt_insert).setOnClickListener {
+            Date().time
+            LogcatUtils.showDLog(TAG, "bt_insert Date().time = ${Date().time}")
+            val testEntity = TestEntity()
+            testEntity.id = 1
+            testEntity.text = "insert"
+            testEntity.time = SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(date)
+            testEntityDao.insert(testEntity)
+        }
+
+        findViewById<Button>(R.id.bt_insert_tx).setOnClickListener {
+            val testEntity = TestEntity()
+            testEntity.id = 1
+            testEntity.text = "insert_tx"
+            testEntity.time = SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(date)
+            testEntityDao.insertInTx(testEntity)
+        }
+
+        findViewById<Button>(R.id.bt_insert_replace).setOnClickListener {
+            val testEntity = TestEntity()
+            testEntityDao
+            testEntity.id = 1
+            testEntity.text = "insert_replace"
+            testEntity.time = SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(date)
+            testEntityDao.insertOrReplace(testEntity)
+        }
+
+        findViewById<Button>(R.id.bt_insert_replace_tx).setOnClickListener {
+            val testEntity = TestEntity()
+            testEntity.id = 1
+            testEntity.text = "insert_replace_tx"
+            testEntity.time = SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(date)
+            testEntityDao.insertOrReplaceInTx(testEntity)
+        }
+        findViewById<Button>(R.id.bt_save).setOnClickListener {
+            val testEntity = TestEntity()
+            testEntity.id = 1
+            testEntity.text = "save"
+            testEntity.time = SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(date)
+            testEntityDao.save(testEntity)
+        }
+        findViewById<Button>(R.id.bt_save_tx).setOnClickListener {
+            val testEntity = TestEntity()
+            testEntity.id = 1
+            testEntity.text = "save_tx"
+            testEntity.time = SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(date)
+            testEntityDao.saveInTx(testEntity)
+        }
         findViewById<Button>(R.id.bt_find_other_thread).setOnClickListener {
             object : Thread() {
                 override fun run() {
@@ -47,7 +96,8 @@ class GreenDaoTestActivity : Activity() {
             LogcatUtils.showDLog(TAG, "bt_add")
 //            find()
             testEntityDao = DaoHelper.getDaoSession(this).testEntityDao
-            for (i in 0 until 10) {
+            testEntityDao.queryBuilder().distinct()
+            for (i in 0 until 2) {
 
                 var testEntity = TestEntity()
                 testEntity?.apply {
@@ -91,6 +141,15 @@ class GreenDaoTestActivity : Activity() {
 //            find()
         }
 
+        findViewById<Button>(R.id.bt_insert_or_replace_in_tx).setOnClickListener {
+            val listTestEntity = DaoHelper.getDaoSession(this).testEntityDao.queryBuilder().list()
+            listTestEntity.get(0).text = "我是测试InsertOrReplaceInTx"
+            val testEntity = TestEntity()
+            testEntity.addType = 2
+            testEntity.text = "hahh"
+            listTestEntity.add(testEntity)
+            DaoHelper.getDaoSession(this).testEntityDao.insertOrReplaceInTx(listTestEntity)
+        }
         findViewById<Button>(R.id.bt_update).setOnClickListener {
             LogcatUtils.showDLog(TAG, "bt_update")
 //            find()
@@ -100,7 +159,7 @@ class GreenDaoTestActivity : Activity() {
             testEntity.addType = 3
             var date = SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(Date())
             testEntity.time = date
-            testEntity.text = date+testEntity.stuWechatId
+            testEntity.text = date + testEntity.stuWechatId
             DaoHelper.getDaoSession(this).testEntityDao.update(testEntity)
 //            find()
         }
@@ -108,6 +167,15 @@ class GreenDaoTestActivity : Activity() {
             LogcatUtils.showDLog(TAG, "bt_find")
             val id = etId?.text.toString()
             findById(id)
+        }
+        findViewById<Button>(R.id.bt_find_all).setOnClickListener {
+            LogcatUtils.showDLog(TAG, "bt_find_all")
+            val listTestEntity = DaoHelper.getDaoSession(this).testEntityDao.queryBuilder().list()
+            for (entity in listTestEntity) {
+                LogcatUtils.showDLog(TAG, "bt_find_all entity = $entity")
+            }
+
+            DaoHelper.getDaoSession(this).testEntityDao.insertOrReplaceInTx()
         }
 
         findViewById<Button>(R.id.bt_delete_all).setOnClickListener {

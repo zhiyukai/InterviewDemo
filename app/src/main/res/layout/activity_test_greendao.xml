@@ -1,48 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:orientation="vertical">
+  android:layout_height="match_parent">
 
-  <Button
-    android:id="@+id/bt_add"
-    style="@style/ButtonStyle"
-    android:text="Add" />
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-  <EditText
-    android:id="@+id/et_time_id"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" />
-  <Button
-    android:id="@+id/bt_delete"
-    style="@style/ButtonStyle"
-    android:text="delete" />
-  <EditText
-    android:id="@+id/et_update"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" />
-  <Button
-    android:id="@+id/bt_update"
-    style="@style/ButtonStyle"
-    android:text="update" />
+    <Button
+      android:id="@+id/bt_insert"
+      style="@style/ButtonStyle"
+      android:text="Insert" />
 
-  <EditText
-    android:id="@+id/et_id"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" />
-  <Button
-    android:id="@+id/bt_find"
-    style="@style/ButtonStyle"
-    android:text="find" />
+    <Button
+      android:id="@+id/bt_insert_tx"
+      style="@style/ButtonStyle"
+      android:text="InsertTx" />
 
-  <Button
-    android:id="@+id/bt_find_other_thread"
-    style="@style/ButtonStyle"
-    android:text="other thread find" />
+    <Button
+      android:id="@+id/bt_insert_replace"
+      style="@style/ButtonStyle"
+      android:text="InsertReplace" />
 
-  <Button
-    android:id="@+id/bt_delete_all"
-    style="@style/ButtonStyle"
-    android:text="delete all" />
+    <Button
+      android:id="@+id/bt_insert_replace_tx"
+      style="@style/ButtonStyle"
+      android:text="InsertReplaceTx" />
 
-</LinearLayout>
+    <Button
+      android:id="@+id/bt_save"
+      style="@style/ButtonStyle"
+      android:text="Save" />
+
+    <Button
+      android:id="@+id/bt_save_tx"
+      style="@style/ButtonStyle"
+      android:text="SaveTx" />
+
+    <Button
+      android:id="@+id/bt_add"
+      style="@style/ButtonStyle"
+      android:text="Add" />
+
+    <Button
+      android:id="@+id/bt_insert_or_replace_in_tx"
+      style="@style/ButtonStyle"
+      android:text="Insert_or_replace_in_tx" />
+
+    <EditText
+      android:id="@+id/et_time_id"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" />
+    <Button
+      android:id="@+id/bt_delete"
+      style="@style/ButtonStyle"
+      android:text="delete" />
+    <EditText
+      android:id="@+id/et_update"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" />
+    <Button
+      android:id="@+id/bt_update"
+      style="@style/ButtonStyle"
+      android:text="update" />
+
+    <EditText
+      android:id="@+id/et_id"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" />
+    <Button
+      android:id="@+id/bt_find"
+      style="@style/ButtonStyle"
+      android:text="find" />
+    <Button
+      android:id="@+id/bt_find_all"
+      style="@style/ButtonStyle"
+      android:text="findAll" />
+
+    <Button
+      android:id="@+id/bt_find_other_thread"
+      style="@style/ButtonStyle"
+      android:text="other thread find" />
+
+    <Button
+      android:id="@+id/bt_delete_all"
+      style="@style/ButtonStyle"
+      android:text="delete all" />
+
+  </LinearLayout>
+
+</ScrollView>

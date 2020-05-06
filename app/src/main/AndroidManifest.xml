@@ -21,6 +21,7 @@
     </activity>
 
     <activity android:name=".cusListview.ViewPagerRefreshListActivity" />
+    <activity android:name=".kotlin.okhttpTest.OkHttpActivity" />
     <activity android:name=".testEdittext.TestEditTextActivity" />
     <activity android:name=".dynamicProxy.DynamicProxyActvity" />
     <activity
@@ -170,6 +171,14 @@
         android:name="android.accessibilityservice"
         android:resource="@xml/auto_reply_service_config" />
     </service>
+
+    <activity
+      android:name=".kotlin.activity.ActivityA"
+      android:launchMode="singleInstance" />
+    <activity android:name=".kotlin.activity.ActivityB" />
+
+    <activity android:name=".kotlin.activity.ActivityC"
+      android:taskAffinity="prictise.com.demo.new_task"/>
 
   </application>
 

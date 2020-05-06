@@ -2,11 +2,11 @@ package prictise.com.application1
 
 import android.graphics.Bitmap
 import android.os.Environment
+import org.junit.Test
 import java.io.BufferedOutputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
-import java.util.ArrayList
 
 /**
  * @Author zhisiyi
@@ -29,5 +29,13 @@ class TestStringConvert {
         bos.close()
         return myCaptureFile
 
+    }
+
+    @Test
+    fun testContentEquals() {
+        val t1 = "保存(完成)"
+        val flag = t1.contains("完成")
+
+        println(flag)
     }
 }

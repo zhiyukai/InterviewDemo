@@ -5,6 +5,109 @@
   android:orientation="vertical">
 
   <Button
+    android:id="@+id/bt_test_do_on_complete"
+    style="@style/ButtonStyle"
+    android:text="测试do_on_complete" />
+  <Button
+    android:id="@+id/bt_test_phone_status"
+    style="@style/ButtonStyle"
+    android:text="测试手机状态" />
+  <Button
+    android:id="@+id/bt_test_gson_serializedname"
+    style="@style/ButtonStyle"
+    android:text="测试Gson serializedname" />
+
+  <Button
+    android:id="@+id/bt_test_observable_interval"
+    style="@style/ButtonStyle"
+    android:text="测试Observable.interval" />
+
+  <Button
+    android:id="@+id/bt_test_delete_file"
+    style="@style/ButtonStyle"
+    android:text="测试删除文件" />
+
+  <Button
+    android:id="@+id/bt_test_gson"
+    style="@style/ButtonStyle"
+    android:text="判断String是否是Gson" />
+
+  <Button
+    android:id="@+id/bt_test_indexof"
+    style="@style/ButtonStyle"
+    android:text="测试数组越界" />
+
+  <Button
+    android:id="@+id/bt_test_new_task"
+    style="@style/ButtonStyle"
+    android:text="测试NewTask" />
+  <Button
+    android:id="@+id/bt_test_next"
+    style="@style/ButtonStyle"
+    android:text="测试rxjava_next" />
+
+  <Button
+    android:id="@+id/bt_test_for_exception"
+    style="@style/ButtonStyle"
+    android:text="测试for_exception" />
+
+  <Button
+    android:id="@+id/bt_test_array_blocking_queue"
+    style="@style/ButtonStyle"
+    android:text="测试ArrayBlockingQueue" />
+
+  <Button
+    android:id="@+id/bt_test_object_empty"
+    style="@style/ButtonStyle"
+    android:text="测试对象为空的情况" />
+
+  <Button
+    android:id="@+id/bt_test_list_empty"
+    style="@style/ButtonStyle"
+    android:text="测试list为空" />
+  <Button
+    android:id="@+id/bt_test_list"
+    style="@style/ButtonStyle"
+    android:text="测试list" />
+  <Button
+    android:id="@+id/bt_test_sub_str"
+    style="@style/ButtonStyle"
+    android:text="测试sub_str" />
+
+  <Button
+    android:id="@+id/bt_test_for"
+    style="@style/ButtonStyle"
+    android:text="测试for_for" />
+  <Button
+    android:id="@+id/bt_test_shr"
+    style="@style/ButtonStyle"
+    android:text="测试shr" />
+
+  <Button
+    android:id="@+id/bt_test_let"
+    style="@style/ButtonStyle"
+    android:text="测试let" />
+  <Button
+    android:id="@+id/bt_test_filter"
+    style="@style/ButtonStyle"
+    android:text="测试filter" />
+
+  <Button
+    android:id="@+id/bt_test_to"
+    style="@style/ButtonStyle"
+    android:text="测试类型转化" />
+
+  <Button
+    android:id="@+id/bt_test_count_down"
+    style="@style/ButtonStyle"
+    android:text="测试倒计时" />
+
+  <Button
+    android:id="@+id/bt_test_error"
+    style="@style/ButtonStyle"
+    android:text="测试error" />
+
+  <Button
     android:id="@+id/bt_test_maybe"
     style="@style/ButtonStyle"
     android:text="测试maybe" />
@@ -48,8 +151,8 @@
     android:layout_height="10dp"
     android:layout_below="@+id/app_title"
     android:layout_marginTop="20dp"
-    android:progressDrawable="@drawable/progressbar_bg"
     android:layout_toStartOf="@+id/app_ratetv"
-    android:progress="2"/>
+    android:progress="2"
+    android:progressDrawable="@drawable/progressbar_bg" />
 
 </LinearLayout>
