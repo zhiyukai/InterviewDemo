@@ -15,9 +15,12 @@ class GsonSerializeBean {
      */
     @SerializedName(value = "name1", alternate = ["a", "b", "c"])
     var name: String = ""
-    override fun toString(): String {
-        return "GsonSerializeBean(name='$name')"
-    }
+    @SerializedName(value = "desc1")
+    var desc:String = ""
+
+//    override fun toString(): String {
+//        return "GsonSerializeBean(name='$name', desc='$desc')"
+//    }
 
 
 }

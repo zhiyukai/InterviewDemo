@@ -5,9 +5,11 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.Settings
+import android.support.annotation.RequiresApi
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -79,6 +81,43 @@ class RxJavaActivity : Activity() {
 
     private fun initListener() {
 
+        findViewById<Button>(R.id.bt_test_version).setOnClickListener() {
+            val wxInfo = this.packageManager.getPackageInfo("com.tencent.mm", 0)
+            LogcatUtils.showDLog(TAG, "bt_test_version wxInfo.versionName = ${wxInfo.versionName}")
+            LogcatUtils.showDLog(TAG, "bt_test_version wxInfo.longVersionCode = ${wxInfo.longVersionCode}")
+            LogcatUtils.showDLog(TAG, "bt_test_version wxInfo.longVersionCode = ${wxInfo.versionCode}")
+            val packageInfos = this.packageManager.getInstalledPackages(0)
+            var k = 0
+            val builder = StringBuilder()
+            for (i in packageInfos.indices) {
+                val result = packageInfos[i]
+                LogcatUtils.showDLog(TAG, "bt_test_version result = ${result.toString()}")
+            }
+        }
+
+        findViewById<Button>(R.id.bt_test_builder).setOnClickListener() {
+            val labelMap = HashMap<String, String>()
+            labelMap["0"] = "tag0"
+            labelMap["1"] = "tag1"
+            labelMap["2"] = "tag2"
+            labelMap["3"] = "tag3"
+            labelMap["4"] = "tag4"
+
+            val result = StringBuilder()
+            val labelIds = "1,2,3"
+            val labelIdsArray = labelIds.split(",")
+            for (labelId in labelIdsArray) {
+                labelMap[labelId]?.let {
+                    result.append(it)
+                    result.append(",")
+                }
+            }
+            LogcatUtils.showDLog(TAG, "bt_test_builder result = ${result.toString()}")
+            if (result.length > 1) {
+                result.delete(result.length - 1, result.length)
+            }
+            LogcatUtils.showDLog(TAG, "bt_test_builder result = ${result.toString()}")
+        }
         findViewById<Button>(R.id.bt_test_do_on_complete).setOnClickListener() {
             Observable.create<List<String>> {
                 LogcatUtils.showDLog(TAG, "bt_test_do_on_complete")
@@ -90,15 +129,16 @@ class RxJavaActivity : Activity() {
             }.subscribeOn(Schedulers.io())
                     .flatMap { Observable.fromIterable(it) }
                     .filter {
-                        1/0
+                        1 / 0
                         LogcatUtils.showDLog(TAG, "bt_test_do_on_complete filter")
-                        it.isNotEmpty() }
+                        it.isNotEmpty()
+                    }
                     .doOnComplete {
                         LogcatUtils.showDLog(TAG, "bt_test_do_on_complete doOnComplete")
                         return@doOnComplete
                     }.subscribe({
 //                        try {
-                            1 / 0
+                        1 / 0
 //                        } catch (e: java.lang.Exception) {
 //                            LogcatUtils.showELog(TAG, "bt_test_do_on_complete subscribe e is ${e.localizedMessage}")
 //                        }
@@ -112,25 +152,33 @@ class RxJavaActivity : Activity() {
             LogcatUtils.showDLog(TAG, "bt_test_gson_serializedname androidId = $androidId")
             val wifiOn = Settings.Secure.getInt(getContentResolver(), Settings.Secure.WIFI_ON)
             LogcatUtils.showDLog(TAG, "bt_test_gson_serializedname wifiOn = $wifiOn")
+
         }
 
         findViewById<Button>(R.id.bt_test_gson_serializedname).setOnClickListener() {
             val label = "{\"a\":\"z1\"}"
             val label2 = "{\"b\":\"z2\"}"
             val label3 = "{\"d\":\"z3\"}"
+            val label4 = "{\"name\":\"name4\", 'name1':'name1'," +
+                    "'a':'a','desc1':'desc1'}"
 
             val gsonSerializeBean = GsonSerializeBean()
             gsonSerializeBean.name = "序列化"
+            gsonSerializeBean.desc = "desc"
 
             val seri = Gson().toJson(gsonSerializeBean)
             LogcatUtils.showDLog(TAG, "bt_test_gson_serializedname seri = $seri")
 
+            val serig1 = Gson().fromJson(seri, GsonSerializeBean::class.java)
             val g1 = Gson().fromJson(label, GsonSerializeBean::class.java)
             val g2 = Gson().fromJson(label2, GsonSerializeBean::class.java)
             val g3 = Gson().fromJson(label3, GsonSerializeBean::class.java)
-            LogcatUtils.showDLog(TAG, "bt_test_gson_serializedname g1 = $g1")
-            LogcatUtils.showDLog(TAG, "bt_test_gson_serializedname g2 = $g2")
-            LogcatUtils.showDLog(TAG, "bt_test_gson_serializedname g3 = $g3")
+            val g4 = Gson().fromJson(label4, GsonSerializeBean::class.java)
+            LogcatUtils.showDLog(TAG, "bt_test_gson_serializedname serig1 = $serig1")
+            LogcatUtils.showDLog(TAG, "bt_test_gson_serializedname g1 = ${g1.name};${g1.desc}")
+            LogcatUtils.showDLog(TAG, "bt_test_gson_serializedname g2 = ${g2.name};${g2.desc}")
+            LogcatUtils.showDLog(TAG, "bt_test_gson_serializedname g3 = ${g3.name}; ${g3.desc}")
+            LogcatUtils.showDLog(TAG, "bt_test_gson_serializedname g4 = ${g4.name} ; ${g4.desc}")
         }
         findViewById<Button>(R.id.bt_test_observable_interval).setOnClickListener() {
             LogcatUtils.showDLog(TAG, "bt_test_observable_interval")

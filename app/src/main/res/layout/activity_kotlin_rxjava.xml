@@ -3,6 +3,14 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:orientation="vertical">
+  <Button
+    android:id="@+id/bt_test_version"
+    style="@style/ButtonStyle"
+    android:text="测试安装应用的版本信息" />
+  <Button
+    android:id="@+id/bt_test_builder"
+    style="@style/ButtonStyle"
+    android:text="测试StringBuilder" />
 
   <Button
     android:id="@+id/bt_test_do_on_complete"
