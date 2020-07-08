@@ -1,21 +1,28 @@
 package prictise.com.application1.kotlin.rxjava
 
+import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.KeyguardManager
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ApplicationInfo
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
+import android.os.PowerManager
 import android.provider.Settings
 import android.support.annotation.RequiresApi
 import android.util.Log
+import android.view.KeyEvent
 import android.view.View
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.ProgressBar
 import com.google.gson.Gson
 import io.reactivex.Observable
+import io.reactivex.ObservableEmitter
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -79,7 +86,92 @@ class RxJavaActivity : Activity() {
         return mTestData
     }
 
+    private fun string(): String {
+        try {
+            LogcatUtils.showDLog(TAG, "bt_test_finally string try")
+            return "a"
+        } finally {
+            LogcatUtils.showDLog(TAG, "bt_test_finally string finally")
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.ECLAIR_MR1)
     private fun initListener() {
+
+        findViewById<Button>(R.id.bt_test_finally).setOnClickListener {
+            LogcatUtils.showDLog(TAG, "bt_test_finally ${string()}")
+        }
+        findViewById<Button>(R.id.bt_test_string).setOnClickListener {
+            val url = "http://dragnet-sunlands.oss-cn-beijing.aliyuncs.com/android/video/test_cat_1.mp4"
+            val name = url!!.substring(url.lastIndexOf("/") + 1)
+            val subUrl = url!!.substring(0, url.lastIndexOf("/"))
+            val resultString = subUrl.replace(":", "-").replace("/", "_")
+
+            LogcatUtils.showDLog(TAG, "bt_test_string name is $name")
+            LogcatUtils.showDLog(TAG, "bt_test_string subUrl is $subUrl")
+            LogcatUtils.showDLog(TAG, "bt_test_string resultString is $resultString")
+        }
+        findViewById<Button>(R.id.bt_test_not_empty).setOnClickListener {
+            var chatRoomIds: List<String>? = null
+//            LogcatUtils.showDLog(TAG, "bt_test_xie_cheng chatRoomIds is ${chatRoomIds!!.isNotEmpty()}")
+            LogcatUtils.showDLog(TAG, "bt_test_xie_cheng chatRoomIds isNullOrEmpty() is ${chatRoomIds!!.isNullOrEmpty()}")
+            LogcatUtils.showDLog(TAG, "bt_test_xie_cheng chatRoomIds !isNullOrEmpty() is ${!chatRoomIds!!.isNullOrEmpty()}")
+
+        }
+
+        findViewById<Button>(R.id.bt_test_list_to_array).setOnClickListener {
+            val testListToArray = ArrayList<String>()
+            testListToArray.add("张三")
+            testListToArray.add("李四")
+            testListToArray.add("王五")
+            LogcatUtils.showDLog(TAG, "bt_test_xie_cheng testListToArray is ${testListToArray}")
+            LogcatUtils.showDLog(TAG, "bt_test_xie_cheng testListToArray.toArray() is ${testListToArray.toArray()}")
+            LogcatUtils.showDLog(TAG, "bt_test_xie_cheng testListToArray.toTypedArray() is ${testListToArray.toTypedArray()}")
+
+        }
+
+        findViewById<Button>(R.id.bt_test_data_dir).setOnClickListener {
+            val applicationInfo: ApplicationInfo = getApplicationInfo()
+            LogcatUtils.showDLog(TAG, "bt_test_data_dir applicationInfo.dataDir is ${applicationInfo.dataDir}")
+        }
+        findViewById<Button>(R.id.bt_test_replace).setOnClickListener {
+            var msg = "1.0-AccountPlugin\\u0026^^\\u0026getCurrentUser2 0x01"
+            LogcatUtils.showDLog(TAG, "bt_test_replace msg1 is $msg")
+            if (msg.contains("\\u0026^^\\u0026")) {
+                msg = msg.replace("\\u0026^^\\u0026", "&^^&")
+            }
+            LogcatUtils.showDLog(TAG, "bt_test_replace msg2 is $msg")
+        }
+        findViewById<Button>(R.id.bt_test_unlock_screen).setOnClickListener() {
+            Observable.interval(10, 10, TimeUnit.SECONDS)
+                    .subscribe({
+                        LogcatUtils.showDLog(TAG, "bt_test_unlock_screen thread is ${Thread.currentThread()}")
+//                        runOnUiThread {
+//                            testUnLockScreen()
+//                        }
+                        checkIsWeekUpScreen()
+                        LogcatUtils.showDLog(TAG, "bt_test_unlock_screen #第 $it 次")
+                    }, {
+                        LogcatUtils.showDLog(TAG, "bt_test_unlock_screen e : ${it.localizedMessage}")
+                    })
+        }
+        findViewById<Button>(R.id.bt_test_rxjava_return_create).setOnClickListener() {
+            Observable.create<String> {
+
+                if (checkIsChanceHasBeenFinished("chance", it)) {
+                    //恢复可操作状态
+//                    setIsNotOperating()
+                    LogcatUtils.showDLog(TAG, "bt_test_rxjava_return_create checkIsChanceHasBeenFinished")
+                    return@create
+                }
+            }
+                    .subscribeOn(Schedulers.io())
+                    .subscribe({
+                        LogcatUtils.showDLog(TAG, "bt_test_rxjava_return_create it next $it")
+                    }, {
+                        LogcatUtils.showDLog(TAG, "bt_test_rxjava_return_create error is ${it.localizedMessage}")
+                    })
+        }
 
         findViewById<Button>(R.id.bt_test_version).setOnClickListener() {
             val wxInfo = this.packageManager.getPackageInfo("com.tencent.mm", 0)
@@ -161,6 +253,8 @@ class RxJavaActivity : Activity() {
             val label3 = "{\"d\":\"z3\"}"
             val label4 = "{\"name\":\"name4\", 'name1':'name1'," +
                     "'a':'a','desc1':'desc1'}"
+            val label5 = "{\"name\":\"name4\",'desc1':'desc1'}"
+            val label6 = "{\"name1\":\"name6\",'desc1':'desc6'}"
 
             val gsonSerializeBean = GsonSerializeBean()
             gsonSerializeBean.name = "序列化"
@@ -174,11 +268,15 @@ class RxJavaActivity : Activity() {
             val g2 = Gson().fromJson(label2, GsonSerializeBean::class.java)
             val g3 = Gson().fromJson(label3, GsonSerializeBean::class.java)
             val g4 = Gson().fromJson(label4, GsonSerializeBean::class.java)
+            val g5 = Gson().fromJson(label5, GsonSerializeBean::class.java)
+            val g6 = Gson().fromJson(label6, GsonSerializeBean::class.java)
             LogcatUtils.showDLog(TAG, "bt_test_gson_serializedname serig1 = $serig1")
             LogcatUtils.showDLog(TAG, "bt_test_gson_serializedname g1 = ${g1.name};${g1.desc}")
             LogcatUtils.showDLog(TAG, "bt_test_gson_serializedname g2 = ${g2.name};${g2.desc}")
             LogcatUtils.showDLog(TAG, "bt_test_gson_serializedname g3 = ${g3.name}; ${g3.desc}")
             LogcatUtils.showDLog(TAG, "bt_test_gson_serializedname g4 = ${g4.name} ; ${g4.desc}")
+            LogcatUtils.showDLog(TAG, "bt_test_gson_serializedname g5 = ${g5.name} ; ${g5.desc}")
+            LogcatUtils.showDLog(TAG, "bt_test_gson_serializedname g6 = ${g6.name} ; ${g6.desc}")
         }
         findViewById<Button>(R.id.bt_test_observable_interval).setOnClickListener() {
             LogcatUtils.showDLog(TAG, "bt_test_observable_interval")
@@ -748,6 +846,101 @@ class RxJavaActivity : Activity() {
 
     }
 
+    private fun checkIsWeekUpScreen(): Boolean {
+        if (!checkAndWakeUpScreen(applicationContext)) {
+            //没唤醒屏幕和解锁
+            LogcatUtils.showDLog(TAG, "onNewChanceComing## cant wake or unlock")
+            return true
+        }
+        return false
+    }
+
+    fun checkAndWakeUpScreen(context: Context): Boolean {
+        LogcatUtils.showDLog(TAG, "checkAndWakeUpScreen()")
+        val mList = ArrayList<String>()
+        /*唤醒屏幕*/
+        if (!isScreenLight(context)) {
+            LogcatUtils.showDLog(TAG, "need wake screen")
+            mList.add("input keyevent " + KeyEvent.KEYCODE_WAKEUP)
+        }
+
+        if (isScreenLocked(context)) {
+            LogcatUtils.showDLog(TAG, "need unlock")
+            /*从下往上滑动解锁*/
+            val lock = "input keyevent 82"
+            mList.add(lock)
+        }
+        if (mList.isNotEmpty()) {
+            val commandResult = execCmd1(mList, true)
+            LogcatUtils.showDLog(TAG, "shell result: $commandResult")
+            if (commandResult.result == -1) {
+                return false
+            }
+        }
+        Thread.sleep(1500L)
+        if (isScreenLocked(context)) {
+            LogcatUtils.showDLog(TAG, "need unlock either")
+            return false
+        }
+        return true
+    }
+
+    fun isScreenLight(context: Context): Boolean {
+        val pm = context.getSystemService(Context.POWER_SERVICE) as PowerManager
+        return pm.isInteractive
+    }
+
+    fun isScreenLocked(context: Context): Boolean {
+        val keyguardManager = context.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
+        return keyguardManager.inKeyguardRestrictedInputMode()
+    }
+
+    private fun testUnLockScreen() {
+        // 获取电源管理器对象
+        val pm: PowerManager = applicationContext
+                .getSystemService(Context.POWER_SERVICE) as PowerManager
+        val screenOn: Boolean = pm.isScreenOn()
+        Log.d("WakeScreen0", "screenOn: $screenOn")
+
+        if (!screenOn) {
+            // 获取PowerManager.WakeLock对象,后面的参数|表示同时传入两个值,最后的是LogCat里用的Tag
+            @SuppressLint("InvalidWakeLockTag")
+            val wl: PowerManager.WakeLock = pm.newWakeLock(
+                    PowerManager.ACQUIRE_CAUSES_WAKEUP or
+                            PowerManager.SCREEN_BRIGHT_WAKE_LOCK, "bright")
+            wl.acquire(10000) // 点亮屏幕
+            wl.release() // 释放
+        }
+        // 屏幕解锁
+        // 屏幕解锁
+        val keyguardManager: KeyguardManager = applicationContext
+                .getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
+        val keyguardLock: KeyguardManager.KeyguardLock = keyguardManager.newKeyguardLock("unLock")
+        // 屏幕锁定
+//        keyguardLock.reenableKeyguard();
+        // 屏幕锁定
+//        keyguardLock.reenableKeyguard();
+        keyguardLock.disableKeyguard() // 解锁
+
+        unLockScreen()
+    }
+
+    private fun unLockScreen() {
+        val win = getWindow();
+        win.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED)
+        win.addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD)
+        win.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        win.addFlags(WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON)
+        win.addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON)
+    }
+
+    private fun checkIsChanceHasBeenFinished(chance: String, it: ObservableEmitter<String>): Boolean {
+        Thread.sleep(1000)
+        it.onNext(chance)
+        it.onComplete()
+        return true
+    }
+
     private fun testSample() {
         var interval = Observable.interval(150, TimeUnit.MILLISECONDS);
         interval.subscribe {
@@ -882,6 +1075,10 @@ class RxJavaActivity : Activity() {
 
     fun downLoadPic() {
         RetrofitManager.getAPIService()
+    }
+
+    fun execCmd1(commands: List<String>?, isRoot: Boolean): CommandResult {
+        return execCmd(commands?.toTypedArray(), isRoot, true)
     }
 
     @JvmOverloads
