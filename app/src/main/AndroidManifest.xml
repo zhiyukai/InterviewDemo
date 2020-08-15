@@ -3,7 +3,6 @@
   xmlns:tools="http://schemas.android.com/tools"
   package="prictise.com.application1">
 
-  <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
   <application
     android:name=".MainApplication"
     android:allowBackup="true"
@@ -21,6 +20,7 @@
       </intent-filter>
     </activity>
 
+    <activity android:name=".cusListview.RecycleViewActivity" />
     <activity android:name=".cusListview.ViewPagerRefreshListActivity" />
     <activity android:name=".kotlin.okhttpTest.OkHttpActivity" />
     <activity android:name=".testEdittext.TestEditTextActivity" />
@@ -178,19 +178,12 @@
       android:launchMode="singleInstance" />
     <activity android:name=".kotlin.activity.ActivityB" />
 
-    <activity android:name=".kotlin.activity.ActivityC"
-      android:taskAffinity="prictise.com.demo.new_task"/>
+    <activity
+      android:name=".kotlin.activity.ActivityC"
+      android:taskAffinity="prictise.com.demo.new_task" />
 
   </application>
 
-  <uses-feature android:name="android.permission.camera" />
-  <uses-feature android:name="android.hardware.camera" />
-  <uses-feature android:name="android.hardware.camera.autofocus" />
-
-  <uses-feature android:name="android.permission.camera" />
-  <uses-feature android:name="android.hardware.camera" />
-  <uses-feature android:name="android.hardware.camera.autofocus" />
-
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -202,20 +195,6 @@
   <uses-permission android:name="android.permission.INTERNET" />
 
   <uses-permission android:name="android.permission.WAKE_LOCK" />
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-  <uses-permission
-    android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
-    tools:ignore="ProtectedPermissions" />
-
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-  <uses-permission android:name="android.permission.CAMERA" />
-  <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-  <uses-permission android:name="android.permission.RECORD_AUDIO" />
-  <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.WAKE_LOCK" />
-
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission
     android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"

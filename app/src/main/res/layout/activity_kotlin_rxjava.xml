@@ -6,6 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <Button
+      android:id="@+id/bt_test_iterator"
+      style="@style/ButtonStyle"
+      android:text="测试iterator" />
+
     <Button
       android:id="@+id/bt_test_finally"
       style="@style/ButtonStyle"

@@ -42,6 +42,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            res {
+                srcDirs 'src/main/res', 'src/baidu/res'
+            }
+        }
+    }
 }
 greendao {
     //版本号，升级时可配置
@@ -51,6 +58,7 @@ greendao {
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -62,7 +70,6 @@ dependencies {
     implementation 'com.jakewharton:butterknife-compiler:8.1.0'
     implementation 'junit:junit:4.12'
     implementation 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
-    implementation 'com.android.support:recyclerview-v7:21.0.0'
     implementation 'com.qiniu:qiniu-android-sdk:7.3.+'
     implementation 'com.qiniu:happy-dns:0.2.13'
     implementation 'com.loopj.android:android-async-http:1.4.9'

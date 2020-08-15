@@ -13,7 +13,8 @@
     <color name="color_layer_AD98D7">#4C4F59</color>
     <color name="color_bg_051854">#051854</color>
     <color name="translucent">#00000000</color>
-
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="color_008efc">#008EFC</color>
 
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="@dimen/margin_46"
+  android:background="@color/white">
+  <TextView
+    android:id="@+id/tv_popup_list_item"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/margin_46"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:text="餐厅食堂"
+    android:textColor="@color/black"
+    android:textSize="@dimen/font_16" />
+</FrameLayout>

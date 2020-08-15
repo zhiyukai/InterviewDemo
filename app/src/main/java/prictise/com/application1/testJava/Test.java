@@ -2,6 +2,12 @@ package prictise.com.application1.testJava;
 
 public class Test {
 
+  static void yiHuo() {
+    int a = 6;
+    int b = 4;
+    System.out.println("a ^ b = " + (a ^ b));
+  }
+
   static void another(F f, int i) {
     f.d = 10;
     another1(f, 2);
@@ -24,12 +30,14 @@ public class Test {
   }
 
   public static void main(String[] args) {
-    F f = new F();
-    f.d = 90;
-    int i = 9;
-    another(f, i);
+//    F f = new F();
+//    f.d = 90;
+//    int i = 9;
+//    another(f, i);
+//
+//    System.out.println("f.d = " + f.d + "; i = " + i);
 
-    System.out.println("f.d = " + f.d + "; i = " + i);
+    yiHuo();
   }
 }
 

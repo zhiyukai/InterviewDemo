@@ -14,6 +14,7 @@ import android.os.Environment
 import android.os.PowerManager
 import android.provider.Settings
 import android.support.annotation.RequiresApi
+import android.text.TextUtils
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
@@ -21,6 +22,7 @@ import android.view.WindowManager
 import android.widget.Button
 import android.widget.ProgressBar
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import io.reactivex.Observable
 import io.reactivex.ObservableEmitter
 import io.reactivex.Observer
@@ -44,6 +46,7 @@ import java.io.*
 import java.util.*
 import java.util.concurrent.ArrayBlockingQueue
 import java.util.concurrent.TimeUnit
+import kotlin.collections.ArrayList
 
 
 /**
@@ -97,6 +100,48 @@ class RxJavaActivity : Activity() {
 
     @RequiresApi(Build.VERSION_CODES.ECLAIR_MR1)
     private fun initListener() {
+
+        findViewById<Button>(R.id.bt_test_iterator).setOnClickListener {
+            /**
+             *  var result: Int,
+            /**
+             * 成功信息
+            */
+            var successMsg: String,
+            /**
+             * 错误信息
+            */
+            var errorMsg: String
+             */
+            val applyEntity = "[{\"result\":1,\"successMsg\":\"成功信息\",\"errorMsg\":\"错误信息\"}]"
+
+            val target1 = parseGsonToS(applyEntity,
+                    ArrayList<CommandResult>()::class.java)
+
+            LogcatUtils.showDLog(TAG, "bt_test_iterator target1 = $target1")
+
+            val target = ArrayList<String>()
+
+            target.add("张三")
+//            target.add("李四")
+//            target.add("王五")
+//            target.add("张六")
+
+            val iterator = target.iterator()
+            var count = 0
+            while (iterator.hasNext()) {
+                val next = iterator.next()
+                LogcatUtils.showDLog(TAG, "bt_test_iterator next = $next")
+                iterator.remove()
+                Thread.sleep(200)
+                if (count == 1) {
+                    break
+                }
+                count++
+            }
+
+            LogcatUtils.showDLog(TAG, "bt_test_iterator target = $target")
+        }
 
         findViewById<Button>(R.id.bt_test_finally).setOnClickListener {
             LogcatUtils.showDLog(TAG, "bt_test_finally ${string()}")
@@ -1149,6 +1194,18 @@ class RxJavaActivity : Activity() {
         }
     }
 
+    fun <S> parseGsonToS(contentGson: String, clazz: Class<S>): S {
+        if (TextUtils.isEmpty(contentGson)) {
+            return null!!
+        }
+        try {
+            val gsonType = object : TypeToken<S>() {}.type
+            return Gson().fromJson<S>(contentGson, gsonType)
+        } catch (e: java.lang.Exception) {
+            LogcatUtils.showDLog(TAG, "parseGson e : ${e.localizedMessage}")
+        }
+        return null!!
+    }
 }
 
 class CommandResult(
@@ -1169,4 +1226,5 @@ class CommandResult(
     override fun toString(): String {
         return "CommandResult(result=$result, successMsg='$successMsg', errorMsg='$errorMsg')"
     }
+
 }

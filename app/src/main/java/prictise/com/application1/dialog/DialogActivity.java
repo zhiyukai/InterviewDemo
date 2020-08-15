@@ -27,6 +27,12 @@ public class DialogActivity extends Activity {
   }
 
 
+  @OnClick(R.id.bt_lanch_xieyi_window_dialog)
+  public void lanchXieyiDialogActivity() {
+    XieyiDialog xieyiDialog = new XieyiDialog(this, "正在登录...", R.mipmap.ic_dialog_loading);
+    xieyiDialog.show();
+  }
+
   @OnClick(R.id.bt_lanch_dialog_style_activity)
   public void lanchDialogActivity() {
     startActivity(new Intent(this, DialogStyleActivity.class));

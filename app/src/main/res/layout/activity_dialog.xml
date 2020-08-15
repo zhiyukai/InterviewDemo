@@ -22,4 +22,9 @@
     android:id="@+id/bt_lanch_window_dialog"
     style="@style/ButtonStyle"
     android:text="启动一个window类型的dialog"/>
+
+  <Button
+    android:id="@+id/bt_lanch_xieyi_window_dialog"
+    style="@style/ButtonStyle"
+    android:text="启动一个协议类型的dialog"/>
 </LinearLayout>

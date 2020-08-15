@@ -29,6 +29,7 @@ import prictise.com.application1.canvas.TestCanvasActivity;
 import prictise.com.application1.circleImageView.CircleActivity;
 import prictise.com.application1.countDown.CountDownActivity;
 import prictise.com.application1.cus.CusActivity;
+import prictise.com.application1.cusListview.RecycleViewActivity;
 import prictise.com.application1.cusListview.RefreshListViewActivity;
 import prictise.com.application1.cusListview.ViewPagerRefreshListActivity;
 import prictise.com.application1.cusListview.weightPullLoadmore.RefreshListView2Activity;
@@ -206,6 +207,12 @@ public class MainActivity extends Activity {
   @Override
   protected void onDestroy() {
     super.onDestroy();
+  }
+
+  @OnClick(R.id.bt_test_recycle_view)
+  public void testRecycleView() {
+    startActivity(
+        new Intent(this, RecycleViewActivity.class));
   }
 
   @OnClick(R.id.bt_lunch_viewpager_listview)
