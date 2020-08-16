@@ -21,6 +21,7 @@
     </activity>
 
     <activity android:name=".cusListview.RecycleViewActivity" />
+    <activity android:name=".otherApplication.ArouseOtherApplication" />
     <activity android:name=".cusListview.ViewPagerRefreshListActivity" />
     <activity android:name=".kotlin.okhttpTest.OkHttpActivity" />
     <activity android:name=".testEdittext.TestEditTextActivity" />

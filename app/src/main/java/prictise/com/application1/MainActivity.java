@@ -59,6 +59,7 @@ import prictise.com.application1.multithreading.SyncStack;
 import prictise.com.application1.multithreading.ThreadActivity;
 import prictise.com.application1.networkTest.NetWorkActivity;
 import prictise.com.application1.notify.NotifyActivity;
+import prictise.com.application1.otherApplication.ArouseOtherApplication;
 import prictise.com.application1.pictureMemory.PictureCompressActivity;
 import prictise.com.application1.pictureMemory.PictureMemoryActivity;
 import prictise.com.application1.qiniu.activity.QiniuActivity;
@@ -207,6 +208,12 @@ public class MainActivity extends Activity {
   @Override
   protected void onDestroy() {
     super.onDestroy();
+  }
+
+  @OnClick(R.id.bt_test_arouse_other_application)
+  public void testArouseOtherApplication() {
+    startActivity(
+        new Intent(this, ArouseOtherApplication.class));
   }
 
   @OnClick(R.id.bt_test_recycle_view)
