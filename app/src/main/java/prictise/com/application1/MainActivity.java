@@ -70,6 +70,7 @@ import prictise.com.application1.testEdittext.TestEditTextActivity;
 import prictise.com.application1.testGreendao.TestGreenDaoActivity;
 import prictise.com.application1.testStackActivity.MainStackActivity;
 import prictise.com.application1.viewpager.ViewPagerMainActivity;
+import prictise.com.application1.viewpager.ViewPagerSourceActivity;
 import prictise.com.application1.wheel.WheelActivity;
 
 public class MainActivity extends Activity {
@@ -210,6 +211,11 @@ public class MainActivity extends Activity {
     super.onDestroy();
   }
 
+  @OnClick(R.id.bt_cus_view_pager)
+  public void testCusViewPager() {
+    startActivity(
+        new Intent(this, ViewPagerSourceActivity.class));
+  }
   @OnClick(R.id.bt_test_arouse_other_application)
   public void testArouseOtherApplication() {
     startActivity(

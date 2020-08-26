@@ -4,6 +4,7 @@
   package="prictise.com.application1">
 
   <application
+    android:usesCleartextTraffic="true"
     android:name=".MainApplication"
     android:allowBackup="true"
     android:icon="@mipmap/interview"
@@ -22,6 +23,7 @@
 
     <activity android:name=".cusListview.RecycleViewActivity" />
     <activity android:name=".otherApplication.ArouseOtherApplication" />
+    <activity android:name=".viewpager.ViewPagerSourceActivity" />
     <activity android:name=".cusListview.ViewPagerRefreshListActivity" />
     <activity android:name=".kotlin.okhttpTest.OkHttpActivity" />
     <activity android:name=".testEdittext.TestEditTextActivity" />

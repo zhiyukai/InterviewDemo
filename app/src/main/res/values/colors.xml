@@ -41,6 +41,7 @@
     <color name="color_readMain_qianse">#fff1936b</color>
     <color name="yellow">#fff0d71b</color>
     <color name="white">#ffffffff</color>
+    <color name="white_tran">#00ffffff</color>
     <color name="black">#ff000000</color>
     <color name="black_light">#99000000</color>
     <color name="blue">#1191ed</color>

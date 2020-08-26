@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
-  android:layout_height="match_parent">
+  android:layout_height="match_parent"
+  android:orientation="vertical">
   <Button
     android:id="@+id/bt_lunch_other"
     style="@style/ButtonStyle"
     android:text="启动新的应用" />
+
+  <prictise.com.application1.cusview.TextViewEllipseEndFixed
+    android:layout_width="180dp"
+    android:layout_height="wrap_content"
+    android:ellipsize="end"
+    android:maxLines="2"
+    android:singleLine="false"
+    android:text="备注: 少放盐，有点咸，多放醋少放盐，有点咸，多放醋少放盐，有点咸，多放醋少放盐，"
+    android:textColor="#3D40FF" />
 
 </LinearLayout>

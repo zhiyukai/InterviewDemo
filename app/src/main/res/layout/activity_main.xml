@@ -9,6 +9,10 @@
     android:orientation="vertical">
 
     <Button
+      android:id="@+id/bt_cus_view_pager"
+      style="@style/ButtonStyle"
+      android:text="测试自定义ViewPager" />
+    <Button
       android:id="@+id/bt_test_arouse_other_application"
       style="@style/ButtonStyle"
       android:text="测试其它应用" />
@@ -16,7 +20,7 @@
       android:id="@+id/bt_test_recycle_view"
       style="@style/ButtonStyle"
       android:text="测试recycleView" />
-
+    ViewPager
     <Button
       android:id="@+id/bt_lunch_viewpager_listview"
       style="@style/ButtonStyle"
