@@ -22,6 +22,7 @@
     </activity>
 
     <activity android:name=".cusListview.RecycleViewActivity" />
+    <activity android:name=".clickMultiple.MultipleClickActivity" />
     <activity android:name=".otherApplication.ArouseOtherApplication" />
     <activity android:name=".viewpager.ViewPagerSourceActivity" />
     <activity android:name=".cusListview.ViewPagerRefreshListActivity" />

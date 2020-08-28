@@ -9,6 +9,10 @@
     android:orientation="vertical">
 
     <Button
+      android:id="@+id/bt_click_num"
+      style="@style/ButtonStyle"
+      android:text="测试点击次数" />
+    <Button
       android:id="@+id/bt_cus_view_pager"
       style="@style/ButtonStyle"
       android:text="测试自定义ViewPager" />

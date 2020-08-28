@@ -27,6 +27,7 @@ import prictise.com.application1.animation.TestPropertyAniActivity;
 import prictise.com.application1.asyncTask.AsyncTaskActivity;
 import prictise.com.application1.canvas.TestCanvasActivity;
 import prictise.com.application1.circleImageView.CircleActivity;
+import prictise.com.application1.clickMultiple.MultipleClickActivity;
 import prictise.com.application1.countDown.CountDownActivity;
 import prictise.com.application1.cus.CusActivity;
 import prictise.com.application1.cusListview.RecycleViewActivity;
@@ -211,11 +212,18 @@ public class MainActivity extends Activity {
     super.onDestroy();
   }
 
+  @OnClick(R.id.bt_click_num)
+  public void testClickNum() {
+    startActivity(
+        new Intent(this, MultipleClickActivity.class));
+  }
+
   @OnClick(R.id.bt_cus_view_pager)
   public void testCusViewPager() {
     startActivity(
         new Intent(this, ViewPagerSourceActivity.class));
   }
+
   @OnClick(R.id.bt_test_arouse_other_application)
   public void testArouseOtherApplication() {
     startActivity(
