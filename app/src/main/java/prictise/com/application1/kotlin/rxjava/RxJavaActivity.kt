@@ -26,12 +26,15 @@ import com.google.gson.reflect.TypeToken
 import io.reactivex.Observable
 import io.reactivex.ObservableEmitter
 import io.reactivex.Observer
+import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
 import prictise.com.application1.R
+import prictise.com.application1.designMode.Build.PersonNormal
+import prictise.com.application1.interfaceCus.PersonInterface
 import prictise.com.application1.kotlin.activity.ActivityA
 import prictise.com.application1.kotlin.bean.GsonSerializeBean
 import prictise.com.application1.retrofit2.RetrofitManager
@@ -43,6 +46,8 @@ import zlc.season.rxdownload4.download
 import zlc.season.rxdownload4.manager.file
 import zlc.season.rxdownload4.manager.manager
 import java.io.*
+import java.lang.reflect.InvocationHandler
+import java.lang.reflect.Proxy
 import java.util.*
 import java.util.concurrent.ArrayBlockingQueue
 import java.util.concurrent.TimeUnit
@@ -839,20 +844,61 @@ class RxJavaActivity : Activity() {
             LogcatUtils.showDLog(TAG, "LogcatUtils")
         }
         mTestRxjava?.setOnClickListener(View.OnClickListener {
-            //            connect();
-//            LogcatUtils.showDLog(TAG, "setOnClickListener")
-//            testMethod(testMethod2())
-//            startService(Intent(this, AccessServer::class.java))
+            Observable.just(System.currentTimeMillis())
+                    .subscribeOn(AndroidSchedulers.mainThread())
+                    .subscribe({
+                        LogcatUtils.showDLog(TAG, "thread: ${Thread.currentThread()}")
+                    }, {})
+
             LogcatUtils.showDLog(TAG, "clipe = " + cmb?.primaryClip?.getItemAt(0)?.text)
-//            getFriendCirclePic()
             clearFriendCirclePic()
-//            val accessibleIntent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
-//            accessibleIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-//            startActivity(accessibleIntent);
+
+            getCRMRoomList()
+                    ?.map {
+                        it.forEach { user ->
+                            val string = Gson().toJson(user)
+                            LogcatUtils.showDLog(TAG, "chatroom = $string")
+                        }
+                        return@map "a"
+                    }?.subscribe(
+                            {
+                                LogcatUtils.showDLog(TAG, "saveChatRoomListToDisk path = $it")
+                            }, {
+                        LogcatUtils.showELog(TAG, "saveChatRoomListToDisk throwable = ${it.localizedMessage}")
+                    }
+                    )
+
+
+            val callbackClass1 = this.classLoader
+                    .loadClass("prictise.com.application1.interfaceCus.PersonInterface")
+            val a1 = Proxy.newProxyInstance(this.classLoader, arrayOf(callbackClass1), InvocationHandler { proxy, method, args ->
+                LogcatUtils.showDLog(TAG, "sendRichMessage2 method.name=${method.name}")
+                LogcatUtils.showDLog(TAG, "sendRichMessage2 method.args[0]=${args[0]}")
+                "asss"
+                "sdsfs"
+                "rtygb"
+                LogcatUtils.showDLog(TAG, "sendRichMessage3 method.name=${method.name}")
+            })
+
+            val callbackClass2 = this.classLoader
+                    .loadClass("prictise.com.application1.interfaceCus.PersonInterface")
+            val a2 = Proxy.newProxyInstance(this.classLoader, arrayOf(callbackClass2), InvocationHandler { proxy, method, args ->
+                LogcatUtils.showDLog(TAG, "sendRichMessage4 method.name=${method.name}")
+                LogcatUtils.showDLog(TAG, "sendRichMessage4 method.args[0]=${args[0]}")
+                args[0]
+            })
+            val a11 = a1 as PersonInterface
+            val a21 = a2 as PersonInterface
+            a11.onResult(1)
+            a21.onResult(2)
+
+//            LogcatUtils.showDLog(TAG, "sendRichMessage3 a1 =${a11.onResult(1)}")
+//            LogcatUtils.showDLog(TAG, "sendRichMessage3 a2 =${a21.onResult()}")
         })
 
         mTestMapFlatMap?.setOnClickListener(View.OnClickListener {
             LogcatUtils.showDLog(TAG, "mTestMapFlatMap")
+
             Observable.just(System.currentTimeMillis())
                     .filter {
                         true
@@ -1205,6 +1251,24 @@ class RxJavaActivity : Activity() {
             LogcatUtils.showDLog(TAG, "parseGson e : ${e.localizedMessage}")
         }
         return null!!
+    }
+
+    fun getCRMRoomList(): Single<MutableList<PersonNormal>>? {
+        LogcatUtils.showDLog(TAG, "getCRMRoomList()")
+        return Observable.create<MutableList<PersonNormal>> {
+            val personNormal = ArrayList<PersonNormal>()
+            for (index in 0 until 10) {
+                val p = PersonNormal("name$index", "1")
+                personNormal.add(p)
+            }
+            it.onNext(personNormal)
+            it.onComplete()
+        }.subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(Schedulers.io())
+                .flatMap {
+                    Observable.fromIterable(it)
+                }.toList()
+
     }
 }
 

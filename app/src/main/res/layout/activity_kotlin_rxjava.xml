@@ -8,6 +8,10 @@
     android:orientation="vertical">
 
     <Button
+      android:id="@+id/bt_test_rxjava"
+      style="@style/ButtonStyle"
+      android:text="测试subscribeOn" />
+    <Button
       android:id="@+id/bt_test_iterator"
       style="@style/ButtonStyle"
       android:text="测试iterator" />
@@ -190,10 +194,6 @@
       style="@style/ButtonStyle"
       android:text="测试publish_sample" />
 
-    <Button
-      android:id="@+id/bt_test_rxjava"
-      style="@style/ButtonStyle"
-      android:text="测试" />
     <Button
       android:id="@+id/bt_test_map_flatmap"
       style="@style/ButtonStyle"

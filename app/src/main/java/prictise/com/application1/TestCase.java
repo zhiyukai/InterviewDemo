@@ -42,6 +42,15 @@ import prictise.com.application1.bean.Student;
  */
 public class TestCase {
 
+//    public static String getBASE64(String str) {
+//        if (str == null) return null;
+//        return (new sun.misc.BASE64Encoder()).encode( str.getBytes() );
+//    }
+
+    @Test
+    public void testBase64() {
+    }
+
     @Test
     public void test1() {
         String s1 = "a";
