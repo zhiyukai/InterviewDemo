@@ -1,214 +1,233 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent">
-  <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <Button
-      android:id="@+id/bt_test_rxjava"
-      style="@style/ButtonStyle"
-      android:text="测试subscribeOn" />
-    <Button
-      android:id="@+id/bt_test_iterator"
-      style="@style/ButtonStyle"
-      android:text="测试iterator" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-      android:id="@+id/bt_test_finally"
-      style="@style/ButtonStyle"
-      android:text="测试finally" />
+        <Button
+            android:id="@+id/bt_dao_ji_shi"
+            style="@style/ButtonStyle"
+            android:text="倒计时" />
 
-    <Button
-      android:id="@+id/bt_test_string"
-      style="@style/ButtonStyle"
-      android:text="测试字符串" />
+        <Button
+            android:id="@+id/bt_test_rxjava"
+            style="@style/ButtonStyle"
+            android:text="测试subscribeOn" />
 
-    <Button
-      android:id="@+id/bt_test_not_empty"
-      style="@style/ButtonStyle"
-      android:text="测试notEmpty" />
+        <Button
+            android:id="@+id/bt_test_iterator"
+            style="@style/ButtonStyle"
+            android:text="测试iterator" />
 
-    <Button
-      android:id="@+id/bt_test_list_to_array"
-      style="@style/ButtonStyle"
-      android:text="测试listToArray" />
+        <Button
+            android:id="@+id/bt_test_finally"
+            style="@style/ButtonStyle"
+            android:text="测试finally" />
 
-    <Button
-      android:id="@+id/bt_test_data_dir"
-      style="@style/ButtonStyle"
-      android:text="测试ApplicationInfo.dataDir" />
-    <Button
-      android:id="@+id/bt_test_replace"
-      style="@style/ButtonStyle"
-      android:text="测试Replace" />
-    <Button
-      android:id="@+id/bt_test_unlock_screen"
-      style="@style/ButtonStyle"
-      android:text="测试解锁屏幕" />
+        <Button
+            android:id="@+id/bt_test_string"
+            style="@style/ButtonStyle"
+            android:text="测试字符串" />
 
-    <Button
-      android:id="@+id/bt_test_rxjava_return_create"
-      style="@style/ButtonStyle"
-      android:text="测试rxjava_return_create" />
+        <Button
+            android:id="@+id/bt_test_not_empty"
+            style="@style/ButtonStyle"
+            android:text="测试notEmpty" />
 
-    <Button
-      android:id="@+id/bt_test_version"
-      style="@style/ButtonStyle"
-      android:text="测试安装应用的版本信息" />
-    <Button
-      android:id="@+id/bt_test_builder"
-      style="@style/ButtonStyle"
-      android:text="测试StringBuilder" />
+        <Button
+            android:id="@+id/bt_test_list_to_array"
+            style="@style/ButtonStyle"
+            android:text="测试listToArray" />
 
-    <Button
-      android:id="@+id/bt_test_do_on_complete"
-      style="@style/ButtonStyle"
-      android:text="测试do_on_complete" />
-    <Button
-      android:id="@+id/bt_test_phone_status"
-      style="@style/ButtonStyle"
-      android:text="测试手机状态" />
-    <Button
-      android:id="@+id/bt_test_gson_serializedname"
-      style="@style/ButtonStyle"
-      android:text="测试Gson serializedname" />
+        <Button
+            android:id="@+id/bt_test_data_dir"
+            style="@style/ButtonStyle"
+            android:text="测试ApplicationInfo.dataDir" />
 
-    <Button
-      android:id="@+id/bt_test_observable_interval"
-      style="@style/ButtonStyle"
-      android:text="测试Observable.interval" />
+        <Button
+            android:id="@+id/bt_test_replace"
+            style="@style/ButtonStyle"
+            android:text="测试Replace" />
 
-    <Button
-      android:id="@+id/bt_test_delete_file"
-      style="@style/ButtonStyle"
-      android:text="测试删除文件" />
+        <Button
+            android:id="@+id/bt_test_unlock_screen"
+            style="@style/ButtonStyle"
+            android:text="测试解锁屏幕" />
 
-    <Button
-      android:id="@+id/bt_test_gson"
-      style="@style/ButtonStyle"
-      android:text="判断String是否是Gson" />
+        <Button
+            android:id="@+id/bt_test_rxjava_return_create"
+            style="@style/ButtonStyle"
+            android:text="测试rxjava_return_create" />
 
-    <Button
-      android:id="@+id/bt_test_indexof"
-      style="@style/ButtonStyle"
-      android:text="测试数组越界" />
+        <Button
+            android:id="@+id/bt_test_version"
+            style="@style/ButtonStyle"
+            android:text="测试安装应用的版本信息" />
 
-    <Button
-      android:id="@+id/bt_test_new_task"
-      style="@style/ButtonStyle"
-      android:text="测试NewTask" />
-    <Button
-      android:id="@+id/bt_test_next"
-      style="@style/ButtonStyle"
-      android:text="测试rxjava_next" />
+        <Button
+            android:id="@+id/bt_test_builder"
+            style="@style/ButtonStyle"
+            android:text="测试StringBuilder" />
 
-    <Button
-      android:id="@+id/bt_test_for_exception"
-      style="@style/ButtonStyle"
-      android:text="测试for_exception" />
+        <Button
+            android:id="@+id/bt_test_do_on_complete"
+            style="@style/ButtonStyle"
+            android:text="测试do_on_complete" />
 
-    <Button
-      android:id="@+id/bt_test_array_blocking_queue"
-      style="@style/ButtonStyle"
-      android:text="测试ArrayBlockingQueue" />
+        <Button
+            android:id="@+id/bt_test_phone_status"
+            style="@style/ButtonStyle"
+            android:text="测试手机状态" />
 
-    <Button
-      android:id="@+id/bt_test_object_empty"
-      style="@style/ButtonStyle"
-      android:text="测试对象为空的情况" />
+        <Button
+            android:id="@+id/bt_test_gson_serializedname"
+            style="@style/ButtonStyle"
+            android:text="测试Gson serializedname" />
 
-    <Button
-      android:id="@+id/bt_test_list_empty"
-      style="@style/ButtonStyle"
-      android:text="测试list为空" />
-    <Button
-      android:id="@+id/bt_test_list"
-      style="@style/ButtonStyle"
-      android:text="测试list" />
-    <Button
-      android:id="@+id/bt_test_sub_str"
-      style="@style/ButtonStyle"
-      android:text="测试sub_str" />
+        <Button
+            android:id="@+id/bt_test_observable_interval"
+            style="@style/ButtonStyle"
+            android:text="测试Observable.interval" />
 
-    <Button
-      android:id="@+id/bt_test_for"
-      style="@style/ButtonStyle"
-      android:text="测试for_for" />
-    <Button
-      android:id="@+id/bt_test_shr"
-      style="@style/ButtonStyle"
-      android:text="测试shr" />
+        <Button
+            android:id="@+id/bt_test_delete_file"
+            style="@style/ButtonStyle"
+            android:text="测试删除文件" />
 
-    <Button
-      android:id="@+id/bt_test_let"
-      style="@style/ButtonStyle"
-      android:text="测试let" />
-    <Button
-      android:id="@+id/bt_test_filter"
-      style="@style/ButtonStyle"
-      android:text="测试filter" />
+        <Button
+            android:id="@+id/bt_test_gson"
+            style="@style/ButtonStyle"
+            android:text="判断String是否是Gson" />
 
-    <Button
-      android:id="@+id/bt_test_to"
-      style="@style/ButtonStyle"
-      android:text="测试类型转化" />
+        <Button
+            android:id="@+id/bt_test_indexof"
+            style="@style/ButtonStyle"
+            android:text="测试数组越界" />
 
-    <Button
-      android:id="@+id/bt_test_count_down"
-      style="@style/ButtonStyle"
-      android:text="测试倒计时" />
+        <Button
+            android:id="@+id/bt_test_new_task"
+            style="@style/ButtonStyle"
+            android:text="测试NewTask" />
 
-    <Button
-      android:id="@+id/bt_test_error"
-      style="@style/ButtonStyle"
-      android:text="测试error" />
+        <Button
+            android:id="@+id/bt_test_next"
+            style="@style/ButtonStyle"
+            android:text="测试rxjava_next" />
 
-    <Button
-      android:id="@+id/bt_test_maybe"
-      style="@style/ButtonStyle"
-      android:text="测试maybe" />
-    <Button
-      android:id="@+id/bt_test_rxdownload"
-      style="@style/ButtonStyle"
-      android:text="测试RxDownload" />
+        <Button
+            android:id="@+id/bt_test_for_exception"
+            style="@style/ButtonStyle"
+            android:text="测试for_exception" />
 
-    <Button
-      android:id="@+id/bt_test_file_sort"
-      style="@style/ButtonStyle"
-      android:text="测试文件排序" />
+        <Button
+            android:id="@+id/bt_test_array_blocking_queue"
+            style="@style/ButtonStyle"
+            android:text="测试ArrayBlockingQueue" />
 
-    <Button
-      android:id="@+id/bt_download_pic"
-      style="@style/ButtonStyle"
-      android:text="测试下载图片" />
+        <Button
+            android:id="@+id/bt_test_object_empty"
+            style="@style/ButtonStyle"
+            android:text="测试对象为空的情况" />
 
-    <Button
-      android:id="@+id/bt_test_sample"
-      style="@style/ButtonStyle"
-      android:text="测试sample" />
-    <Button
-      android:id="@+id/bt_test_publish_sample"
-      style="@style/ButtonStyle"
-      android:text="测试publish_sample" />
+        <Button
+            android:id="@+id/bt_test_list_empty"
+            style="@style/ButtonStyle"
+            android:text="测试list为空" />
 
-    <Button
-      android:id="@+id/bt_test_map_flatmap"
-      style="@style/ButtonStyle"
-      android:text="测试Map_FlatMap" />
+        <Button
+            android:id="@+id/bt_test_list"
+            style="@style/ButtonStyle"
+            android:text="测试list" />
 
-    <ProgressBar
-      android:id="@+id/app_progress"
-      style="?android:attr/progressBarStyleHorizontal"
-      android:layout_width="match_parent"
-      android:layout_height="10dp"
-      android:layout_below="@+id/app_title"
-      android:layout_marginTop="20dp"
-      android:layout_toStartOf="@+id/app_ratetv"
-      android:progress="2"
-      android:progressDrawable="@drawable/progressbar_bg" />
+        <Button
+            android:id="@+id/bt_test_sub_str"
+            style="@style/ButtonStyle"
+            android:text="测试sub_str" />
 
-  </LinearLayout>
+        <Button
+            android:id="@+id/bt_test_for"
+            style="@style/ButtonStyle"
+            android:text="测试for_for" />
+
+        <Button
+            android:id="@+id/bt_test_shr"
+            style="@style/ButtonStyle"
+            android:text="测试shr" />
+
+        <Button
+            android:id="@+id/bt_test_let"
+            style="@style/ButtonStyle"
+            android:text="测试let" />
+
+        <Button
+            android:id="@+id/bt_test_filter"
+            style="@style/ButtonStyle"
+            android:text="测试filter" />
+
+        <Button
+            android:id="@+id/bt_test_to"
+            style="@style/ButtonStyle"
+            android:text="测试类型转化" />
+
+        <Button
+            android:id="@+id/bt_test_count_down"
+            style="@style/ButtonStyle"
+            android:text="测试倒计时" />
+
+        <Button
+            android:id="@+id/bt_test_error"
+            style="@style/ButtonStyle"
+            android:text="测试error" />
+
+        <Button
+            android:id="@+id/bt_test_maybe"
+            style="@style/ButtonStyle"
+            android:text="测试maybe" />
+
+        <Button
+            android:id="@+id/bt_test_rxdownload"
+            style="@style/ButtonStyle"
+            android:text="测试RxDownload" />
+
+        <Button
+            android:id="@+id/bt_test_file_sort"
+            style="@style/ButtonStyle"
+            android:text="测试文件排序" />
+
+        <Button
+            android:id="@+id/bt_download_pic"
+            style="@style/ButtonStyle"
+            android:text="测试下载图片" />
+
+        <Button
+            android:id="@+id/bt_test_sample"
+            style="@style/ButtonStyle"
+            android:text="测试sample" />
+
+        <Button
+            android:id="@+id/bt_test_publish_sample"
+            style="@style/ButtonStyle"
+            android:text="测试publish_sample" />
+
+        <Button
+            android:id="@+id/bt_test_map_flatmap"
+            style="@style/ButtonStyle"
+            android:text="测试Map_FlatMap" />
+
+        <ProgressBar
+            android:id="@+id/app_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@+id/app_title"
+            android:layout_marginTop="20dp"
+            android:layout_toStartOf="@+id/app_ratetv"
+            android:progress="2"
+            android:progressDrawable="@drawable/progressbar_bg" />
+
+    </LinearLayout>
 </ScrollView>

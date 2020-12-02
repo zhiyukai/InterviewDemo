@@ -9,6 +9,11 @@
     android:orientation="vertical">
 
     <Button
+      android:id="@+id/bt_click_erji"
+      style="@style/ButtonStyle"
+      android:text="测试二级滑动" />
+
+    <Button
       android:id="@+id/bt_click_num"
       style="@style/ButtonStyle"
       android:text="测试点击次数" />

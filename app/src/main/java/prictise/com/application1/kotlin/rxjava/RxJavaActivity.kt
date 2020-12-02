@@ -8,10 +8,7 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ApplicationInfo
-import android.os.Build
-import android.os.Bundle
-import android.os.Environment
-import android.os.PowerManager
+import android.os.*
 import android.provider.Settings
 import android.support.annotation.RequiresApi
 import android.text.TextUtils
@@ -71,6 +68,10 @@ class RxJavaActivity : Activity() {
     var cmb: ClipboardManager? = null
     var mTestData: TestData? = null
 
+    var mCountDownTimer: CountDownTimer? = null
+    private val mTotalTime = 10 * 1000.toLong()
+    private val mInterval: Long = 1000
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kotlin_rxjava)
@@ -84,10 +85,29 @@ class RxJavaActivity : Activity() {
 
     private fun initAccessServer() {
         val open = mutableListOf(Keys.POINT_SERVICES_ORDER, Keys.ENABLE_SERVICE_PUT)
-        execCmd(open?.toTypedArray(), isRoot = true, isNeedResultMsg = true)
     }
 
     private fun initValue() {
+        /**
+         * CountDownTimer timer = new CountDownTimer(3000, 1000)中，
+         * 第一个参数表示总时间，第二个参数表示间隔时间。
+         * 意思就是每隔一秒会回调一次方法onTick，然后1秒之后会回调onFinish方法。
+         */
+        mCountDownTimer = object : CountDownTimer(mTotalTime, mInterval) {
+            override fun onTick(millisUntilFinished: Long) {
+                val time = millisUntilFinished / 1000
+                if (time == 0L) {
+                    // 倒计时结束
+                    LogcatUtils.showDLog(TAG, "倒计时结束")
+                } else {
+                    LogcatUtils.showDLog(TAG, "start")
+                }
+            }
+
+            override fun onFinish() {}
+        }
+        //调用 CountDownTimer 对象的 start() 方法开始倒计时，也不涉及到线程处理
+        mCountDownTimer?.start()
     }
 
     fun getTestData(): TestData? {
@@ -103,8 +123,19 @@ class RxJavaActivity : Activity() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        mCountDownTimer?.cancel()
+    }
+
     @RequiresApi(Build.VERSION_CODES.ECLAIR_MR1)
     private fun initListener() {
+
+        findViewById<Button>(R.id.bt_dao_ji_shi).setOnClickListener {
+            // 让倒计时开始
+            LogcatUtils.showDLog(TAG, "倒计时打开")
+            mCountDownTimer?.start()
+        }
 
         findViewById<Button>(R.id.bt_test_iterator).setOnClickListener {
             /**
@@ -962,11 +993,6 @@ class RxJavaActivity : Activity() {
             mList.add(lock)
         }
         if (mList.isNotEmpty()) {
-            val commandResult = execCmd1(mList, true)
-            LogcatUtils.showDLog(TAG, "shell result: $commandResult")
-            if (commandResult.result == -1) {
-                return false
-            }
         }
         Thread.sleep(1500L)
         if (isScreenLocked(context)) {
@@ -1011,7 +1037,6 @@ class RxJavaActivity : Activity() {
 //        keyguardLock.reenableKeyguard();
         // 屏幕锁定
 //        keyguardLock.reenableKeyguard();
-        keyguardLock.disableKeyguard() // 解锁
 
         unLockScreen()
     }
@@ -1168,65 +1193,7 @@ class RxJavaActivity : Activity() {
         RetrofitManager.getAPIService()
     }
 
-    fun execCmd1(commands: List<String>?, isRoot: Boolean): CommandResult {
-        return execCmd(commands?.toTypedArray(), isRoot, true)
-    }
-
     @JvmOverloads
-    fun execCmd(commands: Array<String>?, isRoot: Boolean, isNeedResultMsg: Boolean = true): CommandResult {
-        var result = -1
-        if (commands == null || commands.isEmpty()) {
-            return CommandResult(result, "", "")
-        }
-        Log.i(TAG, "exec cmd is: " + Arrays.toString(commands))
-        var process: Process? = null
-        var successResult: BufferedReader? = null
-        var errorResult: BufferedReader? = null
-        var successMsg: StringBuilder? = null
-        var errorMsg: StringBuilder? = null
-        var os: DataOutputStream? = null
-        try {
-            process = Runtime.getRuntime().exec(if (isRoot) "su" else "sh")
-            os = DataOutputStream(process!!.outputStream)
-            for (command in commands) {
-                os.write(command.toByteArray())
-                os.writeBytes("\n")
-                os.flush()
-            }
-            os.writeBytes("exit\n")
-            os.flush()
-            //耗时操作，需要注意
-            result = process.waitFor()
-            if (isNeedResultMsg) {
-                successMsg = StringBuilder()
-                errorMsg = StringBuilder()
-                successResult = BufferedReader(InputStreamReader(process.inputStream, "UTF-8"))
-                errorResult = BufferedReader(InputStreamReader(process.errorStream, "UTF-8"))
-                var s = successResult.readLine()
-                while (s != null) {
-                    successMsg.append(s)
-                    s = successResult.readLine()
-                    if (s != null) successMsg.append("\t")
-                }
-                s = errorResult.readLine()
-                while (s != null) {
-                    errorMsg.append(s)
-                    s = errorResult.readLine()
-                }
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        } finally {
-            closeIO(os, successResult, errorResult)
-            process?.destroy()
-        }
-        return CommandResult(
-                result,
-                successMsg?.toString() ?: "",
-                errorMsg?.toString() ?: ""
-        )
-    }
-
     private fun closeIO(vararg closeables: Closeable?) {
         for (closeable in closeables) {
             if (closeable != null) {

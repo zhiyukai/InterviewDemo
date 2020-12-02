@@ -15,10 +15,13 @@ import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
 import java.io.File;
+
 import prictise.com.application1.FaceDetect.FaceDetectorActivity;
 import prictise.com.application1.alarmManager.AlarmManagerActivity;
 import prictise.com.application1.animation.AnimationActivity;
@@ -36,6 +39,7 @@ import prictise.com.application1.cusListview.ViewPagerRefreshListActivity;
 import prictise.com.application1.cusListview.weightPullLoadmore.RefreshListView2Activity;
 import prictise.com.application1.cusService.TestIntentService;
 import prictise.com.application1.cusview.CusViewActivity;
+import prictise.com.application1.cusview.ErjiScrollActivity;
 import prictise.com.application1.dialog.DialogActivity;
 import prictise.com.application1.dynamicProxy.DynamicProxyActivity;
 import prictise.com.application1.dynamicProxy.DynamicProxyActvity;
@@ -198,7 +202,7 @@ public class MainActivity extends Activity {
 
   @Override
   public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-      @NonNull int[] grantResults) {
+                                         @NonNull int[] grantResults) {
     super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     if (requestCode == REQUEST_PERMISSION_CODE) {
       for (int i = 0; i < permissions.length; i++) {
@@ -210,6 +214,12 @@ public class MainActivity extends Activity {
   @Override
   protected void onDestroy() {
     super.onDestroy();
+  }
+
+  @OnClick(R.id.bt_click_erji)
+  public void testErJIScroll() {
+    startActivity(
+        new Intent(this, ErjiScrollActivity.class));
   }
 
   @OnClick(R.id.bt_click_num)
