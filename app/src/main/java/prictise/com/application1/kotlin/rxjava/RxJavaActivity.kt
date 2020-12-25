@@ -107,7 +107,7 @@ class RxJavaActivity : Activity() {
             override fun onFinish() {}
         }
         //调用 CountDownTimer 对象的 start() 方法开始倒计时，也不涉及到线程处理
-        mCountDownTimer?.start()
+//        mCountDownTimer?.start()
     }
 
     fun getTestData(): TestData? {
@@ -130,6 +130,22 @@ class RxJavaActivity : Activity() {
 
     @RequiresApi(Build.VERSION_CODES.ECLAIR_MR1)
     private fun initListener() {
+
+        findViewById<Button>(R.id.bt_test_rx_java).setOnClickListener {
+            val array = arrayListOf<Int>()
+            for (index in 0..6) {
+                array.add(index)
+            }
+            Observable.fromIterable(array.toList())
+                    .map {
+                        LogcatUtils.showDLog(TAG,"it = $it")
+                    }
+//                    .subscribe({
+//                        LogcatUtils.showDLog(TAG,"subscribe1 = $it")
+//                    },{
+//                        LogcatUtils.showDLog(TAG,"subscribe2 = $it")
+//                    })
+        }
 
         findViewById<Button>(R.id.bt_dao_ji_shi).setOnClickListener {
             // 让倒计时开始

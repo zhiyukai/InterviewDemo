@@ -9,6 +9,11 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/bt_test_rx_java"
+            style="@style/ButtonStyle"
+            android:text="测试RxJava" />
+
+        <Button
             android:id="@+id/bt_dao_ji_shi"
             style="@style/ButtonStyle"
             android:text="倒计时" />
