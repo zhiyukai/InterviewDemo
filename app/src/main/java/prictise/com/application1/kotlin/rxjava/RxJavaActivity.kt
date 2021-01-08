@@ -2,6 +2,7 @@ package prictise.com.application1.kotlin.rxjava
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.ActivityManager
 import android.app.KeyguardManager
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -42,7 +43,9 @@ import prictise.com.application1.utils.ToastUtil
 import zlc.season.rxdownload4.download
 import zlc.season.rxdownload4.manager.file
 import zlc.season.rxdownload4.manager.manager
-import java.io.*
+import java.io.Closeable
+import java.io.File
+import java.io.IOException
 import java.lang.reflect.InvocationHandler
 import java.lang.reflect.Proxy
 import java.util.*
@@ -72,11 +75,15 @@ class RxJavaActivity : Activity() {
     private val mTotalTime = 10 * 1000.toLong()
     private val mInterval: Long = 1000
 
+    private var mActivityManager: ActivityManager? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kotlin_rxjava)
         cmb = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         cmb?.primaryClip = ClipData.newPlainText("shareFriendContent", "张三")
+
+        mActivityManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         initView()
         initValue()
         initListener()
@@ -88,6 +95,8 @@ class RxJavaActivity : Activity() {
     }
 
     private fun initValue() {
+
+
         /**
          * CountDownTimer timer = new CountDownTimer(3000, 1000)中，
          * 第一个参数表示总时间，第二个参数表示间隔时间。
@@ -131,6 +140,50 @@ class RxJavaActivity : Activity() {
     @RequiresApi(Build.VERSION_CODES.ECLAIR_MR1)
     private fun initListener() {
 
+        findViewById<Button>(R.id.bt_test_process).setOnClickListener {
+            // 通过调用ActivityManager的getRunningAppProcesses()方法获得系统里所有正在运行的进程
+
+            // 通过调用ActivityManager的getRunningAppProcesses()方法获得系统里所有正在运行的进程
+            val appProcessList: List<ActivityManager.RunningAppProcessInfo> = mActivityManager!!.runningAppProcesses
+//                    .getRunningAppProcesses()
+
+            for (appProcessInfo in appProcessList) {
+
+                // 进程ID号
+                val pid: Int = appProcessInfo.pid
+                // 用户ID 类似于Linux的权限不同，ID也就不同 比如 root等
+                val uid: Int = appProcessInfo.uid
+                // 进程名，默认是包名或者由属性android：process=""指定
+                val processName: String = appProcessInfo.processName
+
+                LogcatUtils.showDLog(TAG, "pid = $pid")
+                LogcatUtils.showDLog(TAG, "uid = $uid")
+                LogcatUtils.showDLog(TAG, "processName = $processName")
+                // 获得该进程占用的内存
+                // 获得该进程占用的内存
+//                val myMempid = intArrayOf(pid)
+                // 此MemoryInfo位于android.os.Debug.MemoryInfo包中，用来统计进程的内存信息
+                // 此MemoryInfo位于android.os.Debug.MemoryInfo包中，用来统计进程的内存信息
+//                val memoryInfo: Array<Debug.MemoryInfo> = mActivityManager
+//                        .getProcessMemoryInfo(myMempid)
+                // 获取进程占内存用信息 kb单位
+                // 获取进程占内存用信息 kb单位
+//                val memSize = memoryInfo[0].dalvikPrivateDirty
+                // 构造一个ProcessInfo对象
+                // 构造一个ProcessInfo对象
+//                val processInfo = ProcessInfo()
+                // 设置processinfo信息
+                // 设置processinfo信息
+//                processInfo.setPid(pid)
+//                processInfo.setUid(uid)
+//                processInfo.setMemSize(memSize)
+//                processInfo.setProcessName(processName)
+                // 添加到processInfoList中
+                // 添加到processInfoList中
+//                processInfoList.add(processInfo)
+            }
+        }
+
         findViewById<Button>(R.id.bt_test_rx_java).setOnClickListener {
             val array = arrayListOf<Int>()
             for (index in 0..6) {
@@ -138,7 +191,7 @@ class RxJavaActivity : Activity() {
             }
             Observable.fromIterable(array.toList())
                     .map {
-                        LogcatUtils.showDLog(TAG,"it = $it")
+                        LogcatUtils.showDLog(TAG, "it = $it")
                     }
 //                    .subscribe({
 //                        LogcatUtils.showDLog(TAG,"subscribe1 = $it")

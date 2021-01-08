@@ -1,9 +1,15 @@
 package prictise.com.application1;
 
 import android.os.SystemClock;
+
 import com.bumptech.glide.Glide;
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * @Author zhi
@@ -13,6 +19,48 @@ import java.util.List;
 public class Test {
 
   private static int mCount;
+
+
+//  public static String method1(List<String> list) {
+//    return "1";
+//  }
+
+  public static Integer method1(List<Integer> list) {
+    return 2;
+  }
+
+  public List<List<Integer>> permute(int[] nums) {
+    int len = nums.length;
+    List<List<Integer>> res = new ArrayList<>();
+    if (len == 0) {
+      return res;
+    }
+    Deque<Integer> path = new ArrayDeque<Integer>();
+    boolean[] used = new boolean[len];
+    dfs(nums, len, 0, path, used, res);
+
+    return res;
+  }
+
+  private void dfs(int[] nums, int len, int depth, Deque<Integer> path, boolean[] used, List<List<Integer>> res) {
+    if (depth == len) {
+      res.add(new ArrayList<Integer>(path));
+      return;
+    }
+
+    for (int i = 0; i < len; i++) {
+      if (used[i]) {
+        continue;
+      }
+
+      path.addLast(nums[i]);
+      used[i] = true;
+      dfs(nums, len, depth + 1, path, used, res);
+      used[i] = false;
+      path.removeLast();
+    }
+  }
+
 
   public static int getValue(int x, int y) {
     if (y <= x && y >= 0) {
@@ -28,7 +76,7 @@ public class Test {
 
   public static void getStringPermutations3(char[] s, int from, int to) {
     System.out.println("getStringPermutations3 s = " + String.valueOf(s) + "; from = "
-        + from + "; to = " + to);
+            + from + "; to = " + to);
     if (s != null && to >= from && to < s.length && from >= 0) { // 边界条件检查
       if (from == to) { // 递归终止条件
         System.out.println(s); // 打印结果

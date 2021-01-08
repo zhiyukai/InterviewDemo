@@ -77,7 +77,9 @@ import prictise.com.application1.testStackActivity.MainStackActivity;
 import prictise.com.application1.viewpager.ViewPagerMainActivity;
 import prictise.com.application1.viewpager.ViewPagerSourceActivity;
 import prictise.com.application1.wheel.WheelActivity;
+import prictise.com.application1.zhujie.TestZhuJIe;
 
+@TestZhuJIe(a = "lishi")
 public class MainActivity extends Activity {
 
   private final String TAG = MainActivity.class.getSimpleName();
@@ -109,17 +111,6 @@ public class MainActivity extends Activity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    long time = SystemClock.currentThreadTimeMillis();
-    long time2 = System.currentTimeMillis();
-    new Thread(new Runnable() {
-      @Override
-      public void run() {
-        Log.e(TAG, "time3 = " + SystemClock.currentThreadTimeMillis());
-      }
-    }).start();
-    Log.e(TAG, "time = " + time);
-    Log.e(TAG, "time2 = " + time2);
-
     ButterKnife.bind(this);
     //2、初始化：
     if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
@@ -129,75 +120,6 @@ public class MainActivity extends Activity {
             .requestPermissions(this, PERMISSIONS_STORAGE, REQUEST_PERMISSION_CODE);
       }
     }
-
-    ImageView iv = new ImageView(this);
-//    HookUtil hookUtil = new HookUtil();
-//    hookUtil.hookStartActivity(this);
-
-    SyncStack stack = new SyncStack();
-//    Consumer c = new Consumer(stack);
-//    Producter p = new Producter(stack);
-//
-//    new Thread(p).start();
-//    new Thread(c).start();
-
-    int a = 1 << 20;
-    Log.e("zhishaoju", "SHUTDOWN = " + SHUTDOWN);
-    Log.e("zhishaoju", "SHUTDOWN = " + SHUTDOWN);
-    Log.e("zhishaoju", "STOP = " + STOP);
-    Log.e("zhishaoju", "TIDYING = " + TIDYING);
-    Log.e("zhishaoju", "TERMINATED = " + TERMINATED);
-
-//        StringRequest stringRequest = new StringRequest();
-//        Volley.newRequestQueue(stringRequest);
-
-    String s1 = "a";
-    String s2 = new String("a");
-
-    Log.e(TAG, "" + (s1 == s2));
-    Log.e(TAG, "" + s1.equals(s2));
-
-    int b = 10;
-    Integer integer = new Integer(10);
-    Log.e(TAG, "" + (b == integer));
-    Log.e(TAG, "" + (b + "").equals(Integer.toString(integer)));
-
-    int b2 = 1000;
-    Integer integer2 = new Integer(1000);
-    Integer integer3 = new Integer(1000);
-    Integer integer4 = 10;
-    Integer integer5 = 10;
-    Log.e(TAG, "b2 == integer2:" + (b2 == integer2));
-    Log.e(TAG, "integer2 == integer3:" + (integer2 == integer3));
-    Log.e(TAG, "integer4 == integer5:" + (integer4 == integer5));
-    Log.e(TAG, "" + (b2 + "").equals(Integer.toString(integer2)));
-
-    float f1 = 122f;
-    Float f2 = new Float(1f);
-    Float f3 = new Float(1f);
-    Float f4 = 1000f;
-    Float f5 = 1000f;
-    Float f6 = 10f;
-    Float f7 = 10f;
-    Log.e(TAG, "f1 == f2 :" + (f1 == f2));
-    Log.e(TAG, "f2 == f3 :" + (f2 == f3));
-    Log.e(TAG, "f4 == f5 :" + (f4 == f5));
-    Log.e(TAG, "f6 == f7 :" + (f6 == f7));
-
-    StatFs statFs = new StatFs(
-        Environment.getDataDirectory().getPath());//调用该类来获取磁盘信息（而getDataDirectory就是内部存储）
-    long tcounts = statFs.getBlockCount();//总共的block数
-    long counts = statFs.getAvailableBlocks(); //获取可用的block数
-    long size = statFs.getBlockSize(); //每格所占的大小，一般是4KB==
-    long availROMSize = counts * size;//可用内部存储大小
-    long totalROMSize = tcounts * size; //内部存储总大小
-
-    Log.e("手机内存", "内存：" + totalROMSize);
-
-//    Glide.with(this).load("").into(iv);
-    File f = new File("");
-    f.length();
-
   }
 
   @Override
