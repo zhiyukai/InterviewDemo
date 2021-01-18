@@ -3,7 +3,9 @@ package prictise.com.application1.mvc.control;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+
 import org.greenrobot.eventbus.EventBus;
+
 import prictise.com.application1.R;
 import prictise.com.application1.mvc.bean.EventTrackRecordInfoChanged;
 import prictise.com.application1.mvc.model.TrackRecordInfo;

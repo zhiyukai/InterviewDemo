@@ -9,8 +9,10 @@ import prictise.com.application1.BaseActivity;
  * @Date 2019.12.01 21:20
  * @Comment
  */
+@POST("ss")
 public class DynamicProxyActivity extends BaseActivity {
 
+  @POST("测试create")
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);

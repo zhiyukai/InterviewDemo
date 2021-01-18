@@ -99,87 +99,195 @@ public class Test {
     s[to] = temp;
   }
 
-  public static void main(String[] args) {
-    long time = SystemClock.currentThreadTimeMillis();
-    long time2 = System.currentTimeMillis();
-    System.out.println("time = " + time);
-    System.out.println("time2 = " + time2);
-//    String s = "asdf";
-//    getStringPermutations3(s.toCharArray(), 0, 3);
+  public static void main(String[] args) throws Exception {
+    int k = 1;
+    int n = 200; // 时间间隔 ms
+    int i = 1; // 0 文本+图片；1：文本；2：图片
+    long l = System.currentTimeMillis();
+//    while (System.currentTimeMillis() - l < 600000) {
+    while (System.currentTimeMillis() - l < 1000) {
 
-//    String s = "asdfghkdsjjllii";
-//    s = s.replace('d', 'q');
-//    System.out.println(s);
-
-    /*Thread t1 = new Thread(new Runnable() {
-      @Override
-      public void run() {
-        System.out.println("t1");
+      if (i == 0 || i == 1) {
+        OkHttpClientUtils.getInstance().doPostWithJsonResult("http://172.16.117.151:9111/enterprise/api/raw/push/batchPush", " {\n" +
+                "  \"paramList\": [{\n" +
+                " \"operationType\":100,\n" +
+                "      \"weworkAccount\": \"ZhiYuKai\",\n" +
+                "      \"firstPriority\": true,\n" +
+                "\"pictureUrl\":\"http://dragnet-sunlands.oss-cn-beijing.aliyuncs.com/android/testjpg/%E9%9C%80%E6%B1%823.gif\",\n" +
+                "      \"messageList\": [\n" +
+                "        {\n" +
+                "          \"messageContent\": \"推送一条测试文本\",\n" +
+                "          \"messageId\": 0\n" +
+                "        }],\n" +
+                "      \"notEnterCommonQueue\": true,\n" +
+                "      \"recordId\": \"testfatupian" + k++ + "\",\n" +
+                "      \"externalUserId\": \"wmn3cJEAAAj4TNa7WfUn9cLopEDCZrFg\"\n" +
+                "    }]}");
+        Thread.sleep(n);
       }
-    }, "t1");
-    Thread t2 = new Thread(new Runnable() {
-      @Override
-      public void run() {
-        System.out.println("t2");
+      if (i == 0 || i == 2) {
+        OkHttpClientUtils.getInstance().doPostWithJsonResult("http://172.16.117.151:9111/enterprise/api/raw/push/batchPush", "{\n" +
+                "  \"paramList\": [{\n" +
+                " \"operationType\":101,\n" +
+                "      \"weworkAccount\": \"ZhiYuKai\",\n" +
+                "      \"firstPriority\": true,\n" +
+                "\"pictureUrl\":\"http://dragnet-sunlands.oss-cn-beijing.aliyuncs.com/android/testjpg/%E9%9C%80%E6%B1%823.gif\",\n" +
+                "      \"messageList\": [\n" +
+                "        {\n" +
+                "          \"messageContent\": \"推送一条测试文本\",\n" +
+                "          \"messageId\": 0\n" +
+                "        }],\n" +
+                "      \"notEnterCommonQueue\": true,\n" +
+                "      \"recordId\": \"testfatupian" + k++ + "\",\n" +
+                "      \"externalUserId\": \"wmn3cJEAAAj4TNa7WfUn9cLopEDCZrFg\"\n" +
+                "    }]}");
+        Thread.sleep(n);
       }
-    }, "t2");
-    Thread t3 = new Thread(new Runnable() {
-      @Override
-      public void run() {
-        System.out.println("t3");
+      if (i == 0 || i == 1) {
+        OkHttpClientUtils.getInstance().doPostWithJsonResult("http://172.16.117.151:9111/enterprise/api/raw/push/batchPush", "{\n" +
+                "  \"paramList\": [{\n" +
+                " \"operationType\":100,\n" +
+                "      \"weworkAccount\": \"ZhiYuKai\",\n" +
+                "      \"firstPriority\": true,\n" +
+                "\"pictureUrl\":\"http://dragnet-sunlands.oss-cn-beijing.aliyuncs.com/android/testjpg/%E9%9C%80%E6%B1%823.gif\",\n" +
+                "      \"messageList\": [\n" +
+                "        {\n" +
+                "          \"messageContent\": \"推送一条测试文本\",\n" +
+                "          \"messageId\": 0\n" +
+                "        }],\n" +
+                "      \"notEnterCommonQueue\": true,\n" +
+                "      \"recordId\": \"testfatupian" + k++ + "\",\n" +
+                "      \"externalUserId\": \"wm495yDwAAsNOPoXtSswP6LzORw1vZmg\"\n" +
+                "    }]}");
+        Thread.sleep(n);
       }
-    }, "t3");
-
-    t3.start();
-    try {
-      t3.join();
-    } catch (InterruptedException e) {
-      e.printStackTrace();
+      if (i == 0 || i == 2) {
+        OkHttpClientUtils.getInstance().doPostWithJsonResult("http://172.16.117.151:9111/enterprise/api/raw/push/batchPush", "{\n" +
+                "  \"paramList\": [{\n" +
+                " \"operationType\":101,\n" +
+                "      \"weworkAccount\": \"ZhiYuKai\",\n" +
+                "      \"firstPriority\": true,\n" +
+                "\"pictureUrl\":\"http://dragnet-sunlands.oss-cn-beijing.aliyuncs.com/android/testjpg/%E9%9C%80%E6%B1%823.gif\",\n" +
+                "      \"messageList\": [\n" +
+                "        {\n" +
+                "          \"messageContent\": \"推送一条测试文本\",\n" +
+                "          \"messageId\": 0\n" +
+                "        }],\n" +
+                "      \"notEnterCommonQueue\": true,\n" +
+                "      \"recordId\": \"testfatupian" + k++ + "\",\n" +
+                "      \"externalUserId\": \"wm495yDwAAsNOPoXtSswP6LzORw1vZmg\"\n" +
+                "    }]}");
+        Thread.sleep(n);
+      }
+      if (i == 0 || i == 1) {
+        OkHttpClientUtils.getInstance().doPostWithJsonResult("http://172.16.117.151:9111/enterprise/api/raw/push/batchPush", " {\n" +
+                "  \"paramList\": [{\n" +
+                " \"operationType\":100,\n" +
+                "      \"weworkAccount\": \"ZhiYuKai\",\n" +
+                "      \"firstPriority\": true,\n" +
+                "\"pictureUrl\":\"http://dragnet-sunlands.oss-cn-beijing.aliyuncs.com/android/testjpg/%E9%9C%80%E6%B1%823.gif\",\n" +
+                "      \"messageList\": [\n" +
+                "        {\n" +
+                "          \"messageContent\": \"推送一条测试文本\",\n" +
+                "          \"messageId\": 0\n" +
+                "        }],\n" +
+                "      \"notEnterCommonQueue\": true,\n" +
+                "      \"recordId\": \"testfatupian" + k++ + "\",\n" +
+                "      \"externalUserId\": \"wm495yDwAAhvSee9tqzmjfcyST9qTZnQ\"\n" +
+                "    }]}");
+        Thread.sleep(n);
+      }
+      if (i == 0 || i == 2) {
+        OkHttpClientUtils.getInstance().doPostWithJsonResult("http://172.16.117.151:9111/enterprise/api/raw/push/batchPush", "{\n" +
+                "  \"paramList\": [{\n" +
+                " \"operationType\":101,\n" +
+                "      \"weworkAccount\": \"ZhiYuKai\",\n" +
+                "      \"firstPriority\": true,\n" +
+                "\"pictureUrl\":\"http://dragnet-sunlands.oss-cn-beijing.aliyuncs.com/android/testjpg/%E9%9C%80%E6%B1%823.gif\",\n" +
+                "      \"messageList\": [\n" +
+                "        {\n" +
+                "          \"messageContent\": \"推送一条测试文本\",\n" +
+                "          \"messageId\": 0\n" +
+                "        }],\n" +
+                "      \"notEnterCommonQueue\": true,\n" +
+                "      \"recordId\": \"testfatupian" + k++ + "\",\n" +
+                "      \"externalUserId\": \"wm495yDwAAhvSee9tqzmjfcyST9qTZnQ\"\n" +
+                "    }]}");
+        Thread.sleep(n);
+      }
+      if (i == 0 || i == 1) {
+        OkHttpClientUtils.getInstance().doPostWithJsonResult("http://172.16.117.151:9111/enterprise/api/raw/push/batchPush", "{\n" +
+                "  \"paramList\": [{\n" +
+                " \"operationType\":100,\n" +
+                "      \"weworkAccount\": \"ZhiYuKai\",\n" +
+                "      \"firstPriority\": true,\n" +
+                "\"pictureUrl\":\"http://dragnet-sunlands.oss-cn-beijing.aliyuncs.com/android/testjpg/%E9%9C%80%E6%B1%823.gif\",\n" +
+                "      \"messageList\": [\n" +
+                "        {\n" +
+                "          \"messageContent\": \"推送一条测试文本\",\n" +
+                "          \"messageId\": 0\n" +
+                "        }],\n" +
+                "      \"notEnterCommonQueue\": true,\n" +
+                "      \"recordId\": \"testfatupian" + k++ + "\",\n" +
+                "      \"externalUserId\": \"wm495yDwAAiKxYffBVuArdbMwz9az9pw\"\n" +
+                "    }]}");
+        Thread.sleep(n);
+      }
+      if (i == 0 || i == 2) {
+        OkHttpClientUtils.getInstance().doPostWithJsonResult("http://172.16.117.151:9111/enterprise/api/raw/push/batchPush", "{\n" +
+                "  \"paramList\": [{\n" +
+                " \"operationType\":101,\n" +
+                "      \"weworkAccount\": \"ZhiYuKai\",\n" +
+                "      \"firstPriority\": true,\n" +
+                "\"pictureUrl\":\"http://dragnet-sunlands.oss-cn-beijing.aliyuncs.com/android/testjpg/%E9%9C%80%E6%B1%823.gif\",\n" +
+                "      \"messageList\": [\n" +
+                "        {\n" +
+                "          \"messageContent\": \"推送一条测试文本\",\n" +
+                "          \"messageId\": 0\n" +
+                "        }],\n" +
+                "      \"notEnterCommonQueue\": true,\n" +
+                "      \"recordId\": \"testfatupian" + k++ + "\",\n" +
+                "      \"externalUserId\": \"wm495yDwAAiKxYffBVuArdbMwz9az9pw\"\n" +
+                "    }]}");
+        Thread.sleep(n);
+      }
+      if (i == 0 || i == 1) {
+        OkHttpClientUtils.getInstance().doPostWithJsonResult("http://172.16.117.151:9111/enterprise/api/raw/push/batchPush", "{\n" +
+                "  \"paramList\": [{\n" +
+                " \"operationType\":100,\n" +
+                "      \"weworkAccount\": \"ZhiYuKai\",\n" +
+                "      \"firstPriority\": true,\n" +
+                "\"pictureUrl\":\"http://dragnet-sunlands.oss-cn-beijing.aliyuncs.com/android/testjpg/%E9%9C%80%E6%B1%823.gif\",\n" +
+                "      \"messageList\": [\n" +
+                "        {\n" +
+                "          \"messageContent\": \"推送一条测试文本\",\n" +
+                "          \"messageId\": 0\n" +
+                "        }],\n" +
+                "      \"notEnterCommonQueue\": true,\n" +
+                "      \"recordId\": \"testfatupian" + k++ + "\",\n" +
+                "      \"externalUserId\": \"wm495yDwAA5aYf_eOYdFj77Ex5MXmmBA\"\n" +
+                "    }]}");
+        Thread.sleep(n);
+      }
+      if (i == 0 || i == 2) {
+        OkHttpClientUtils.getInstance().doPostWithJsonResult("http://172.16.117.151:9111/enterprise/api/raw/push/batchPush", "{\n" +
+                "  \"paramList\": [{\n" +
+                " \"operationType\":101,\n" +
+                "      \"weworkAccount\": \"ZhiYuKai\",\n" +
+                "      \"firstPriority\": true,\n" +
+                "\"pictureUrl\":\"http://dragnet-sunlands.oss-cn-beijing.aliyuncs.com/android/testjpg/%E9%9C%80%E6%B1%823.gif\",\n" +
+                "      \"messageList\": [\n" +
+                "        {\n" +
+                "          \"messageContent\": \"推送一条测试文本\",\n" +
+                "          \"messageId\": 0\n" +
+                "        }],\n" +
+                "      \"notEnterCommonQueue\": true,\n" +
+                "      \"recordId\": \"testfatupian" + k++ + "\",\n" +
+                "      \"externalUserId\": \"wm495yDwAA5aYf_eOYdFj77Ex5MXmmBA\"\n" +
+                "    }]}");
+        Thread.sleep(n);
+      }
     }
-    t2.start();
-    try {
-      t2.join();
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-
-    t1.start();
-    try {
-      t1.join();
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }*/
-//    final Car car = Car.create(Car::new);
-//    final List<Car> cars = Arrays.asList( car );
-//    Car.collide(car);
-
-    System.out.println("Collided ");
-
   }
-//
-//  @FunctionalInterface
-//  public interface Supplier<T> {
-//
-//    T get();
-//  }
-//
-//  static class Car {
-//
-//    //Supplier是jdk1.8的接口，这里和lamda一起使用了
-//    public static Car create(final Supplier<Car> supplier) {
-//      return supplier.get();
-//    }
-//
-//    public static void collide(final Car car) {
-//      System.out.println("Collided " + car.toString());
-//    }
-//
-//    public void follow(final Car another) {
-//      System.out.println("Following the " + another.toString());
-//    }
-//
-//    public void repair() {
-//      System.out.println("Repaired " + this.toString());
-//    }
-//  }
+
 }

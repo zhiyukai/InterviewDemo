@@ -1,6 +1,7 @@
 package prictise.com.application1.dynamicProxy;
 
 import static java.lang.annotation.ElementType.METHOD;
+import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 import java.lang.annotation.Documented;
@@ -13,7 +14,7 @@ import java.lang.annotation.Target;
  * @Comment
  */
 @Documented
-@Target(METHOD)
+@Target({METHOD,TYPE})
 @Retention(RUNTIME)
 public @interface POST {
   String value() default "";

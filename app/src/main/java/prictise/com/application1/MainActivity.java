@@ -7,14 +7,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.os.StatFs;
-import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -79,7 +75,7 @@ import prictise.com.application1.viewpager.ViewPagerSourceActivity;
 import prictise.com.application1.wheel.WheelActivity;
 import prictise.com.application1.zhujie.TestZhuJIe;
 
-@TestZhuJIe(a = "lishi")
+@TestZhuJIe("s")
 public class MainActivity extends Activity {
 
   private final String TAG = MainActivity.class.getSimpleName();

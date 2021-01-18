@@ -1,7 +1,5 @@
 package prictise.com.application1.mvc.util;
 
-import android.content.Context;
-
 /**
  * @Author zhisiyi
  * @Date 2019.08.30 03:18

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
+
 import prictise.com.application1.R;
 import prictise.com.application1.mvc.model.TrackRecordInfo;
 import prictise.com.application1.mvc.util.TrackRecordStatus;

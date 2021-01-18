@@ -3,8 +3,11 @@ package prictise.com.application1.mvc.model;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+
 import com.google.gson.Gson;
+
 import org.greenrobot.eventbus.EventBus;
+
 import prictise.com.application1.mvc.bean.EventTrackRecordInfoChanged;
 import prictise.com.application1.mvc.util.SpUtil;
 import prictise.com.application1.mvc.util.TrackRecordStatus;
