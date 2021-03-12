@@ -3,6 +3,7 @@ package prictise.com.application1.multithreading;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -37,7 +38,7 @@ public class ThreadPool {
   }
 
   public static void main(String[] args) {
-    ArrayBlockingQueue<Runnable> queue = new ArrayBlockingQueue<Runnable>(5);
+    /*ArrayBlockingQueue<Runnable> queue = new ArrayBlockingQueue<Runnable>(5);
     ThreadPoolExecutor pool = new ThreadPoolExecutor(5, 10, 200, TimeUnit.MILLISECONDS, queue,
             new ThreadPoolExecutor.AbortPolicy());
     for (int i = 0; i < 20; i++) {
@@ -48,6 +49,38 @@ public class ThreadPool {
 
     }
     pool.shutdown();
+    */
+
+    ThreadPoolExecutor pool =
+            new ThreadPoolExecutor(0, 2, 200, TimeUnit.MILLISECONDS,
+                    new SynchronousQueue<Runnable>());
+
+    pool.execute(new Runnable() {
+      @Override
+      public void run() {
+        System.out.println("任务1");
+        while (true) {
+
+        }
+      }
+    });
+
+    pool.execute(new Runnable() {
+      @Override
+      public void run() {
+        System.out.println("任务2");
+        System.out.println(Thread.currentThread().getName());
+      }
+    });
+
+    pool.execute(new Runnable() {
+      @Override
+      public void run() {
+        System.out.println("任务3");
+        System.out.println(Thread.currentThread().getName());
+      }
+    });
+
   }
 
   static class MyTask implements Runnable {

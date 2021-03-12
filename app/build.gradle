@@ -23,6 +23,10 @@ android {
 
     }
 
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
 //    lintOptions {
 //        abortOnError false
 //    }
@@ -98,7 +102,7 @@ dependencies {
 //    implementation 'zlc.season:rxdownload3:1.2.7'
     implementation "com.github.ssseasonnn:RxDownload:1.0.9"
     implementation 'com.squareup.okhttp3:okhttp:3.7.0'
-
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.2'
     annotationProcessor project(':lib')
 }
 

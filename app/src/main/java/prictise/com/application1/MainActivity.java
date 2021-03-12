@@ -96,9 +96,9 @@ public class MainActivity extends Activity {
   private static final int TERMINATED = 3 << COUNT_BITS;
 
   private static String[] PERMISSIONS_STORAGE = {
-      Manifest.permission.READ_EXTERNAL_STORAGE,
-      Manifest.permission.WRITE_EXTERNAL_STORAGE,
-      Manifest.permission.RECORD_AUDIO};
+          Manifest.permission.READ_EXTERNAL_STORAGE,
+          Manifest.permission.WRITE_EXTERNAL_STORAGE,
+          Manifest.permission.RECORD_AUDIO};
   //请求状态码动态申请权限
   private static int REQUEST_PERMISSION_CODE = 1;
 
@@ -111,9 +111,9 @@ public class MainActivity extends Activity {
     //2、初始化：
     if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
       if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-          != PackageManager.PERMISSION_GRANTED) {
+              != PackageManager.PERMISSION_GRANTED) {
         ActivityCompat
-            .requestPermissions(this, PERMISSIONS_STORAGE, REQUEST_PERMISSION_CODE);
+                .requestPermissions(this, PERMISSIONS_STORAGE, REQUEST_PERMISSION_CODE);
       }
     }
   }
@@ -137,49 +137,49 @@ public class MainActivity extends Activity {
   @OnClick(R.id.bt_click_erji)
   public void testErJIScroll() {
     startActivity(
-        new Intent(this, ErjiScrollActivity.class));
+            new Intent(this, ErjiScrollActivity.class));
   }
 
   @OnClick(R.id.bt_click_num)
   public void testClickNum() {
     startActivity(
-        new Intent(this, MultipleClickActivity.class));
+            new Intent(this, MultipleClickActivity.class));
   }
 
   @OnClick(R.id.bt_cus_view_pager)
   public void testCusViewPager() {
     startActivity(
-        new Intent(this, ViewPagerSourceActivity.class));
+            new Intent(this, ViewPagerSourceActivity.class));
   }
 
   @OnClick(R.id.bt_test_arouse_other_application)
   public void testArouseOtherApplication() {
     startActivity(
-        new Intent(this, ArouseOtherApplication.class));
+            new Intent(this, ArouseOtherApplication.class));
   }
 
   @OnClick(R.id.bt_test_recycle_view)
   public void testRecycleView() {
     startActivity(
-        new Intent(this, RecycleViewActivity.class));
+            new Intent(this, RecycleViewActivity.class));
   }
 
   @OnClick(R.id.bt_lunch_viewpager_listview)
   public void testViewPagerListView() {
     startActivity(
-        new Intent(this, ViewPagerRefreshListActivity.class));
+            new Intent(this, ViewPagerRefreshListActivity.class));
   }
 
   @OnClick(R.id.bt_lunch_test_okhttp)
   public void testOKHttp() {
     startActivity(
-        new Intent(this, OkHttpActivity.class));
+            new Intent(this, OkHttpActivity.class));
   }
 
   @OnClick(R.id.bt_lunch_test_greendao_crud)
   public void testGreenDaoCRUD() {
     startActivity(
-        new Intent(this, prictise.com.application1.kotlin.greendao.GreenDaoTestActivity.class));
+            new Intent(this, prictise.com.application1.kotlin.greendao.GreenDaoTestActivity.class));
   }
 
   @OnClick(R.id.bt_lunch_dynamic_proxy)
@@ -251,14 +251,14 @@ public class MainActivity extends Activity {
   @OnClick(R.id.bt_on_activity_result)
   public void launchOnActivityResultActivity() {
     startActivity(new Intent(this,
-        prictise.com.application1.onActivityResult.StandardActivity.class));
+            prictise.com.application1.onActivityResult.StandardActivity.class));
   }
 
   @OnClick(R.id.bt_task_affinity)
   public void lauchTaskActivity() {
     Intent intent = new Intent();
     ComponentName componentName = new ComponentName("prictise.com.myapplication",
-        "prictise.com.myapplication.testTaskAffinity.TaskAffinityActivity");
+            "prictise.com.myapplication.testTaskAffinity.TaskAffinityActivity");
     intent.addCategory(Intent.CATEGORY_LAUNCHER);
     intent.setComponent(componentName);
     startActivity(intent);

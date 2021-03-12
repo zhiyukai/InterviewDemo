@@ -4,6 +4,8 @@ import android.app.Application;
 import android.provider.Settings;
 import org.greenrobot.eventbus.EventBus;
 
+import prictise.com.application1.lifecycle.CusActivityLifecycleCallbacks;
+
 /**
  * @author zhisiyi
  * @date 18.11.9 10:58
@@ -16,10 +18,15 @@ public class MainApplication extends Application {
         return mainApplication;
     }
 
+    CusActivityLifecycleCallbacks mCusActivityLifecycleCallbacks;
+
     @Override
     public void onCreate() {
         super.onCreate();
         mainApplication = this;
+        mCusActivityLifecycleCallbacks = new CusActivityLifecycleCallbacks();
+
+        registerActivityLifecycleCallbacks(mCusActivityLifecycleCallbacks);
 
         // EventBus
         EventBus.builder().addIndex(new EventBusIndex()).installDefaultEventBus();
